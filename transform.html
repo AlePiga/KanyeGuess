@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+    *{
+        text-align: center;
+        font-family: Poppins;
+    }
+    @font-face {
+        font-family: PoppinsBold;
+        src: url(./Fontfaces/Bold.ttf);  
+    }
+    h1{
+        font-family: PoppinsBold;
+    }
+    p{
+        font-family: Poppins;
+    }
+</style>
+<head>
+    <title>Trasforma Testo in Array</title>
+</head>
+<body onload="load()">
+    <audio id="smwmus" src="./Music/specialmusic.mp3"></audio>
+    <h1>Trasforma Testo in Array</h1>
+    <p>You found a secret page!<br>Enjoy this weird program I made so I could import the lyrics onto JavaScript B)<br>~AlePiga</p>
+    <textarea id="song" rows="10" cols="30" placeholder="Type anything..."></textarea>
+    <p></p>
+    <button onclick="convertToArray()">Converti</button>
+    <button onclick="copyToClipboard()">Copia</button>
+    <pre id="result"></pre>
+
+    <script>
+        function load() {
+            let mus = document.getElementById("smwmus").
+            mus.play();
+        }
+
+        function convertToArray() {
+            var song = document.getElementById("song").value;
+            var songArray = song.split("\n");
+            document.getElementById("result").textContent = JSON.stringify(songArray, null, 2);
+        }
+
+        function copyToClipboard() {
+            var resultElement = document.getElementById("result");
+            var range = document.createRange();
+            range.selectNode(resultElement);
+            window.getSelection().removeAllRanges(); // Clear current selection
+            window.getSelection().addRange(range); // Select the text
+            document.execCommand("copy"); // Copy the selected text
+            window.getSelection().removeAllRanges(); // Deselect the text
+            alert("Testo copiato negli appunti!"); // Alert message
+        }
+    </script>
+</body>
+</html>
