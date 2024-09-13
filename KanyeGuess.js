@@ -178,10 +178,6 @@ function getSong(act){
         }
     }
   }
-
-  else{
-    alert("If this somehow popped up the programmer is stupid");
-  }
 }
 
 function randomImage() {
