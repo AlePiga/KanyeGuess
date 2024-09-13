@@ -8,21 +8,22 @@ You get four bars. Not just any four bars. These bars are handpicked from the ca
 Albums in the Game:
 We're talking ALL the Ye albums, baby. From the classic to the experimental, from the soul-sample era to the gospel revolution. You better be ready, 'cause this playlist ain't for amateurs.
 
-🐻 The College Dropout
-📚 Late Registration
-🎓 Graduation
-💔 808s & Heartbreak
-🌌 My Beautiful Dark Twisted Fantasy
-👑 Watch The Throne
-⚡ Yeezus
-🌊 The Life Of Pablo
-🏞️ ye
-👻 KIDS SEE GHOSTS
-✝️ JESUS IS KING
-🕊️ Donda (Deluxe)
-🦅 VULTURES 1
-🦅 VULTURES 2
+- 🐻 The College Dropout
+- 📚 Late Registration
+- 🎓 Graduation
+- 💔 808s & Heartbreak
+- 🌌 My Beautiful Dark Twisted Fantasy
+- 👑 Watch The Throne
+- 💽 Yeezus
+- 🟧 The Life Of Pablo
+- 🏞️ ye
+- 👻 KIDS SEE GHOSTS
+- ✝️ JESUS IS KING
+- ⬛ Donda (Deluxe)
+- 🦅 VULTURES 1
+- 🦅 VULTURES 2
+
 What's next?
 Put your Ye knowledge to the test. Flex your skills and see if you can really claim to be a Yeezy connoisseur. This game ain't just for fun; it's a journey through the mind of a visionary.
 
-Remember: Ain’t nobody messin’ with Ye, and after you play this, you won’t be messin’ with any other game. 👑
+Remember: Ain’t nobody messin’ with Ye, and after you play this, you won’t be messin’ with any other game. 🐐
