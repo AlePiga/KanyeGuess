@@ -4,7 +4,7 @@ let song = "";
 let cnt = 0;
 /* let mod; */
 let skipSong = 10;
-let err = 1;
+let err = 5;
 let hint = 5;
 
 function eseguiInBackground() {
@@ -26,7 +26,7 @@ let logos = [
   "./Logos/GR_Logo.png",
   "./Logos/8H_Logo.png",
   "./Logos/MF_Logo.png",
-  "./Logos/WT_Logo.png",
+/*   "./Logos/WT_Logo.png", */
   "./Logos/YZ_Logo.png",
   "./Logos/TP_Logo.png",
   "./Logos/YE_Logo.png",
@@ -105,35 +105,30 @@ function load(){
   hide("kofi"); //Non so perché ma mi tocca richiamarla due volte
 }
 
-function randomBars(){
+function randomBars() {
   bars = [];
-  let length = song.length -1;
+  let length = song.length - 1;
   let randomB = Math.floor(Math.random() * (length - 1 + 1)) + 1;
 
-  if(randomB + 3 >= song.length - 1){
+  if (randomB + 3 >= song.length - 1) {
     randomB = randomB - 3;
-    if(err != 0){
+    if (err != 0) {
       bars.push(song[randomB] + "<br>" + song[randomB + 1] + "<br>" + song[randomB + 2] + "<br>" + song[randomB + 3]);
-      document.getElementById("bars").innerHTML = bars;
-    }
-    else if(err == 0){
+      document.getElementById("bars").innerHTML = bars.join(''); // Unisce gli elementi senza virgole
+    } else if (err == 0) {
       bars.push("Game over! You lost all your lives :(");
-      document.getElementById("bars").innerHTML = bars;
+      document.getElementById("bars").innerHTML = bars.join(''); // Unisce gli elementi senza virgole
     }
-  }
-
-  else if (err != 0){
-  bars.push(song[randomB] + "<br>" + song[randomB + 1] + "<br>" + song[randomB + 2] + "<br>" + song[randomB + 3]);
-  document.getElementById("bars").innerHTML = bars;
-  }
-  else{
+  } else if (err != 0) {
+    bars.push(song[randomB] + "<br>" + song[randomB + 1] + "<br>" + song[randomB + 2] + "<br>" + song[randomB + 3]);
+    document.getElementById("bars").innerHTML = bars.join(''); // Unisce gli elementi senza virgole
+  } else {
     let a = '<a href="https://ko-fi.com/alepiga/">Kanye Guess Ko-fi page</a>';
     let b = '<a href="https://instagram.com/iosonopiga">follow my Instagram</a>';
     bars.push("Game over! You lost all your lives!<br>If you want to support my project you<br>can check out the " + a + "<br>or " + b + " :)");
-    document.getElementById("bars").innerHTML = bars;
+    document.getElementById("bars").innerHTML = bars.join(''); // Unisce gli elementi senza virgole
   }
 }
-
 
 function getSong(act){
   let ye = document.getElementById("ye");
@@ -178,6 +173,10 @@ function getSong(act){
         }
     }
   }
+
+  else{
+    alert("If this somehow popped up the programmer is stupid");
+  }
 }
 
 function randomImage() {
@@ -188,63 +187,61 @@ function randomImage() {
 }
 
 function assignCover(x){
-  let excover;
-  if(x == 0){
-    excover = document.getElementById("exhint");
-  }
-  else{
-    excover = document.getElementById("hint");
-  }
+  let excover = document.getElementById("hint");
+  
   if(random <= 21){
-    excover.src = "./Hints/CD.jpg"
+    excover.src = "./Hints/CD.jpg";
   }
   else if(random <= 42){
-    excover.src = "./Hints/LR.jpg"
+    excover.src = "./Hints/LR.jpg";
   }
   else if(random <= 56){
-    excover.src = "./Hints/GR.jpg"
+    excover.src = "./Hints/GR.jpg";
   }
   else if(random <= 68){
-    excover.src = "./Hints/8H.png"
+    excover.src = "./Hints/8H.png";
   }
   else if(random <= 81){
-    excover.src = "./Hints/MF.jpg"
+    excover.src = "./Hints/MF.jpg";
   }
   else if(random <= 97){
-    excover.src = "./Hints/WT.jpg"
+    excover.src = "./Hints/WT.jpg";
   }
   else if(random <= 107){
-    excover.src = "./Hints/YZ.png"
+    excover.src = "./Hints/YZ.png";
   }
   else if(random <= 127){
-    excover.src = "./Hints/TP.jpg"
+    excover.src = "./Hints/TP.jpg";
   }
   else if(random <= 134){
-    excover.src = "./Hints/YE.jpg"
+    excover.src = "./Hints/YE.jpg";
   }
   else if(random <= 141){
-    excover.src = "./Hints/KG.png"
+    excover.src = "./Hints/KG.png";
   }
   else if(random <= 152){
-    excover.src = "./Hints/JK.jpg"
+    excover.src = "./Hints/JK.jpg";
   }
   else if(random <= 180){
-    excover.src = "./Hints/DO.jpeg"
+    excover.src = "./Hints/DO.jpeg";
   }
   else if(random <= 199){
-    excover.src = "./Hints/V1.png"
+    excover.src = "./Hints/V1.png";
   }
-  console.log("Start");
-  setTimeout(() => {
-    console.log("Waited for 5 seconds");
-  }, 5000);
-  console.log("End");
+  else if(random <= 215){
+    excover.src = "./Hints/V2.png";
+  }
+
+  if(x == 0){
+    setTimeout(() => {
+      console.log("Waited for 5 seconds");
+    }, 5000);
+  }
 }
 
 function check(){
   let selected = document.getElementById('yelist').querySelector('option[value="' + document.getElementById('kanye-songs').value + '"]').id;
   document.getElementById('kanye-songs').value = "";
-  assignCover(0);
   if(selected == random){
       getSong(2);
     cnt ++;
@@ -280,9 +277,9 @@ function skip() {
 }
 
 function hints(){
-  assignCover(1);
   hint--;
-  document.getElementById("hintsp").innerHTML = "<b>Hints: </b>" + hint;
+  assignCover(1);
+/*   document.getElementById("hintsp").innerHTML = "<b>Hints: </b>" + hint; */
 }
 
 /* function pt_2(gen){
@@ -324,7 +321,7 @@ function hints(){
 function randomSong(){
   document.getElementById("hint").src = "./Hints/DK.png";
   let min = 1;
-  let max = 199; //Quello che cerchi probabilmente è questo numero
+  let max = 216; //Quello che cerchi probabilmente è questo numero
   random = Math.floor(Math.random() * (max - min + 1)) + min;
 
   switch(random){
@@ -553,7 +550,25 @@ function randomSong(){
     case 197: song = begforgiveness; break;
 /*     case 198: song = good; break; */
     case 198: song = problematic; break;
-    case 199: song = king; break;    
+    case 199: song = king; break;
+
+    case 200: song = slide; break;
+    case 201: song = timemovingslow; break;
+    case 202: song = fieldtrip; break;
+    case 203: song = fried; break;
+    case 204: song = isabella; break;
+    case 205: song = promotion; break;
+    case 206: song = fivethirty; break;
+    case 207: song = dead; break;
+    case 208: song = foreverrolling; break;
+    case 209: song = bomb; break;
+    case 210: song = river; break;
+    case 211: song = forever; break;
+    case 212: song = husband; break;
+    case 213: song = lifestyle; break;
+    case 214: song = skycity; break;
+    case 215: song = mysoul; break;
+
     default: randomSong(); break; /* Nel caso il numero generato non è assegnato a nessuna canzone, la funzione viene richiamata un'altra volta */
   }
 
@@ -14779,4 +14794,1000 @@ let fourfiveseconds = [
   "'Cause that's all I want"
 ]
 
-//TODO: continuare i singoli e aggiungerli al select in html
+let slide =  
+[
+  "Pretty girl, all she ever do is take selfies",
+  "So she only fuckin' with a nigga 'cause I'm wealthy",
+  "Back when I was broke, I couldn't find no one to help me",
+  "Now it ain't a motherfuckin' thing they can tell me (get up)",
+  "Ye got the rhythm, make the ladies go brazy",
+  "Dolla got the stroke, make her wanna have my babies",
+  "Wheezy got a baddie on the couch with him right now",
+  "If that pussy good, I'ma put her on the flight",
+  "On sight, when I see you, it's on sight",
+  "When ya man ain't loving you right, somebody else will",
+  "And I might be that somebody else, for real",
+  "Tonight, tell him you ain't comin' home tonight",
+  "And you won't be alone, no lie",
+  "You know I'ma slide, slide, slide (get up)",
+  "Slide in, slide in, would you ride?",
+  "Baby, would you ride with me? (Get up)",
+  "Slide in, slide in, would you ride?",
+  "Baby, would you ride for me? (Get up)",
+  "She know what I like, got me in a twilight",
+  "Headed to the high-rise, cruisin' like Eyes Wide Shut",
+  "But I slide in it like a drive-by",
+  "The industry don't like me, tell them pussy niggas likewise (get up)",
+  "They tried to hit me with the cyanide, nice try",
+  "If you play with one of my guys, it's gon' be a homicide twice",
+  "We gon' paint the city red, it's tie-dye, ask Ty (get up)",
+  "Addicted to the nightlife, jumping off a jet, skydive",
+  "Your life a movie, mine a sci-fi (get up)",
+  "Told her friends she a ten, I lied",
+  "Really, she in the high-fives (get up)",
+  "Slide in, slide in, would you ride?",
+  "Baby, would you ride with me? (Get up)",
+  "Slide in, slide in, would you ride?",
+  "Baby, would you ride for me? (Get up)",
+  "Baby, would you ride with me? (Get up)",
+  "Baby, would you ride with me? (Get up)",
+  "(Ge-ge-ge-ge-ge-ge-ge-ge-ge-ge-get up)"
+]
+
+let timemovingslow = [
+  "You were the only thing that felt like home",
+  "How I thought I had it all?",
+  "Going through the messages that's stored on my phone",
+  "Read questions like",
+  "I'm not alone",
+  "We was gone off that old potion, hit that slow motion, what you got?",
+  "Going rogue, someone left the stove open, we too hot",
+  "It was double R, we was Range Rovin' with the rocky Rollie, Rolls-Royce",
+  "Ruff Ryder anthem just had dropped, hrr",
+  "Reach for the popcorn, oops, that's my cock, hrr",
+  "Got my heart broke, I liked that bitch a lot, huh (time)",
+  "Time moving slow, I ain't trippin', though",
+  "I thought you had to know",
+  "Time moving slow",
+  "I just thought you had to know",
+  "Time moving slow",
+  "You were the only thing that felt like home",
+  "I thought I had it all",
+  "Going through the messages that's stored on my phone",
+  "Read questions like",
+  "I'm not alone",
+  "You were the only thing that felt like-",
+  "Time moving slow (time moving slow)",
+  "Time moving slow (time moving slow)",
+  "Time moving slow (time moving slow)",
+  "Enjoy the time moving slow, oh yeah",
+  "Enjoy the-",
+  "I run it, uh, uh",
+  "Mm, mm, mm",
+  "Mm, mm, mm",
+  "Mm, mm, mm",
+  "Mm, mm, mm",
+  "Mm, mm, mm",
+  "Mm, mm, mm",
+  "I can't believe in you niggas, I see through you niggas",
+  "Exceeded the limits, took over my story and rewrote the endin', I did",
+  "Had to show up and deliver that shit",
+  "Had the yacht out on the ocean, I did",
+  "Go ahead, cry me a river, you bitch",
+  "You tried to bring me to my lowest, I still brought the vision",
+  "I see through the blinds",
+  "When everyone is, it's a sign of the times",
+  "Niggas been fallin' behind",
+  "I got some images stuck in my mind",
+  "I gotta hit 'em, the perfectest time",
+  "We finna get it this time",
+  "We goin' bigger this time",
+  "Feelin' like Jig' in his prime",
+  "Time moving slow",
+  "I thought you had to know",
+  "Time moving slow",
+  "I thought you had to know",
+  "Time moving slow",
+  "Enjoy the time moving slow, oh yeah"
+]
+
+let fieldtrip = [
+  "This ain't cheddar, this quiche",
+  "Got a bitch to ride a bike, ride a circus on my bike (whoa, whoa)",
+  "Doin' this syrup to circulate, fuck her just to make her late",
+  "Do it just to rock her life, take it just to rock her life (whoa, whoa)",
+  "Call her just to rock her life, ride it just like I ride my bike",
+  "Take her on a field trip, take her on a ride (schyeah)",
+  "Take her on a trip (schyeah), take her out her house",
+  "Uh, I'm spittin' out venom",
+  "The baby not real, it's not in 'em",
+  "Send 'em a letter, I kill 'em",
+  "Close that boy door, we dismissed him",
+  "I done got too high, just a little",
+  "And I'm out my mind, just a little",
+  "Red Lambo', red Skittles",
+  "Double O-5, we criminal",
+  "Ain't bought a yacht, bought a missile",
+  "Tape on the gun, can't miss 'em",
+  "Tape on it, shake on it, shake on it",
+  "Uh, shawty keep fuckin' my bones",
+  "Movin' too fast, 'bout to break somethin'",
+  "Shawty keep hidin' my phone",
+  "You keep doin' that, I'ma break somethin'",
+  "Na-na-na-na-na-na-na-na-na, break somethin'",
+  "Got a bitch to ride a bike, ride a circus on my bike (whoa-whoa)",
+  "Doin' this syrup to circulate (hold up), fuck her just to make her late (hold up)",
+  "Do it just to rock her life (hold up, hold up), take it just to rock her life (hold up, hold up)",
+  "Call her just to rock her life (hold up), ride it just like I ride my bike (hold up, uh-uh)",
+  "Take her on a field trip (uh-uh), take her on a ride (uh-uh, schyeah)",
+  "Take her on a trip (uh-uh), take her out her house (huh)",
+  "Whippin' that Benz like a rental",
+  "200 cash, my bitch say I'm mental",
+  "Medical plans, I'm all in her dental",
+  "We like a dog, I'm fresh out the kennel",
+  "Niggas say, \"Gas, \" they rollin' up fennel",
+  "Ain't on my level, lil' bitch, don't reach",
+  "Always hollerin' 'bout you rich, we riche",
+  "This ain't no regular cheddar, this quiche",
+  "You ain't outside, I wish it was different (uh-uh, uh-uh)",
+  "You ain't outside, I wish it was different (uh-uh, uh-uh)",
+  "I'm draggin' my nuts, got my dick out in the dirt",
+  "Put it right in her butt, got her twerkin' in Turks",
+  "That my lil' bitch, she gon' listen to Durk",
+  "In the trenches with her feelin' uncomfortable",
+  "I was crushin' on you, now I'm fuckin' on you",
+  "Steady bussin' on you, now you love me",
+  "Haters gon' say you can just want my lil' paper",
+  "But who wouldn't want a nigga with some money?",
+  "Dick in her stomach, I'm makin' her vomit",
+  "That foreign imported from Saudi Arabia",
+  "Like how you riding the dick like a gangster",
+  "For Yeezy, you can turn my dealer to an angel",
+  "My name just shoulda been Ty",
+  "'Cause dollar signs get my dick wet",
+  "Got my bitch high as shit, she out of her mind",
+  "Bae on the trip, I done took her to Six Flags",
+  "Got a bitch to ride a bike, ride a circus on my bike (whoa, whoa)",
+  "Doin' this syrup to circulate, fuck her just to make her late (Carti)",
+  "Do it just to rock her life, take it just to rock her life (whoa, whoa, Carti)",
+  "Call her just to rock her life, ride it just like I ride my bike",
+  "Take her on a field trip, take her on a ride (schyeah)",
+  "Take her on a trip (Carti), take her out her house"
+]
+
+let fried = [
+  "Oh-whoa, oh-whoa",
+  "Oh-whoa, oh-whoa",
+  "Oh-whoa",
+  "I done had too many friends that died",
+  "Sometimes, I can't believe I'm still alive",
+  "She told you I ain't had it, but she lied",
+  "Boy, don't play with me, you know I'm fried",
+  "Boy, don't play with me, you know I'm fried",
+  "She givin' blowjobs and I applied",
+  "She said she starvin', order her some fries",
+  "Then I ate the breast, then the thighs",
+  "Then I gave the rest to the guys",
+  "You was typin' crazy, out your mind",
+  "This is not a typo, we reply",
+  "Now you spillin' Type-O, out your side",
+  "Boy, don't play with me, you know I'm-",
+  "Boy, don't play with me, you know I'm fried",
+  "Pray on our enemies when we dine",
+  "We just hope the feds take a bribe",
+  "Only one gon' walk away when we collide",
+  "20 dollars, now that's fuckin' mine",
+  "Ten bitches came with Dolla, they all dimes",
+  "They offered blowjobs and I applied",
+  "They all starvin', order them some fries",
+  "Then I lick the breast, then the thighs",
+  "Bitch, don't play with me, you know I'm-",
+  "Boy, don't play with me, you know I'm fried",
+  "Ooh, swervin' in the Lamb' off the lot",
+  "Five percent the tint with no top",
+  "They love me in my city like I'm Pac",
+  "Remember when we used to window-shop?",
+  "Now, I just whipped the Porsche to the mosque",
+  "Ye copped me the chain with the cross",
+  "Had to throw some hundos in the wash",
+  "Baby, take a seat and take it off",
+  "So much ice on me, I can't defrost",
+  "Where them that was sayin' I fell off?",
+  "Boy, don't play with me, you know I-",
+  "Boy, don't play with me, you know I'm fried",
+  "Oh-whoa, oh-whoa",
+  "Oh-whoa, oh-whoa",
+  "Oh-whoa, oh-whoa",
+  "Oh-whoa, oh-whoa",
+  "Oh-whoa, oh-whoa",
+  "Oh-whoa, oh-whoa"
+]
+
+let isabella = [
+  "♪",
+  "(Buy me shoes)",
+  "You better buy me those fuckin' shoes",
+  "No"
+]
+
+let promotion = [
+  "She said she leavin' her boyfriend",
+  "She wanna meet me at a Ritz-Carlton",
+  "She lookin' pretty, she lookin' gorgeous",
+  "We makin' love, but we heartless",
+  "She want ass-shots (shots), give her face-shots (face)",
+  "Back of the Maybach ('Bach), your ho get slayed, yah",
+  "Tryna get saved, yah, who am I to hate? Yah",
+  "I just wanna get paid, give my ho a bre-a-a-a-a-ak",
+  "I do gravity above the stars, goin' to Mars when I flow",
+  "Can't be trippin' off that money, baby, let a nigga go",
+  "Gotta get used to this type of service, travelin' through the back door",
+  "I just put a bitch on, bought another nigga ho",
+  "I just put your bitch on another bitch and hit 'em both",
+  "All a sudden, he a friend when I send that bitch a toast",
+  "When she want attention, she disguise it as a post",
+  "I forgot to mention, she was mine before she yours",
+  "She gon' need the coochie like she cake (cake)",
+  "All we do is fuck, we don't go on dates",
+  "I know some young throat GOATs in LA",
+  "She just wanna pop a pill and go to space (ay)",
+  "I do gravity above the stars, goin' to Mars when I flow",
+  "Can't be trippin' off that money, baby, let a nigga go",
+  "Gotta get used to this type of service, travelin' through the back door",
+  "I just put a bitch on, bought another nigga ho",
+  "When you bring your thot friends, you let everybody know",
+  "When you said you're not friends, you let everybody go",
+  "Baby girl, hop in, we goin' everywhere but broke",
+  "Like we always do at this-",
+  "She gon' eat the coochie for promotion",
+  "Knock that thing loosely, now she woke",
+  "I just kick the cookie out the dough",
+  "I'm in all Coogi, it ain't my fault",
+  "She gon' eat the coochie for promotion",
+  "Knock that thing loosely, now she woke",
+  "I just kick the cookie out the dough",
+  "I'm in all Coogi, it ain't my fault",
+  "She said she leavin' her boyfriend",
+  "She wanna meet me at a Ritz-Carlton",
+  "She lookin' pretty, she lookin' gorgeous (gorgeous)",
+  "We makin' love, but we heartless",
+  "Like we always do, like, like we always",
+  "Like, like we always do at this time",
+  "Like we always do, huh, like we always",
+  "Like we always do at this-",
+  "Like we always, like, like we always",
+  "Like we always do at this-"
+]
+
+let fivethirty = 
+[
+  "Baby, yeah",
+  "Whoa, baby, who pick up when you call?",
+  "Yeah, yeah",
+  "5:30, the car missin'",
+  "No text backs or call misses, I feel like we all victims",
+  "Docks is gettin' long",
+  "Drunk textin', I should not do Patrón",
+  "I hop on the phone, turn the music up, got in my zone",
+  "Drunk textin', I should probably sue Patrón",
+  "Had to do wrong order to do you right",
+  "You gotta go through it order to give advice",
+  "It's the price of the litty nights, I know the liquor hittin'",
+  "Why when somebody break your heart, it help fix your vision?",
+  "If you fall in love with a demon or a diva",
+  "Pray your soulmate got a soul when you meet her",
+  "The crystal ball couldn't tell me if they'll leave again",
+  "Problems too extra large to share with a medium",
+  "We fight not for flesh and blood on this level",
+  "And devil's advocate is advocatin' for the devil",
+  "And love is all drainin' and, stop, it's all fadin'",
+  "We used to be secretive, but now it's all blatant",
+  "It's all just lost, ain't it? Watchin' it all cave in",
+  "We the topic of conversation",
+  "5:30, the car missin'",
+  "No textin', just call missin'",
+  "We fight and you won't listen",
+  "You right, we both trippin'",
+  "It's game time, matter of fact, it's Ye time",
+  "The past year been a strange time",
+  "Visitations on FaceTime",
+  "And who gon' break whose heart first? Always just breaks mine",
+  "Looking for blessings that God'll hand me",
+  "I'm tryna just raise the family, somebody should raise the nanny",
+  "I'm tryna leave you alone",
+  "But that last text was courtesy of Patrón",
+  "5:30, the car missin'",
+  "Emotions is all distant",
+  "No texts, just calls missin'",
+  "We fight and you won't listen",
+  "You right, we both trippin'",
+  "Barely holdin' on",
+  "Barely holdin' on, oh",
+  "Barely holdin' on",
+  "I'm barely holdin' on",
+  "5:30, the car missin'",
+  "Is this what you call distance?",
+  "Want some in a glass prison",
+  "Duh-duh, 'fore our last visit",
+  "That does it, whoa, well, that did it",
+  "That gets it, no, that did it",
+  "Mad with it, I thought that we had did it",
+  "Everybody want too much of us, everybody except for us",
+  "I don't know what's left of less, run away with nothing less",
+  "Tryna write what's left of us, tryna write what's left of us",
+  "Runnin' off with nothin' else, wanna know what the writer does",
+  "Everything they said it was, everything they read it was",
+  "I don't know how bad it was, I don't know how I forget it does",
+  "I don't know how I forget it does",
+  "You know it was, you know it is, you know the kid",
+  "You know we did and I owe with this",
+  "Owe with this, I'ma go with it, I'ma go with it and I go with it",
+  "Know I'm finna go with it, I throw with it and we goin' in",
+  "Huh-fuh, from the whole in, duh-duh, goin' up with the thunder",
+  "And I can't take it, I can't take it",
+  "You a fake bitch",
+  "You don't really love Ye, go listen to Drake, bitch",
+  "You don't live with those songs, what it take, bitch",
+  "Go listen to Lil Baby, go listen to Future, bitch",
+  "Go soft, you don't think about your future, bitch",
+  "Don't sa-fah-na-da, I'm new with this",
+  "Da-da, na-dana, goin' through with this",
+  "Pa-da-la, fa-na-dan, don't think this",
+  "Can't fa-fa-na-da for you fake bitch",
+  "You don't really love Ye, go listen to Drake, bitch",
+  "Young Thug, Thug, Gunna Wunna, do to bitch",
+  "Listen to Lil Baby, listen to Future, bitch",
+  "Bo-summa-thunna temper for a fugitive",
+  "Wunna-tunna-dunna-dunna, and I don't love hoes",
+  "You don't love Ye, you love Moneybagg Yo",
+  "I done signed at where you signed it, what he bad for? What he mad for?",
+  "You a fake bitch",
+  "Don't listen to me, you don't-, go listen to Drake, bitch",
+  "Listen to Lil Baby, go listen to Future, bitch",
+  "But if I'ma nunna-dunna for your future, bitch",
+  "And I hope your baby daddy was a fugitive",
+  "And I hope you sanna-danna when you lose the kids",
+  "And I hope you, danna-danna do with this",
+  "These last words were untrue",
+  "This last text 'cause Patrón",
+  "Did I start something through?",
+  "No heartbreak, I break through"
+]
+
+let dead = 
+[
+  "Yeah",
+  "Fuckin' on a IG model, when I get through, I'm kickin' her out, she dead",
+  "She dead now, shit over",
+  "(ATL Jacob, ATL Jacob)",
+  "Fuckin' on a IG model, when I get through, I'm kickin' her out, she dead",
+  "None of my opps ain't poppin' outside 'cause if they do, they dead",
+  "Young nigga, iced out, in a new drop-top, lookin' like I'm ridin' in a bobsled",
+  "I can't be playin' with these diamonds",
+  "I can't be playin' with this money, no way",
+  "Ooh, yeah",
+  "My new bitch a whole mood, yeah",
+  "Top floor nights, I'm a movie",
+  "Fucked all her friends, she got two left",
+  "Ayy, in my robe, I'm the new Heff'",
+  "I'm a dog, I DM my ex",
+  "She rockin' clothes from five days ago",
+  "It's gettin' cold, you need a different coat",
+  "(Brr)",
+  "Brodie OD'd off the Xan, I hope my bitch understand",
+  "I put the switch on a ten",
+  "This ain't no regular McLaren, Freddy",
+  "Bitch, get your feet out the bed",
+  "I'm off these drugs, I don't mean what I'm sayin'",
+  "I know a killer who forcin' my hand",
+  "Paid him in cash",
+  "Six carat earrings, don't hear what you sayin'",
+  "Fly to Saint Barts, put your feet in the sand",
+  "Why you run off and I gave you a ten?",
+  "I gave her a Lamb', might bury a Benz",
+  "Bitch, I'm a dog, I'll marry ya friend",
+  "Baccarat aura, I'm rubbin' it in",
+  "Bitch, you look poor, you don't got a man",
+  "Fuck while she sore, she be in the bed",
+  "I fuck off [?] fuck her again",
+  "Went on my live and I upped a mill'",
+  "Heard you be lyin', did you fuck her, for real?",
+  "Butterfly nervous, put on Chanel",
+  "Hold up the line 'cause she posed to Amiri",
+  "She want two-hundred, I gave her a nickel",
+  "I took a pic with the switch in the mirror",
+  "Fuckin' on a IG model, when I get through, I'm kickin' her out, she dead (yeah, yeah, yeah, yeah)",
+  "None of my opps ain't poppin' outside 'cause if they do, they dead (yeah, yeah, yeah, yeah)",
+  "Young nigga, iced out, in a new drop-top, lookin' like I'm ridin' in a bobsled (yeah, yeah, yeah, yeah)",
+  "I can't be playin' with these diamonds (yeah, yeah, yeah, yeah)",
+  "I can't be playin' with this money, no way (yeah, yeah, yeah, yeah)",
+  "But I'm still in the Lamb' on a Tesla",
+  "But I'm still in the Lamb', yeah, yeah",
+  "Still goin' ham, my hitters Muslim",
+  "I'm still goin' ham, yeah, yeah",
+  "Drop 'em and hit 'em, and pull 'em, and pay 'em",
+  "Ain't with the fraud and I ain' with the scams",
+  "Tyson breakin' shit down for the fam'",
+  "Ain't with no cap, but I ride with the brims",
+  "Custom interior, came with the him",
+  "Cook up the yay', make it jump out the gym",
+  "Cook up the yay', make it jump out the gym",
+  "Cook up the yay', make it jump out the gym",
+  "Cook up the yay', make it jump out the gym",
+  "Cook up the yay', make it jump out the gym",
+  "Cook up the yay', make it jump out the gym",
+  "Twenty the new thirty, but you still thirty",
+  "Every time you fuck him, why you feel dirty?",
+  "Put you on the team, gave you a new jersey",
+  "Met you in New York, drove you to New Jersey",
+  "You don't need to work, girl, you too pretty",
+  "You the reason why your friends bought new titties",
+  "You know what's comin' next, you gotta move with me",
+  "Found out you fucked a nigga that was cool with me",
+  "When they seen us on the 'net, yeah, dude hit me",
+  "How you ain't got no business, but you too busy?",
+  "For your homegirl got that work done, she charge two-fifty",
+  "All I ever wanted was you to be true with me",
+  "House up in the hills like Drew, with me",
+  "Same house back in school that you drew with me",
+  "We both make mistakes, but is you with me?",
+  "You know I'm crazy, but you crazy glued to me",
+  "You know I'm crazy, but you crazy glued to me",
+  "You know I'm crazy, but you crazy glued to me",
+  "You know I'm crazy, but you crazy glued to me"
+]
+
+let foreverrolling = [
+  "Forever rollin'",
+  "Forever rollin'",
+  "Forever rollin'",
+  "Forever rollin'",
+  "Took nothin' to somethin', I took the time out to",
+  "Let 'em divide us, to strugglin' and they never found out who",
+  "I call the vision in Saudi, it's like a hide-out",
+  "I make a move in the mornin', fuck it, let's ride out",
+  "Them Lamborghinis be skridin' on any corner",
+  "Ain't really nothin' I ain't had, nigga, you know I ain't lyin'",
+  "\"Keep your money in front you,\" I had to tell the lil' homie",
+  "You stop believin' these hoes, you had the time of your life",
+  "Mask on out in public like you ain't never know him",
+  "Pills turn 'em to zombies, now they forever rollin'",
+  "How many times you ain't want 'em, then they tell you what you gonna do?",
+  "Had to dip off from London, I had too many that night",
+  "Fuck your favorite rapper, his number ain't even numbers",
+  "Fuck your latest designer, this that new Yeezy come-up",
+  "Platinum cars turn milk chocolate to peanut butter",
+  "Niggas claimin' they called me, ain't even had my number",
+  "In the midst of the storm and you see me stuntin' on 'em",
+  "He gon' handle that for you, now you forever owe him",
+  "Fuck the head of the company, I'm the better owner",
+  "Y'all put hurdles in front of me with bananas on 'em",
+  "Then you wonder why a ape'll go bananas on 'em",
+  "Protect your head from this burn, like it's tannin' lotion",
+  "See, we started off hustlin', then we ended up ballin'",
+  "I had to follow my callin', now we forever rollin'",
+  "Forever rollin'",
+  "Forever rollin'",
+  "Forever rollin'",
+  "Forever rollin'",
+  "Why you always act like you want me to come and jack you up?",
+  "Never gon' be you against the world 'cause I'ma back you up",
+  "You know why we stand there, bro, the cap ain't nothin'",
+  "I was on my last and I can't ask for nothin'",
+  "They get on yo' ass soon as I press the button",
+  "It ain't no comparison, I'm one of one",
+  "I pray God amputate my legs if I was to ever run",
+  "Youngins doin' shit I don't condone, but I still pay they bond",
+  "I don't fuck with dog, but I look out for mom, though",
+  "Bro need a spot, I let 'em play the condo",
+  "I know that I'm that, but I still play it humble",
+  "Said you had my back but you ain't never come through",
+  "Told you to go back 'cause I didn't really want you",
+  "Beg me to come back, you know I always come through",
+  "Tell me where you gon' run to",
+  "You tell it your way, I tell mine, but it's only one truth",
+  "Damned if I don't, even sometime, even damned if I do",
+  "Had somebody knew what we talk about, that shit lame too",
+  "All we ever had was the block, bro, we damn near raised each other",
+  "Never let 'em break up the gang, we gotta stay together",
+  "However I see that they plan it, I'ma play it better",
+  "You know that we all that we got, so we gotta stay together",
+  "Sayin' \"Free 'em\" ain't doin' nothin', you love 'em, send 'em letters",
+  "Know I'm going over the top for you, I'll pay whatever",
+  "Ain't no stoppin', I'm all in, you know I gotta get 'em",
+  "The world got a whole lot to offer, you got to live a little",
+  "Some shit I can't figure out and I'll probably never get it",
+  "Forever rollin'"
+]
+
+let bomb = [
+  "Mm",
+  "Mm",
+  "Ayy, you know me, I'm the bomb",
+  "Bomb, bomb, bomb (Yeah)",
+  "I'm the— I'm the—",
+  "I'm the— I'm the—",
+  "Bomb (Yeah)",
+  "And you know me, I'm the bomb",
+  "Bomb, bomb, bomb",
+  "I'm the— I'm the—",
+  "I'm the— I'm the—",
+  "Bomb (Yeah)",
+  "Ohayōgozaimasu",
+  "Kon'nichiwa",
+  "Ohayōgozaimasu",
+  "Kon'nichiwa",
+  "Watashi no na ma e wa nōsu-chan (Oh)",
+  "Watashi no na ma e wa nōsu-chan (Oh)",
+  "And you know me, I'm the bomb",
+  "Bomb, bomb, bomb (Yeah)",
+  "I'm the— I'm the—",
+  "I'm the— I'm the— (I know, I know)",
+  "Bomb (Yeah)",
+  "And you know me, I'm the bomb",
+  "Bomb, bomb, bomb",
+  "I'm the— I'm the—",
+  "I'm the— I'm the—",
+  "Bomb (Oh)",
+  "Ohayōgozaimasu (Oh)",
+  "Kon'nichiwa (Oh)",
+  "Ohayōgozaimasu (Oh)",
+  "Kon'nichiwa (Oh, oh)",
+  "Watashi no na ma e wa nōsu-chan (Oh)",
+  "Watashi no na ma e wa nōsu-chan (Oh)",
+  "(Oh)",
+  "Mm, mm",
+  "Oh, oh",
+  "It's Chicago, you know I'm the one",
+  "I like to have fun",
+  "I like to go to the beach",
+  "I like the sun",
+  "You know which one",
+  "I only wave when I'm telling them bye (Oh)",
+  "(Bye, bye, bye)",
+  "I said",
+  "(Bye, bye, bye)",
+  "Goodbye (Oh)",
+  "Chi-chi",
+  "What are you about?",
+  "Because",
+  "Chi-chi out",
+  "Chi-chi out",
+  "Chi-chi out",
+  "I like to have fun all day, day, day-day-day (Oh)",
+  "There's only one thing to do",
+  "It is pray",
+  "P-p-pray (Oh)",
+  "Mm",
+  "Mm",
+  "Ayy, you know me, I'm the bomb",
+  "Bomb, bomb, bomb (Yeah)",
+  "I'm the— I'm the—",
+  "I'm the— I'm the—",
+  "Bomb (Yeah)",
+  "And you know me, I'm the bomb",
+  "Bomb, bomb, bomb",
+  "I'm the— I'm the—",
+  "I'm the— I'm the—",
+  "Bomb (Yeah)",
+  "おはようございます",
+  "こんにちは",
+  "おはようございます",
+  "こんにちは",
+  "わたしのなまえはノースちゃん (Oh)",
+  "わたしのなまえはノースちゃん (Oh)",
+  "And you know me, I'm the bomb",
+  "Bomb, bomb, bomb (Yeah)",
+  "I'm the— I'm the—",
+  "I'm the— I'm the— (I know, I know)",
+  "Bomb (Yeah)",
+  "And you know me, I'm the bomb",
+  "Bomb, bomb, bomb",
+  "I'm the— I'm the—",
+  "I'm the— I'm the—",
+  "Bomb (Oh)",
+  "おはようございます (Oh)",
+  "こんにちは (Oh)",
+  "おはようございます (Oh)",
+  "こんにちは (Oh, oh)",
+  "わたしのなまえはノースちゃん (Oh)",
+  "わたしのなまえはノースちゃん (Oh)",
+  "(Oh)",
+  "Mm, mm",
+  "Oh, oh",
+  "It's Chicago, you know I'm the one",
+  "I like to have fun",
+  "I like to go to the beach",
+  "I like the sun",
+  "You know which one",
+  "I only wave when I'm telling them bye (Oh)",
+  "(Bye, bye, bye)",
+  "I said",
+  "(Bye, bye, bye)",
+  "Goodbye (Oh)",
+  "Chi-chi",
+  "What are you about?",
+  "Because",
+  "Chi-chi out",
+  "Chi-chi out",
+  "Chi-chi out",
+  "I like to have fun all day, day, day-day-day (Oh)",
+  "There's only one thing to do",
+  "It is pray",
+  "P-p-pray (Oh)"
+]
+
+let river = [
+  "SEX",
+  "Big-booty bitch, I know who paid for it, yeah (big-booty bitch, I know who paid for it)",
+  "Big-booty bitch, I know who paid for it (big-booty bitch, I know who paid for it)",
+  "We rock the Audemars Piguet, you ain't on no sad shit (we rock the Audemars Piguet)",
+  "If you say your grace, I'll get your ass fixed, yeah",
+  "Diamonds, they jump out a Rolls (Rolls)",
+  "Stay with you, high, wasn't supposed ('posed)",
+  "When I'm rockin' drug addict clothes, yeah",
+  "Peanut butter guts for the inside",
+  "We goin' for a bite up to hibachis",
+  "Molly came white like a Mentos, Mentos",
+  "I don't do credit, I don't do credit",
+  "Shut up bitch, shine my necklace (shut up)",
+  "Playin' with the blocks like Tetris (yeah)",
+  "Over one-fifty on my dentures (my dentures)",
+  "Are you tying ties with all your women? (Are you tying ties all yo')",
+  "Keep your dogs strapped down, they be reckless (yeah, yeah)",
+  "Audemar bust down, and it's speckless (oh, yeah)",
+  "No complaining, that they calling me the bestest (yeah)",
+  "Presi' cut bust down both necklace (bustdown)",
+  "Ain't telling no reason to disguise it (woah)",
+  "I done seen it and turned my eyes (on God)",
+  "Tell your main hoe a thousand lies (hah)",
+  "Told my main hoe the truth, that's on slime (on God)",
+  "I'm a Leo, I got nine lives (huh)",
+  "Bounty hunters when we come for your life (woo)",
+  "If you wan' see me succeed (what?)",
+  "Gotta tell me everything that I need (need)",
+  "Malcolm X told the guy how to read (and what?)",
+  "Like it dirty, but I'm havin' cheese (woo)",
+  "I got a bitch in Belize (I got a bitch in Belize)",
+  "Might be pregnant and this ain't a tease (this ain't a tease)",
+  "I was tellin' my slime not to leave (I was tellin' my slime not to leave)",
+  "Too much money to be in the streets, yeah (let's go)",
+  "Too much money to be in the streets",
+  "Too much money to spend all on me",
+  "Too much hate and not enough love",
+  "Free Larry, free Young Thug",
+  "Free Larry, free Young Thug",
+  "Back on road, go, get in that mode (mode)",
+  "Shit that they been on, low vibrational",
+  "I'm on vibranium, claws, they titanium",
+  "You know we is alien, land at SoFi Stadium",
+  "I feel like Usain or somethin', I been on a crazy run",
+  "If you got them cake and buns, you gon' have to save me some",
+  "This one here for YSL, I ain't talkin' Saint Laurent",
+  "Too ahead, we way upfront, throw my name, y'all play too much",
+  "Been this way, I'm way too up",
+  "Too much money to be in the streets",
+  "Too much money to spend all on me",
+  "Too much hate and not enough love",
+  "Free Larry, free Young Thug",
+  "Free Larry, free Young Thug",
+  "Too much money to be in the streets",
+  "Too much money to spend all on me",
+  "Too much hate and not enough love",
+  "Free Larry, free Young Thug",
+  "While we at it, free Meech",
+  "I'm the owner, this shit not a lease",
+  "I go ghost and I get out of reach",
+  "'Cause I gotta protect my peace",
+  "They say to trust the process",
+  "But all I trust is me",
+  "'Cause all I trust is",
+  "I gotta go, tell 'em I said, \"God bless\"",
+  "Holy water, take me to the river",
+  "Holy Father, forgive me for my sins",
+  "Holy water, holy water, holy water",
+  "Free all my friends, protect my sons, protect my daughters",
+  "Woah",
+  "Take me to your river",
+  "I wanna go (now)",
+  "But please let me know",
+  "Take me to your river",
+  "I wanna go (now)",
+  "But please let me know",
+  "Take me to your river",
+  "I wanna go"
+]
+
+let forever = [
+  "Maybe we don't last forever",
+  "Do or die, you and I",
+  "Like a blank page (Maybe we—)",
+  "See inside, most high (Maybe we don't—)",
+  "Maybe (Maybe we don't last forever)",
+  "Like a hopeless romantic, oh-oh",
+  "Hopelessly, yeah",
+  "Just to cope, just a possible word of hope, like",
+  "Maybe, possibly, if time didn't exist",
+  "That suit-and-tie shit, that marathon shit",
+  "That take-it-off shit, that Cullinan, bitch (Maybe we don't last forever)",
+  "I want you tonight, I need you tonight",
+  "Come see through my eyes, girl, why would I lie? I want love",
+  "I want love (Maybe we don't last forever)",
+  "I want love",
+  "Just to cope, just a possible word of hope, like",
+  "Maybe, possibly, if time didn't exist",
+  "Four billion years in this bitch, these lifetimes blips",
+  "We gon' shine in this shit, every time, timeless (Maybe we don't last forever)",
+  "Which is more than enough for forever",
+  "Worth more than big stones, rare metals",
+  "Checked in, room covered in rose pedals",
+  "Lights on, lights off, it's no difference",
+  "She still gon' deliver the box like drop shippin'",
+  "Last year, them niggas dropped, was not hittin'",
+  "I don't think you in a spot to talk shit in",
+  "Warn these niggas about me, caution 'em",
+  "Smoke these niggas like a box of carcinogens",
+  "The Hermès store, we swing through like pendulum",
+  "My bitch got the milk, we need cinnamon",
+  "Please don't ruin the scene, we all filmin' it",
+  "Throw that shit in a loop, I'm relivin' it",
+  "Throw that shit on me, I keep killin' it",
+  "Maybe we don't last forever"
+]
+
+let husband = [
+  "Neighbors know this shit get out of hand, but they smile",
+  "'Cause you been so long without a man",
+  "And it won't be, and it won't be long 'til you're out of bands",
+  "The only thing you really need is a husband",
+  "The only thing you really need is a husband",
+  "The only thought you ever need is \"I trust him\"",
+  "All your dreams, all your goals",
+  "It's promised with this ring I have in my hands",
+  "The main thing a nigga got is these plans",
+  "Gotta plan for us, gotta plan to grow",
+  "Gotta plan for homes, gotta plan for bad times",
+  "Gotta plan for good times, gotta plan for hood times",
+  "Gotta plan for hook crimes, gotta plan for trust",
+  "Gotta plan for lust, gotta plan for Beverly Hills",
+  "You know that's where they at (Uh, uh)",
+  "You know that's where they at, Beverly Hills",
+  "You know that's where they at",
+  "I don't really wanna go back to that",
+  "If I do, I know I'm goin' back to back",
+  "Breakin' backs and back",
+  "Imagine that, that is half of that, so I handle that",
+  "All you really need is a husband, show you love him",
+  "Let him touch you, let him rub you, let him hug you",
+  "Let him thug you, let him hold you down",
+  "All you really need is a husband who gon' touch you",
+  "Who gon' rub you, who gon' hug you?",
+  "Who gon' kiss you, who gon' miss you with no issue?",
+  "With no issue, it no issue"
+]
+
+let lifestyle = 
+[
+  "Look at you, look at you, look at you",
+  "Oh, they got you stayin' when them rooms got the lock on the minibar, uh",
+  "You gotta get out here, baby",
+  "You gotta get out here, baby",
+  "She wanna live this lifestyle",
+  "She wanna live this lifestyle",
+  "She wanna live this lifestyle",
+  "She said she ready to go",
+  "She said she, she said she, she said she ready",
+  "And I start talkin' dirty like I'm Nelly",
+  "Give me my lip service like the celly",
+  "Codeine and cocaine, that's lips tatted when it's Kelly",
+  "Ice up in my veins, old flames tryna melt me",
+  "I twist my Taylor spliffs tight at the end like Travis Kelce",
+  "Got that BBL, then you put on a couple lbs",
+  "BBWs been tryna eat me like I'm healthy",
+  "She say she wanna live this lifestyle",
+  "This life's a bitch, I make her love her like she dyked out",
+  "Oh, right now, you act like you 'bout that life now",
+  "Just hope your pussy lips give your pussy a nice smile",
+  "Ice on, the money long, wan' pay my lifelong",
+  "But if it ain't, it's all gravy like the rice gone",
+  "She sittin' on this D like you sittin' on your iPhone",
+  "And I'll beat it up to this song like this the fight song",
+  "Ooh, child, she want Tunechi, she want Tune' child",
+  "But cool down, I'm too classy for them schoolgrounds",
+  "Fast life, fast lane, check the gas like",
+  "You can't have your cake and eat it too, and I'm the last slice",
+  "She wanna live this lifestyle",
+  "She wanna live this lifestyle",
+  "She wanna live this lifestyle",
+  "She said she ready to go",
+  "She ready, she ready, she ready",
+  "She ready, she ready, she ready, yeah",
+  "She say she ready to go",
+  "Ooh, import that SLS Miami",
+  "She got them cheeks on, I'ma tap it all",
+  "This gon' be your theme song",
+  "We could take our time, baby",
+  "We won't be long, oh",
+  "So forgive me if I cop a little",
+  "Got so much ice around my neck, look like a chandelier",
+  "She want a nigga that gon' buy her the bag",
+  "Lookin' for a lil' baby that gon' know how to act",
+  "Remember at that rooftop when I seen you in that black bikini?",
+  "Looked to the city, you had never been in a Lamborghini",
+  "I'm 'bout to circle back, and it won't be too long",
+  "She always gon' choose me 'cause I know what she want",
+  "She wanna live this lifestyle (yeah)",
+  "She wanna live this lifestyle (ooh)",
+  "She wanna live this lifestyle (oh, yeah)",
+  "She said she ready to go",
+  "She ready, she ready (oh, yeah), she ready",
+  "She ready, she ready (oh, ooh), she ready, yeah",
+  "She say she ready to go",
+  "Neighbors know this shit get out of hand, but they smile",
+  "'Cause you been so long without a man",
+  "And it won't be",
+  "And it won't be long 'til you're out of bands",
+  "(You better buy me those fuckin' shoes) (ew)",
+  "The only thing you really need is a husband",
+  "The only thing you really need is a husband",
+  "The only thought you ever need is, \"I trust him\"",
+  "All your dreams, all your goals",
+  "It's promised with this ring I have in my hands",
+  "The main thing a nigga got is these plans",
+  "Got a plan for us, got a plan to grow",
+  "Got a plan for homes, got a plan for bad times",
+  "Got a plan for good times, got a plan for hood times",
+  "Got a plan for hood crimes, got a plan for trust",
+  "Got a plan for lust",
+  "Got a plan for Beverly Hills",
+  "You kn-, you know that's where they at (uh-uh-uh)",
+  "You know that's where they at",
+  "Got a plan for Beverly Hills",
+  "You know that's where they at",
+  "I don't really wanna go back to that",
+  "If I do, I know I'm going back to back",
+  "Breakin' backs and bags, imagine that",
+  "That's the half of this",
+  "So I handle that",
+  "All you really need is a husband",
+  "Show you love and let him touch you",
+  "Let him rub you, let him hug you",
+  "Let him thug you, let him hold you down",
+  "Ooh, ooh, ooh",
+  "Mm, mm, mm, mm, mm, mm",
+  "All you need is a husband",
+  "Who gon' touch you, who gon' rub you",
+  "Who gon' hug you, who gon' kiss you",
+  "Who gon' miss you with no issue",
+  "With no issue, ain't no issue",
+  "Ain't no issue"
+]
+
+let skycity = [
+  "Said it's my year, know it's my year, my year (oh)",
+  "Can we fly, yeah? We can fly, yeah, high, yeah (we can fly)",
+  "Build a city in the sky, yeah, sky, yeah",
+  "In the sky, yeah, in the sky, yeah, sky, yeah (git, git)",
+  "We just fly, yeah (woo), we just fly yeah, fly yeah (git, git, fly, yeah)",
+  "Build a city, in the sky, yeah, sky, yeah",
+  "Do Heaven got a penthouse that I could rent out?",
+  "I could see Rick James with his feet up on Prince couch",
+  "Always wanted to know, did Biggie get a big house?",
+  "Do Pac got a thug mansion? Is it pimped out?",
+  "Is it a place for the Jews and the Gentiles?",
+  "I heard street niggas ain't in the top percentile",
+  "Real fast, my wife wanna know, do y'all got a gym now?",
+  "She talkin' 'bout she still tryna get her waist to slim down",
+  "Anyhow, forgive me for the taxes that I didn't file",
+  "I ain't even got back the money that I lent out",
+  "Can't even have a Corona, shit is gettin' wild",
+  "Runnin' around without a face mask like I'm Jim Brown",
+  "Oh, yeah, I heard about your son that you sent down",
+  "I wish there was a place that I could send flowers",
+  "My OG wrote me from the joint, you know, like a pen pal",
+  "And he asked if you could send a letter to the judge when he begin trial",
+  "'Cause we don't know when he gettin' out",
+  "Ooh, child, things are gonna get easier",
+  "Ooh, child, things'll get brighter",
+  "Ooh, child, things are gonna get easier",
+  "Oh, child, things'll get brighter",
+  "Said it's my year, know it's my year, my year (oh)",
+  "Can we fly, yeah? We can fly, yeah, high, yeah (we can fly, yeah)",
+  "Build a city in the sky, yeah, sky, yeah",
+  "In the sky, yeah, in the sky, yeah, sky, yeah (git, git)",
+  "We just fly, yeah (woo), we just fly, yeah, fly, yeah (git, git, fly, yeah)",
+  "Build a city, in the sky, yeah, sky, yeah",
+  "Yeah, imagine you could visit your ancestors",
+  "And all the people that we lost, and you could dance with 'em",
+  "We'd probably be more united than Manchester",
+  "'Cause my people still dyin' over hand gestures",
+  "Keep your enemy close, that's when your man stretch ya",
+  "Damn, I guess karma can catch ya",
+  "We gotta forgive our trespassers and transgressors",
+  "Mandela said it won't get better if we stand separate",
+  "'Cause one hand wash the other, both hands wash the face",
+  "Wish they had another place we all could stay",
+  "If they don't let us in, then we gon' hop the gate",
+  "Out of the body, uh, jewelry is gaudy, um",
+  "Serious society, my spirit is Godly",
+  "I'm buildin' a buildin' where children can lobby",
+  "So we can make billions from buildin' a hobby",
+  "I bought a factory, pickin' the cotton",
+  "Bought a factory, send 'em to college",
+  "He made it already with nothin' to lose",
+  "And free attitude with nothin' to prove",
+  "We goin' fifty, I got that juice",
+  "Playin' them dead to get out the noose",
+  "I don't need your point-of-views",
+  "I can't hear you at this altitude",
+  "And they steady sayin' that I'm rude",
+  "I'd be rude if I don't come beat the shit out you",
+  "And if we die, yeah, then we die, yeah, ah, yeah",
+  "We can fly, yeah, we can fly, yeah, ah, yeah",
+  "In the night, yeah, in the night, yeah, ah, yeah",
+  "In the night, in the night",
+  "Oh, in the night, serenity all in the city (oh, it's always lovely in your company)",
+  "I'll be here (oh, it's always lovely in your company)",
+  "Oh, leave you lonely (oh, it's always lovely in your company)",
+  "I'll be here (oh, it's always lovely in your company)"
+]
+
+let mysoul = [
+  "Won't be gettin' sleep tonight and I'm cryin' as I write this",
+  "Prayin' for my brother locked up, fighting fires",
+  "My heart goes out to all the daughters",
+  "Missin' all God and fathers, never seen they loved ones",
+  "'Cause they're prisoners fighting fires",
+  "And I might be biased, but I feel God standin' by us",
+  "And the prisoners fighting fires, oh-oh, yeah-yeah",
+  "And I might be biased, but my soul",
+  "Needs you Lord, oh God please come take control",
+  "Oh-oh-oh-oh-oh-oh-oh",
+  "What if I start off the track, hum the beginnin'",
+  "Mutter the middle part, and mumble the endin'?",
+  "It just feels better in my humble opinion",
+  "Much more n-words, but humble beginnings",
+  "When I act like the n-word, somebody get injured",
+  "That's why we stay in court and go to the pen for it",
+  "Before I forget, let me go get a pen for it",
+  "Cancel culture, before I get censored",
+  "All I really meant for is you to get mentored",
+  "Before we get sentenced, before we get sent for it",
+  "Remember this sentence, remember repentance",
+  "Only God can judge me, GDs and [?] lords",
+  "Over in Thanville, Stateville, Taylorville, Lanyard",
+  "Jacksonville, Pontiac, Pinckeyville",
+  "We mass targeted, mass marketed, mass incarceration",
+  "Massive police stations, mass incorporated, fuck Adidas",
+  "Ah-ah, ah-ah, ah-ah",
+  "I know, I know, ah-ah, oh-no-no-no-no-no-ooh",
+  "Yeah",
+  "The struggle is real, gotta face it",
+  "My freedom so close I can taste it",
+  "Make money, got bills, so I chase it",
+  "But stay on my deen, 'cause without it I'm faithless",
+  "They promise they with you, they lies",
+  "They just want what you got, and they try",
+  "All alone with nobody beside",
+  "You sit there and cry, just wishin' you die",
+  "Know this life is a test, tryna pass it",
+  "With my face on the ground in the masses",
+  "You got questions, so you better ask 'em",
+  "'Cause time wait for no one, it comes and it passes",
+  "Under pressure, attack on me daily",
+  "Love my momma, she tried, couldn't save me",
+  "Gave me tool to survive through this crazy",
+  "For nothing but God, and be good to your lady",
+  "Weigh optimism no one understands",
+  "He's been destined and God got a plan",
+  "One thing I know, he made me a man",
+  "He gave me two legs on the ground on the stand",
+  "To my wifey, baby, you so fine",
+  "Proud to say to the world, \"Yeah, you mine\"",
+  "Used to buy me through all the hard times",
+  "You pushed the line, you pushed the line",
+  "I, I can feel you light up on me",
+  "Keep shinin' your light up on me",
+  "Shine your light, just shine up on me",
+  "I can feel your light, oh-woah"
+]
