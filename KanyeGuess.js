@@ -319,7 +319,6 @@ function hints(){
 } */
 
 function randomSong(){
-  document.getElementById("hint").src = "./Hints/DK.png";
   let min = 1;
   let max = 216; //Quello che cerchi probabilmente è questo numero
   random = Math.floor(Math.random() * (max - min + 1)) + min;
