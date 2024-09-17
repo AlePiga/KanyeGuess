@@ -1,7 +1,7 @@
 # KanyeGuess by AlePiga
 <img src="https://files.catbox.moe/7aaxft.jpeg" alt="KanyeGuess">
 Yo, you’re rockin' with KanyeGuess, the flyest web game that ever hit the block. Written in straight HTML5, JavaScript, and CSS, this ain't your ordinary guess-the-song game. Nah, this is for true Ye fans who live and breathe the artistry of the GOAT, Mr. West himself.
- 
+
 You get four bars. Not just any four bars. These bars are handpicked from the catalog of a genius. Your job? Guess which Kanye West masterpiece they came from. Sounds simple? Well, genius never is.
 
 We're talking ALL the Ye albums, baby. From the classic to the experimental, from the soul-sample era to the gospel revolution. You better be ready, 'cause this playlist ain't for amateurs.
