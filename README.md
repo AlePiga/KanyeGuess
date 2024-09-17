@@ -20,7 +20,7 @@ We're talking ALL the Ye albums, baby. From the classic to the experimental, fro
 - 👻 KIDS SEE GHOSTS
 - ✝️ JESUS IS KING
 - ⬛ Donda (Deluxe)
-- 1️⃣ VULTURES 1
+- 🦅 VULTURES 1
 - 🦅 VULTURES 2
 
 What's next?
