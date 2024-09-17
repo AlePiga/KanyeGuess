@@ -11,7 +11,7 @@ We're talking ALL the Ye albums, baby. From the classic to the experimental, fro
 - 🎓 Graduation
 - 💔 808s & Heartbreak
 - 🌌 My Beautiful Dark Twisted Fantasy
-- 👑 Watch The Throne
+- 👑 Watch The Throne (Deluxe)
 - 💽 Yeezus
 - 🟧 The Life Of Pablo
 - 🏞️ ye
