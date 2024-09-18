@@ -106,27 +106,31 @@ function load(){
 }
 
 function randomBars() {
-  bars = [];
   let length = song.length - 1;
-  let randomB = Math.floor(Math.random() * (length - 1 + 1)) + 1;
+  let randomB = Math.floor(Math.random() * (length + 1)); // Non c'è bisogno di sottrarre 1 o aggiungere ulteriori calcoli qui
 
-  if (randomB + 3 >= song.length - 1) {
-    randomB = randomB - 3;
-    if (err != 0) {
-      bars.push(song[randomB] + "<br>" + song[randomB + 1] + "<br>" + song[randomB + 2] + "<br>" + song[randomB + 3]);
-      document.getElementById("bars").innerHTML = bars.join(''); // Unisce gli elementi senza virgole
-    } else if (err == 0) {
-      bars.push("Game over! You lost all your lives :(");
-      document.getElementById("bars").innerHTML = bars.join(''); // Unisce gli elementi senza virgole
-    }
-  } else if (err != 0) {
-    bars.push(song[randomB] + "<br>" + song[randomB + 1] + "<br>" + song[randomB + 2] + "<br>" + song[randomB + 3]);
-    document.getElementById("bars").innerHTML = bars.join(''); // Unisce gli elementi senza virgole
-  } else {
+  // Se randomB + 3 va oltre la lunghezza della canzone, riduciamo randomB
+  if (randomB + 3 >= length) {
+    randomB = Math.max(randomB - 3, 0); // Assicuriamoci che randomB non vada sotto 0
+  }
+ 
+  if (err != 0) {
+    bars.push(
+      song[randomB] + "<br>" + 
+      song[randomB + 1] + "<br>" + 
+      song[randomB + 2] + "<br>" + 
+      song[randomB + 3]
+    );
+    document.getElementById("bars").innerHTML = bars.join(''); // Mostriamo i contenuti
+  } else { // Se err è uguale a 0, mostriamo il messaggio di fine partita
     let a = '<a href="https://ko-fi.com/alepiga/">Kanye Guess Ko-fi page</a>';
     let b = '<a href="https://instagram.com/iosonopiga">follow my Instagram</a>';
-    bars.push("Game over! You lost all your lives!<br>If you want to support my project you<br>can check out the " + a + "<br>or " + b + " :)");
-    document.getElementById("bars").innerHTML = bars.join(''); // Unisce gli elementi senza virgole
+    bars.push(
+      "Game over! You lost all your lives!<br>" + 
+      "If you want to support my project you<br>" + 
+      "can check out the " + a + "<br>or " + b + " :)"
+    );
+    document.getElementById("bars").innerHTML = bars.join(''); // Mostriamo il messaggio finale
   }
 }
 
@@ -319,8 +323,8 @@ function hints(){
 } */
 
 function randomSong(){
-  let min = 1;
-  let max = 216; //Quello che cerchi probabilmente è questo numero
+  let min = 204;
+  let max = 204; //Quello che cerchi probabilmente è questo numero
   random = Math.floor(Math.random() * (max - min + 1)) + min;
 
   switch(random){
