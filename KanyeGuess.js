@@ -2,10 +2,13 @@ let random = "";
 let bars = [];
 let song = "";
 let cnt = 0;
-/* let mod; */
+let mod = 0;
 let skipSong = 10;
 let err = 5;
 let hint = 5;
+
+let min;
+let max;
 
 function eseguiInBackground() {
   if (skipSong <= 0) {
@@ -54,6 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+function howToPlay(){
+  alert("Welcome to KanyeGuess!\n\nIn this game, you're prompted with four bars from a random Ye song and you need to guess which one is it.\n\nTo start playing, read the lyrics and write the name of the song they come from in the text box below them, then press the submit button or enter the enter key.\n\nIf you have no idea what the song is, you can skip the round by pressing the skip button or entering the minus (-) key. You usually do this whenever you're given something from Watch The Throne... That album sucks IMO...\n\nAnyways, keep in mind that in each game you'll be given the possibility to skip for only 10 times, and that you only have 5 lives.\n\nYou lose a life when you get a song wrong, and if you lose all of your lives you'll be prompted with a game over screen.\n\nHave fun playing KanyeGuess and testing your Yeezy knowledge! :)\n~AlePiga")
+}
+
 function gameOver(){
   hide("submit");
   hide("submit");
@@ -96,9 +103,55 @@ function poopityScoop(){
   ps.play();
 }
 
+function reset(){
+  random = "";
+  bars = [];
+  song = "";
+  cnt = 0;
+  skipSong = 10;
+  err = 5;
+  hint = 5;
+  document.getElementById("vite").innerHTML = "<b>Lives: </b>" + err;
+  document.getElementById("skipp").innerHTML = "<b>Skips: </b>" + skipSong;
+  document.getElementById("streak").innerHTML = "<b>Score: </b>" + cnt;
+  document.getElementById("result").innerHTML = "<i>Song results will appear here. Good luck!</i>"
+}
+
+function genSet(){
+  reset();
+  let c = parseInt(document.getElementById("mode").value);
+  switch(c){
+    case 1: min = 1; max = 216; break;
+    case 2: min = 1; max = 216; mod = 2; break;
+    case 3: min = 1; max = 216; mod = 1; break;
+    case 4: min = 1; max = 21; break;
+    case 5: min = 22; max = 42; break;
+    case 6: min = 43; max = 56; break;
+    case 7: min = 57; max = 68; break;
+    case 8: min = 69; max = 81; break;
+    case 9: min = 82; max = 97; break;
+    case 10: min = 98; max = 107; break;
+    case 11: min = 108; max = 127; break;
+    case 12: min = 128; max = 134; break;
+    case 13: min = 135; max = 141; break;
+    case 14: min = 142; max = 152; break;
+    case 15: min = 153; max = 180; break;
+    case 16: min = 185; max = 199; break;
+    case 17: min = 200; max = 215; break;
+  }
+  if(c != 2 || c != 3){
+    randomSong(mod);
+  }
+}
+
+
 function load(){
+  if(document.getElementById("mode").value = 1){
+    min = 1;
+    max = 216;
+  }
   randomImage(); //Genera un'immagine a caso per il logo del sito
-  randomSong(); //Sceglie la canzone di cui apparirà il testo
+  randomSong(mod); //Sceglie la canzone di cui apparirà il testo
   hide("reload"); //Nasconde il pulsante per rigiocare
   hide("reload"); //Non so perché ma mi tocca richiamarla due volte
   hide("kofi"); //Nasconde il pulsante per passare a Kofi
@@ -106,31 +159,27 @@ function load(){
 }
 
 function randomBars() {
+  bars = [];
   let length = song.length - 1;
-  let randomB = Math.floor(Math.random() * (length + 1)); // Non c'è bisogno di sottrarre 1 o aggiungere ulteriori calcoli qui
+  let randomB = Math.floor(Math.random() * (length - 1 + 1)) + 1;
 
-  // Se randomB + 3 va oltre la lunghezza della canzone, riduciamo randomB
-  if (randomB + 3 >= length) {
-    randomB = Math.max(randomB - 3, 0); // Assicuriamoci che randomB non vada sotto 0
-  }
- 
-  if (err != 0) {
-    bars.push(
-      song[randomB] + "<br>" + 
-      song[randomB + 1] + "<br>" + 
-      song[randomB + 2] + "<br>" + 
-      song[randomB + 3]
-    );
-    document.getElementById("bars").innerHTML = bars.join(''); // Mostriamo i contenuti
-  } else { // Se err è uguale a 0, mostriamo il messaggio di fine partita
+  if (randomB + 3 >= song.length - 1) {
+    randomB = randomB - 3;
+    if (err != 0) {
+      bars.push(song[randomB] + "<br>" + song[randomB + 1] + "<br>" + song[randomB + 2] + "<br>" + song[randomB + 3]);
+      document.getElementById("bars").innerHTML = bars.join(''); // Unisce gli elementi senza virgole
+    } else if (err == 0) {
+      bars.push("Game over! You lost all your lives :(");
+      document.getElementById("bars").innerHTML = bars.join(''); // Unisce gli elementi senza virgole
+    }
+  } else if (err != 0) {
+    bars.push(song[randomB] + "<br>" + song[randomB + 1] + "<br>" + song[randomB + 2] + "<br>" + song[randomB + 3]);
+    document.getElementById("bars").innerHTML = bars.join(''); // Unisce gli elementi senza virgole
+  } else {
     let a = '<a href="https://ko-fi.com/alepiga/">Kanye Guess Ko-fi page</a>';
     let b = '<a href="https://instagram.com/iosonopiga">follow my Instagram</a>';
-    bars.push(
-      "Game over! You lost all your lives!<br>" + 
-      "If you want to support my project you<br>" + 
-      "can check out the " + a + "<br>or " + b + " :)"
-    );
-    document.getElementById("bars").innerHTML = bars.join(''); // Mostriamo il messaggio finale
+    bars.push("Game over! You lost all your lives!<br>If you want to support my project you<br>can check out the " + a + "<br>or " + b + " :)");
+    document.getElementById("bars").innerHTML = bars.join(''); // Unisce gli elementi senza virgole
   }
 }
 
@@ -265,7 +314,7 @@ function check(){
   
   let streak = "<b>Score:</b> " + cnt;
   document.getElementById("streak").innerHTML = streak;
-  randomSong();
+  randomSong(mod);
 }
 
 function skip() {
@@ -277,7 +326,7 @@ function skip() {
   }
   document.getElementById("skipp").innerHTML = "<b>Skips: </b>" + skipSong;
   getSong(1);
-  randomSong();
+  randomSong(mod);
 }
 
 function hints(){
@@ -322,11 +371,24 @@ function hints(){
   }
 } */
 
-function randomSong(){
-  let min = 204;
-  let max = 204; //Quello che cerchi probabilmente è questo numero
-  random = Math.floor(Math.random() * (max - min + 1)) + min;
+function skipMinus(){
+  if(skipSong > 0){
+    skip();
+  }
+}
 
+function randomSong(mod){
+  if(mod == 0){
+    random = Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  if(mod == 1){
+    let values = [1, 3, 5, 9, 10, 13, 14, 16, 17, 21, 22, 25, 26, 33, 36, 39, 40, 42, 49, 50, 55, 60, 63, 65, 66, 68, 75, 83, 86, 87, 88, 89, 90, 91, 92, 94, 95, 96, 97, 105, 106, 113, 114, 115, 136, 150, 151, 152, 163, 165, 166, 169, 170, 171, 173, 174, 175, 176, 178, 197, 207, 208, 211, 212, 215];
+    random = values[Math.floor(Math.random() * values.length)];
+  }
+  if(mod == 2){
+    let values = [4, 7, 19, 24, 25, 30, 43, 45, 46, 47, 48, 51, 54, 59, 61, 71, 73, 76, 77, 82, 84, 85, 93, 98, 99, 107, 109, 111, 116, 117, 120, 124, 130, 133, 134, 137, 144, 145, 155, 157, 159, 185, 188, 189, 193, 194, 196, 202, 203, 209];
+    random = values[Math.floor(Math.random() * values.length)];
+  }
   switch(random){
     
     /* The College Dropout */
@@ -572,7 +634,7 @@ function randomSong(){
     case 214: song = skycity; break;
     case 215: song = mysoul; break;
 
-    default: randomSong(); break; /* Nel caso il numero generato non è assegnato a nessuna canzone, la funzione viene richiamata un'altra volta */
+    default: randomSong(mod); break; /* Nel caso il numero generato non è assegnato a nessuna canzone, la funzione viene richiamata un'altra volta */
   }
 
 randomBars();

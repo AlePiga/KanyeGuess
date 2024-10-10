@@ -55,6 +55,49 @@ a{
   text-emphasis: bold;
 }
 
+#welcome{
+  font-size: 12pt;
+}
+
+#bottomL{
+  display: flex;
+  text-align: left;
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+}
+
+#bottomR{
+  text-align: right;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+#mode{
+  width: 325px;
+  font-family: Poppins;
+  font-size: 12pt;
+  border-radius: 12.5px;
+  border-color: white;
+  border-width: 2px;
+}
+
+#insp{
+  text-align: left;
+  padding-left: 10px;
+}
+
+#howtoplay{
+  text-align: center;
+  font-family: Poppins;
+  font-size: 24pt;
+  height: 48pt;
+  width: 48pt;
+  border-radius: 12.5px;
+  border-color: white;
+}
+
 #warningmobile{ 
   width: 70%;
   color: rgb(252, 46, 46);
@@ -75,15 +118,7 @@ a{
 #kanye-songs{
   width: 30%;
   font-family: Poppins;
-  font-size: 12pt;
-  border-radius: 12.5px;
-  border-color: white;
-  border-width: 2px;
-}
-
-#modalità{
-  font-family: Poppins;
-  font-size: 12pt;
+  font-size: 16pt;
   border-radius: 12.5px;
   border-color: white;
   border-width: 2px;
@@ -140,7 +175,7 @@ a{
 
 #submit{
   font-family: Poppins;
-  font-size: 12pt;
+  font-size: 16pt;
   border-radius: 12.5px;
   border-color: white;
 }
@@ -186,7 +221,7 @@ a{
 
 #skip{
   font-family: Poppins;
-  font-size: 12pt;
+  font-size: 16pt;
   border-radius: 12.5px;
   border-color: white;
 }
