@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @font-face {
   font-family: Poppins;
   src: url(./Fontfaces/Regular.ttf);
@@ -284,7 +283,7 @@ a{
 .result-box li:hover{
   background: #999;
 }
-=======
+
 @font-face {
   font-family: Poppins;
   src: url(./Fontfaces/Regular.ttf);
@@ -565,4 +564,3 @@ a{
 .result-box li:hover{
   background: #999;
 }
->>>>>>> ce30fc3e436298369811c1e56ad319deb94c4677
