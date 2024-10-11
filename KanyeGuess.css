@@ -19,7 +19,7 @@
 } */
 
 #bottomLogo{
-  width: 100px;
+  height: 100px;
   border-radius: 12.5px;
   -webkit-user-drag: none;
   user-select: none;
