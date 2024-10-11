@@ -120,24 +120,25 @@ function reset(){
 function genSet(){
   reset();
   let c = parseInt(document.getElementById("mode").value);
+  let bottomLogo = document.getElementById("bottomLogo");
   switch(c){
     case 1: min = 1; max = 216; break;
-    case 2: min = 1; max = 216; mod = 2; break;
-    case 3: min = 1; max = 216; mod = 1; break;
-    case 4: min = 1; max = 21; break;
-    case 5: min = 22; max = 42; break;
-    case 6: min = 43; max = 56; break;
-    case 7: min = 57; max = 68; break;
-    case 8: min = 69; max = 81; break;
-    case 9: min = 82; max = 97; break;
-    case 10: min = 98; max = 107; break;
-    case 11: min = 108; max = 127; break;
-    case 12: min = 128; max = 134; break;
-    case 13: min = 135; max = 141; break;
-    case 14: min = 142; max = 152; break;
-    case 15: min = 153; max = 180; break;
-    case 16: min = 185; max = 199; break;
-    case 17: min = 200; max = 215; break;
+    case 2: min = 1; max = 216; mod = 2; bottomLogo.src = "./Kanye/alr.jpg"; break;
+    case 3: min = 1; max = 216; mod = 1; bottomLogo.src = "./Kanye/alr.jpg"; break;
+    case 4: min = 1; max = 21;  bottomLogo.src = "./Covers/CD.jpg"; break;
+    case 5: min = 22; max = 42; bottomLogo.src = "./Covers/LR.jpg"; break;
+    case 6: min = 43; max = 56; bottomLogo.src = "./Covers/GR.jpg"; break;
+    case 7: min = 57; max = 68; bottomLogo.src = "./Covers/8H.png"; break;
+    case 8: min = 69; max = 81; bottomLogo.src = "./Covers/MF.jpg"; break;
+    case 9: min = 82; max = 97; bottomLogo.src = "./Covers/WT.jpg"; break;
+    case 10: min = 98; max = 107; bottomLogo.src = "./Covers/YZ.png"; break;
+    case 11: min = 108; max = 127; bottomLogo.src = "./Covers/TP.jpg"; break;
+    case 12: min = 128; max = 134; bottomLogo.src = "./Covers/YE.jpg"; break;
+    case 13: min = 135; max = 141; bottomLogo.src = "./Covers/KG.png"; break;
+    case 14: min = 142; max = 152; bottomLogo.src = "./Covers/JK.jpg"; break;
+    case 15: min = 153; max = 180; bottomLogo.src = "./Covers/DO.jpeg"; break;
+    case 16: min = 185; max = 199; bottomLogo.src = "./Covers/V1.png"; break;
+    case 17: min = 200; max = 215; bottomLogo.src = "./Covers/V2.png"; break;
   }
   if(c != 2 || c != 3){
     randomSong(mod);
@@ -243,46 +244,46 @@ function assignCover(x){
   let excover = document.getElementById("hint");
   
   if(random <= 21){
-    excover.src = "./Hints/CD.jpg";
+    excover.src = "./Covers/CD.jpg";
   }
   else if(random <= 42){
-    excover.src = "./Hints/LR.jpg";
+    excover.src = "./Covers/LR.jpg";
   }
   else if(random <= 56){
-    excover.src = "./Hints/GR.jpg";
+    excover.src = "./Covers/GR.jpg";
   }
   else if(random <= 68){
-    excover.src = "./Hints/8H.png";
+    excover.src = "./Covers/8H.png";
   }
   else if(random <= 81){
-    excover.src = "./Hints/MF.jpg";
+    excover.src = "./Covers/MF.jpg";
   }
   else if(random <= 97){
-    excover.src = "./Hints/WT.jpg";
+    excover.src = "./Covers/WT.jpg";
   }
   else if(random <= 107){
-    excover.src = "./Hints/YZ.png";
+    excover.src = "./Covers/YZ.png";
   }
   else if(random <= 127){
-    excover.src = "./Hints/TP.jpg";
+    excover.src = "./Covers/TP.jpg";
   }
   else if(random <= 134){
-    excover.src = "./Hints/YE.jpg";
+    excover.src = "./Covers/YE.jpg";
   }
   else if(random <= 141){
-    excover.src = "./Hints/KG.png";
+    excover.src = "./Covers/KG.png";
   }
   else if(random <= 152){
-    excover.src = "./Hints/JK.jpg";
+    excover.src = "./Covers/JK.jpg";
   }
   else if(random <= 180){
-    excover.src = "./Hints/DO.jpeg";
+    excover.src = "./Covers/DO.jpeg";
   }
   else if(random <= 199){
-    excover.src = "./Hints/V1.png";
+    excover.src = "./Covers/V1.png";
   }
   else if(random <= 215){
-    excover.src = "./Hints/V2.png";
+    excover.src = "./Covers/V2.png";
   }
 
   if(x == 0){
@@ -329,48 +330,6 @@ function skip() {
   randomSong(mod);
 }
 
-function hints(){
-  hint--;
-  assignCover(1);
-/*   document.getElementById("hintsp").innerHTML = "<b>Hints: </b>" + hint; */
-}
-
-/* function pt_2(gen){
-  switch(gen){
-    case 174: return cmp(bars, remotecontrolpt2); break; //Remote Control
-    case 164: return cmp(bars, remotecontrol); break;
-    case 180: return cmp(bars, jesuslordpt2); break; //Jesus Lord
-    case 172: return cmp(bars, jesuslord); break;
-    case 178: return cmp(bars, okokpt2); break; //Ok Ok
-    case 181: return cmp(bars, okok); break;
-    case 168: return cmp(bars, junyapt2); break; //Junya
-    case 182: return cmp(bars, junya); break;
-    case 158: return cmp(bars, jailpt2); break; //Jail
-    case 183: return cmp(bars, jail); break;
-    case 171: return cmp(bars, keepmyspiritalive); break; //Keep My Spirit Alive
-    case 184: return cmp(bars, keepmyspiritalivept2); break;
-    case 34:  return cmp(bars, diamondsfromsierraleonebonustrack); break; //Diamonds From Sierra Leone (RMX/BT)
-    case 41:  return cmp(bars, diamondsfromsierraleoneremix); break;
-    default:  return false; break;
-  }
-} */
-
-/* function cmp(a, b){
-  let pos = 0;
-  for(let i = 0; i < b.length; i++) {
-    if(a[0] == b[i]){
-      pos = i;
-      break;
-    }
-  }
-  if(a[1] == b[pos + 1] && a[2] == b[pos + 2] && a[3] == b[pos + 3]){
-    return true;
-  }
-  else{
-    return false;
-  }
-} */
-
 function skipMinus(){
   if(skipSong > 0){
     skip();
@@ -391,7 +350,6 @@ function randomSong(mod){
   }
   switch(random){
     
-    /* The College Dropout */
     case 1: song = intro; break;
     case 2: song = wedontcare; break;
     case 3: song = graduationday; break;
@@ -413,8 +371,6 @@ function randomSong(mod){
     case 19: song = throughthewire; break;
     case 20: song = familybusiness; break;
     case 21: song = lastcall; break;
-
-    /* Late Registration */
     case 22: song = wakeupmrwest; break
     case 23: song = heardemsay; break;
     case 24: song = touchthesky; break;
@@ -434,10 +390,7 @@ function randomSong(mod){
     case 38: song = celebration; break;
     case 39: song = skit4; break;
     case 40: song = gone; break;
-/*     case 41: song = diamondsfromsierraleonebonustrack; break; */
     case 42: song = late; break;
-
-    /* Graduation */
     case 43: song = goodmorning; break;
     case 44: song = champion; break
     case 45: song = stronger; break;
@@ -452,8 +405,6 @@ function randomSong(mod){
     case 54: song = homecoming; break;
     case 55: song = bigbrother; break;
     case 56: song = goodnight; break;
-    
-    /* 808s And Heartbreak */
     case 57: song = sayyouwill; break;
     case 58: song = welcometoheartbreak; break;
     case 59: song = heartless; break;
@@ -466,8 +417,6 @@ function randomSong(mod){
     case 66: song = seeyouinmynightmares; break;
     case 67: song = coldestwinter; break;
     case 68: song = pinocchiostory; break;
-
-    /* My Beautiful Dark Twisted Fantasy */
     case 69: song = darkfantasy; break;
     case 70: song = gorgeous; break;
     case 71: song = power; break;
@@ -481,8 +430,6 @@ function randomSong(mod){
     case 79: song = blamegame; break;
     case 80: song = lostintheworld; break;
     case 81: song = whowillsurviveinamerica; break;
-
-    /* Watch The Throne */
     case 82: song = nochurchinthewild; break;
     case 83: song = liftoff; break;
     case 84: song = niggasinparis; break;
@@ -499,8 +446,6 @@ function randomSong(mod){
     case 95: song = ham; break;
     case 96: song = primetime; break;
     case 97: song = thejoy; break;
-
-    /* Yeezus */
     case 98: song = onsight; break;
     case 99: song = blackskinhead; break;
     case 100: song = iamagod; break;
@@ -511,8 +456,6 @@ function randomSong(mod){
     case 105: song = guilttrip; break;
     case 106: song = senditup; break;
     case 107: song = bound2; break;
-
-    /* The Life of Pablo */
     case 108: song = ultralightbeam; break;
     case 109: song = fatherstretchmyhandspt1; break;
     case 110: song = pt2; break;
@@ -533,8 +476,6 @@ function randomSong(mod){
     case 125: song = factscharlieheatversion; break;
     case 126: song = fade; break;
     case 127: song = saintpablo; break;
-
-    /* ye */
     case 128: song = ithoughtaboutkillingyou; break;
     case 129: song = yikes; break;
     case 130: song = allmine; break;
@@ -542,8 +483,6 @@ function randomSong(mod){
     case 132: song = nomistakes; break;
     case 133: song = ghosttown; break;
     case 134: song = violentcrimes; break;
-    
-    /* Kids See Ghosts */
     case 135: song = feelthelove; break;
     case 136: song = fire; break;
     case 137: song = fourthdimension; break;
@@ -551,8 +490,6 @@ function randomSong(mod){
     case 139: song = reborn; break;
     case 140: song = kidsseeghosts; break;
     case 141: song = cudimontage; break;
-
-    /* JESUS IS KING */
     case 142: song = everyhour; break;
     case 143: song = selah; break;
     case 144: song = followgod; break;
@@ -564,8 +501,6 @@ function randomSong(mod){
     case 150: song = handson; break;
     case 151: song = usethisgospel; break;
     case 152: song = jesusislord; break;
-
-    /* Donda */
     case 153: song = dondachant; break;
     case 154: song = hurricane; break;
     case 155: song = moon; break;
@@ -577,7 +512,6 @@ function randomSong(mod){
     case 161: song = believewhatisay; break;
     case 162: song = nochildleftbehind; break;
     case 163: song = upfromtheashes; break;
-/*     case 164: song = remotecontrolpt2; break; */
     case 165: song = godbreathed; break;
     case 166: song = lordineedyou; break;
     case 167: song = ventiquattro; break;
@@ -585,7 +519,6 @@ function randomSong(mod){
     case 169: song = neverabandonyourfamily; break;
     case 170: song = donda; break;
     case 171: song = keepmyspiritalive; break;
-/*     case 172: song = jesuslordpt2; break; */
     case 173: song = heavenandhell; break;
     case 174: song = remotecontrol; break;
     case 175: song = tellthevision; break;
@@ -594,12 +527,6 @@ function randomSong(mod){
     case 178: song = okok; break;
     case 179: song = newagain; break;
     case 180: song = jesuslord; break;
-/*     case 181: song = okokpt2; break; */
-/*     case 182: song = junyapt2; break;
-    case 183: song = jailpt2; break; */
-/*     case 184: song = keepmyspiritalivept2; break; */
-  
-    /* VULTURES 1 */
     case 185: song = stars; break;
     case 186: song = keystomylife; break;
     case 187: song = paid; break;
@@ -613,10 +540,8 @@ function randomSong(mod){
     case 195: song = vultures; break;
     case 196: song = carnival; break;
     case 197: song = begforgiveness; break;
-/*     case 198: song = good; break; */
     case 198: song = problematic; break;
     case 199: song = king; break;
-
     case 200: song = slide; break;
     case 201: song = timemovingslow; break;
     case 202: song = fieldtrip; break;

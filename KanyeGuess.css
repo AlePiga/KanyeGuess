@@ -18,6 +18,11 @@
     align-items: center;
 } */
 
+#bottomLogo{
+  width: 100px;
+  border-radius: 12.5px;
+}
+
 *{
   text-align: center;
   background-color: #181818;
