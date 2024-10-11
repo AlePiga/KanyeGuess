@@ -252,7 +252,6 @@ function check(){
   if(selected == random){
       getSong(2);
     cnt ++;
-    document.title = "(" + cnt + ") KanyeGuess";
   }
   else {
     err--;
@@ -265,7 +264,6 @@ function check(){
     else{
       getSong(0);
     }
-    document.title = "(" + 0 + ") KanyeGuess";
   }
   
   let streak = "<b>Score:</b> " + cnt;
