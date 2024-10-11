@@ -4,7 +4,7 @@ let song = "";
 let cnt = 0;
 let mod = 0;
 let skipSong = 10;
-let err = 5;
+let err = 1;
 let hint = 5;
 
 let min;
@@ -61,10 +61,11 @@ function howToPlay(){
   alert("Welcome to KanyeGuess!\n\nIn this game, you're prompted with four bars from a random Ye song and you need to guess which one is it.\n\nTo start playing, read the lyrics and write the name of the song they come from in the text box below them, then press the submit button or enter the enter key.\n\nIf you have no idea what the song is, you can skip the round by pressing the skip button or entering the minus (-) key. You usually do this whenever you're given something from Watch The Throne... That album sucks IMO...\n\nAnyways, keep in mind that in each game you'll be given the possibility to skip for only 10 times, and that you only have 5 lives.\n\nYou lose a life when you get a song wrong, and if you lose all of your lives you'll be prompted with a game over screen.\n\nHave fun playing KanyeGuess and testing your Yeezy knowledge! :)\n~AlePiga")
 }
 
-function gameOver(){
+function gameOver() {
+  // Nascondi tutti i pulsanti e le sezioni rilevanti
   hide("submit");
   hide("submit");
-  if(document.getElementById("skip").style.display != "none"){
+  if (document.getElementById("skip").style.display !== "none") {
     hide("skip");
     hide("skip");
   }
@@ -72,9 +73,14 @@ function gameOver(){
   hide("kofi");
   hide("kanye-songs");
   hide("kanye-songs");
-  hide("indizi");
-  hide("indizi");
+  
+  // Mostra il pulsante per ricaricare la pagina o riprovare
+  let reloadButton = document.getElementById("reload");
+  if (reloadButton.style.display === "none") {
+    hide("reload");
+  }
 }
+
 
 function openkofi(){
   window.open("https://instagram.com/iosonopiga", "_blank");
@@ -160,40 +166,42 @@ function load(){
 }
 
 function randomBars() {
-  bars = [];
-  let length = song.length - 1;
-  let randomB = Math.floor(Math.random() * (length - 1 + 1)) + 1;
-
-  if (randomB + 3 >= song.length - 1) {
-    randomB = randomB - 3;
-    if (err != 0) {
+  if(err == 0){
+    gameOver();
+    bars.length = 0;
+    bars.push("Game over!<br>You lost all your lives :(")
+  }
+  else{
+    bars = [];
+    let length = song.length - 1;
+    let randomB = Math.floor(Math.random() * (length - 1 + 1)) + 1;
+  
+    if (randomB + 3 >= song.length - 1) {
+      randomB = randomB - 3;
+      if (err != 0) {
+        bars.push(song[randomB] + "<br>" + song[randomB + 1] + "<br>" + song[randomB + 2] + "<br>" + song[randomB + 3]);
+        document.getElementById("bars").innerHTML = bars.join(''); // Unisce gli elementi senza virgole
+      } else if (err == 0) {
+        bars.push("Game over! You lost all your lives :(");
+        document.getElementById("bars").innerHTML = bars.join(''); // Unisce gli elementi senza virgole
+      }
+    } else if (err != 0) {
       bars.push(song[randomB] + "<br>" + song[randomB + 1] + "<br>" + song[randomB + 2] + "<br>" + song[randomB + 3]);
       document.getElementById("bars").innerHTML = bars.join(''); // Unisce gli elementi senza virgole
-    } else if (err == 0) {
-      bars.push("Game over! You lost all your lives :(");
+    } else {
+      let a = '<a href="https://ko-fi.com/alepiga/">Kanye Guess Ko-fi page</a>';
+      let b = '<a href="https://instagram.com/iosonopiga">follow my Instagram</a>';
+      bars.push("Game over! You lost all your lives!<br>If you want to support my project you<br>can check out the " + a + "<br>or " + b + " :)");
       document.getElementById("bars").innerHTML = bars.join(''); // Unisce gli elementi senza virgole
     }
-  } else if (err != 0) {
-    bars.push(song[randomB] + "<br>" + song[randomB + 1] + "<br>" + song[randomB + 2] + "<br>" + song[randomB + 3]);
-    document.getElementById("bars").innerHTML = bars.join(''); // Unisce gli elementi senza virgole
-  } else {
-    let a = '<a href="https://ko-fi.com/alepiga/">Kanye Guess Ko-fi page</a>';
-    let b = '<a href="https://instagram.com/iosonopiga">follow my Instagram</a>';
-    bars.push("Game over! You lost all your lives!<br>If you want to support my project you<br>can check out the " + a + "<br>or " + b + " :)");
-    document.getElementById("bars").innerHTML = bars.join(''); // Unisce gli elementi senza virgole
   }
 }
 
 function getSong(act){
-  let ye = document.getElementById("ye");
-  let kanyeincazzato = [
-    "./Kanye/ye_disappointed1.jpg",
-    "./Kanye/ye_disappointed2.jpg",
-  ]
-  let incazzatocome = Math.floor(Math.random() * (kanyeincazzato.length));
-
+  if(err == 0){
+    gameOver();
+  }
   if(act == 0 /* Caso scelta sbagliata */){
-/*     ye.src = kanyeincazzato[incazzatocome]; */
     let select = document.getElementById("select");
     for(let i = 0; i < select.options.length; i++) {
         if(select.options[i].value == random) {
@@ -205,7 +213,6 @@ function getSong(act){
 
   else if(act == 1 /* Caso skip */){
     let ye = document.getElementById("ye"); 
-/*     ye.src = "./Kanye/ye_neutral.jpg";  */
     let select = document.getElementById("select");
     for(let i = 0; i < select.options.length; i++) {
         if(select.options[i].value == random) {
@@ -218,7 +225,6 @@ function getSong(act){
   else if(act == 2 /* Caso scelta corretta */){
     playE();
     let ye = document.getElementById("ye"); 
-/*     ye.src = "./Kanye/ye_smile.jpg";  */
     let select = document.getElementById("select");
     for(let i = 0; i < select.options.length; i++) {
         if(select.options[i].value == random) {
@@ -240,65 +246,13 @@ function randomImage() {
   elementoImmagine.src = urlImmagine; 
 }
 
-function assignCover(x){
-  let excover = document.getElementById("hint");
-  
-  if(random <= 21){
-    excover.src = "./Covers/CD.jpg";
-  }
-  else if(random <= 42){
-    excover.src = "./Covers/LR.jpg";
-  }
-  else if(random <= 56){
-    excover.src = "./Covers/GR.jpg";
-  }
-  else if(random <= 68){
-    excover.src = "./Covers/8H.png";
-  }
-  else if(random <= 81){
-    excover.src = "./Covers/MF.jpg";
-  }
-  else if(random <= 97){
-    excover.src = "./Covers/WT.jpg";
-  }
-  else if(random <= 107){
-    excover.src = "./Covers/YZ.png";
-  }
-  else if(random <= 127){
-    excover.src = "./Covers/TP.jpg";
-  }
-  else if(random <= 134){
-    excover.src = "./Covers/YE.jpg";
-  }
-  else if(random <= 141){
-    excover.src = "./Covers/KG.png";
-  }
-  else if(random <= 152){
-    excover.src = "./Covers/JK.jpg";
-  }
-  else if(random <= 180){
-    excover.src = "./Covers/DO.jpeg";
-  }
-  else if(random <= 199){
-    excover.src = "./Covers/V1.png";
-  }
-  else if(random <= 215){
-    excover.src = "./Covers/V2.png";
-  }
-
-  if(x == 0){
-    setTimeout(() => {
-      console.log("Waited for 5 seconds");
-    }, 5000);
-  }
-}
-
 function check(){
   let selected = document.getElementById('yelist').querySelector('option[value="' + document.getElementById('kanye-songs').value + '"]').id;
   document.getElementById('kanye-songs').value = "";
   if(selected == random){
       getSong(2);
     cnt ++;
+    document.title = "(" + cnt + ") KanyeGuess";
   }
   else {
     err--;
@@ -311,6 +265,7 @@ function check(){
     else{
       getSong(0);
     }
+    document.title = "(" + 0 + ") KanyeGuess";
   }
   
   let streak = "<b>Score:</b> " + cnt;
