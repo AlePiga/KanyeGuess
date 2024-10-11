@@ -1,3 +1,290 @@
+<<<<<<< HEAD
+@font-face {
+  font-family: Poppins;
+  src: url(./Fontfaces/Regular.ttf);
+}
+
+@font-face {
+  font-family: PoppinsBold;
+  src: url(./Fontfaces/Bold.ttf);
+}
+
+/* html
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+} */
+
+#bottomLogo{
+  width: 100px;
+  border-radius: 12.5px;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+*{
+  text-align: center;
+  background-color: #181818;
+  color: white;
+  align-items: center;
+}
+
+h1{
+  font-family: PoppinsBold;
+  font-size: 48pt;
+}
+
+h2{
+  font-family: Poppins;
+  font-size: 24pt;
+}
+
+label[name="lt"]{
+  font-size: 100%;
+}
+
+p{
+  font-family: Poppins;
+  font-size: 100%;
+  text-align: center;
+}
+
+label{
+  font-family: Poppins;
+  font-size: 14pt;
+  text-align: center;
+}
+
+a{
+  text-emphasis: bold;
+}
+
+#welcome{
+  font-size: 12pt;
+}
+
+#bottomL{
+  display: flex;
+  text-align: left;
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+}
+
+#bottomR{
+  text-align: right;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+#mode{
+  width: 325px;
+  font-family: Poppins;
+  font-size: 12pt;
+  border-radius: 12.5px;
+  border-color: white;
+  border-width: 2px;
+}
+
+#insp{
+  text-align: left;
+  padding-left: 10px;
+}
+
+#howtoplay{
+  text-align: center;
+  font-family: Poppins;
+  font-size: 24pt;
+  height: 48pt;
+  width: 48pt;
+  border-radius: 12.5px;
+  border-color: white;
+}
+
+#warningmobile{ 
+  width: 70%;
+  color: rgb(252, 46, 46);
+}
+
+#wmmsg{
+  color: rgb(252, 46, 46);
+  border-style: solid;
+  border-color: rgb(252, 46, 46);
+  padding: 10px;
+}
+
+#bars{
+  background-color: rgb(32, 32, 32);
+  padding: 1%;
+}
+
+#kanye-songs{
+  width: 30%;
+  font-family: Poppins;
+  font-size: 16pt;
+  border-radius: 12.5px;
+  border-color: white;
+  border-width: 2px;
+}
+
+#logo{
+  width: 70%;
+  transition: transform .2s;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#logo:hover{
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+#hint{
+  height: 100px;
+  /*   transition: transform .2s; */
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#hint:hover{
+  /* transform: scale(1.05); */
+  cursor: pointer;
+}
+
+#exhint{
+  height: 70px;
+  /*   transition: transform .2s; */
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#exhint:hover{
+  /* transform: scale(1.05); */
+  cursor: pointer;
+}
+
+#hintsdiv{
+  justify-content: baseline;
+}
+
+#submit{
+  font-family: Poppins;
+  font-size: 16pt;
+  border-radius: 12.5px;
+  border-color: white;
+}
+
+#submit:hover{
+  cursor: pointer;
+}
+
+#indizi{
+  font-family: Poppins;
+  font-size: 12pt;
+  border-radius: 12.5px;
+  border-color: white;
+}
+
+#indizi:hover{
+  cursor: pointer;
+}
+
+#kofi{
+  text-align: center;
+  font-family: Poppins;
+  font-size: 12pt;
+  border-radius: 12.5px;
+  border-color: white;
+}
+
+#kofi:hover{
+  cursor: pointer;
+}
+
+#reload{
+  text-align: center;
+  font-family: Poppins;
+  font-size: 12pt;
+  border-radius: 12.5px;
+  border-color: white;
+}
+
+#reload:hover{
+  cursor: pointer;
+}
+
+#skip{
+  font-family: Poppins;
+  font-size: 16pt;
+  border-radius: 12.5px;
+  border-color: white;
+}
+
+#skip:hover{
+  cursor: pointer;
+}
+
+#select{
+  display: none !important;
+}
+
+#borraccia{
+  height: 65%;
+}
+
+#te_al_limone{
+  height: 35%;
+}
+
+.search-box{
+  width: 600px;
+  background: #fff;
+  margin: 10px auto 0;
+  border-radius: 5px;
+}
+
+#input-box{
+  font-family: Poppins;
+  font-size: 12pt;
+  border-radius: 12.5px;
+  border-color: white;
+  border-width: 2px;
+  width: 250px;
+}
+
+.result-box ul{
+  border-top: 1px solid #999;
+  padding: 15px 10px;
+}
+
+.result-box li{
+  list-style: none;
+  border-radius: 3px;
+  padding: 15px 10px;
+  cursor: pointer;
+}
+
+.result-box li:hover{
+  background: #999;
+}
+=======
 @font-face {
   font-family: Poppins;
   src: url(./Fontfaces/Regular.ttf);
@@ -278,3 +565,4 @@ a{
 .result-box li:hover{
   background: #999;
 }
+>>>>>>> ce30fc3e436298369811c1e56ad319deb94c4677

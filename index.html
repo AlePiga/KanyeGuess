@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <head>
 
@@ -355,3 +356,362 @@
     <option value="214">SKY CITY</option>
     <option value="215">MY SOUL</option>
 </select>
+=======
+<!DOCTYPE html>
+<head>
+
+<!-- Qui comincia il vero sito hehehe -->
+<title>Kanye Guess</title> <!-- Titolo -->
+<link rel="stylesheet" href="./KanyeGuess.css"> <!-- Link CSS -->
+<script src="./KanyeGuess.js" charset="UTF-8"></script> <!-- Link JS -->
+<link rel="icon" href="./Favicon.png"> <!-- Link favicon -->
+</head>
+
+<html>
+    <!-- All'apertura del sito è chiamata la funzione load -->
+    <body onload="load()">
+        <div id="colonna1"></div>
+        <div id="colonna2">
+        <!-- <label id="wmmsg">KanyeGuess is more optimized for PC screens. For a better experience, we reccomend you to visit this site on a PC</label> -->
+        <!-- Paragrafo contenente il punteggio, le vite e gli skip -->
+        <p id="top">
+            <label name="lt" id="streak"><b>Score: </b>0</label>
+            <label name="lt" id="vite"><b>Lives: </b>5</label>
+            <label name="lt" id="skipp"><b>Skips: </b>10</label>
+        </p>
+        
+        <!-- Logo del sito -->
+        <img id="logo" onclick="clickImage()" alt="Kanye Guess Logo">
+
+        <!-- Paragrafo contenente i testi generati -->
+        <p id="bars"><img id="hint" src="./Hints/UN.png"></p>
+
+        <!-- Pulsanti per essere reindirizzati alla pagina stessa o a Ko-fi -->
+        <input type="button" id="reload" value="Play Again" onclick="window.location.reload()">
+        <input type="button" id="kofi" value="Follow my Instagram" onclick="openkofi()">
+        
+        <!-- Audio con la prima nota di Runaway e poopity scoop -->
+        <audio id="runaway" src="./Music/runawayE.mp3"></audio>
+        <audio id="poopityscoop" src="./Music/poopityscoop.mp3"></audio>
+
+        <!-- Datalist abnorme con tutte le canzoni di Kanye, gli artisti e i feat -->
+        <input list="yelist" id="kanye-songs" placeholder="Start by typing any Ye song!">
+        <datalist id="yelist">
+
+            <option id="1" value="Intro">No features</option>
+            <option id="2" value="We Don't Care">No features</option>
+            <option id="3" value="Graduation Day">No features</option>
+            <option id="4" value="All Falls Down">feat. Sylenna Johnson</option>
+            <option id="5" value="I'll Fly Away">feat. The World Famous Tony Williams, DeRay Davis</option>
+            <option id="6" value="Spaceship">feat. GLC, Consequence</option>
+            <option id="7" value="Jesus Walks">No features</option>
+            <option id="8" value="Never Let Me Down">feat. Jay-Z, J. Ivy</option>
+            <option id="9" value="Get Em High">feat. Talib Kweli, Common</option>
+            <option id="10" value="Workout Plan">No features</option>
+            <option id="11" value="The New Workout Plan">No features</option>
+            <option id="12" value="Slow Jamz">feat. Twista, Jamie Foxx</option>
+            <option id="13" value="Breathe In Breathe Out">feat. Ludacris</option>
+            <option id="14" value="School Spirit Skit #1">No features</option>
+            <option id="15" value="School Spirit">No features</option>
+            <option id="16" value="School Spirit Skit #2">No features</option>
+            <option id="17" value="Lil Jimmy Skit">No features</option>
+            <option id="18" value="Two Words">feat. Mos Def, Freeway, The Boys Choir of Harlem</option>
+            <option id="19" value="Through The Wire">No features</option>
+            <option id="20" value="Family Business">No features</option>
+            <option id="21" value="Last Call">No features</option>
+
+            <option id="22" value="Wake Up Mr West">feat. DeRay Davis</option>
+            <option id="23" value="Heard 'Em Say">feat. Adam Levine</option>
+            <option id="24" value="Touch The Sky">feat. Lupe Fiasco</option>
+            <option id="25" value="Gold Digger">feat. Jamie Foxx</option>
+            <option id="26" value="Skit #1">No features</option>
+            <option id="27" value="Drive Slow">feat. Paul Wall, GLC</option>
+            <option id="28" value="My Way Home">feat. Common</option>
+            <option id="29" value="Crack Music">feat. The Game</option>
+            <option id="30" value="Roses">feat. Bill Withers</option>
+            <option id="31" value="Bring Me Down">feat. Brandy</option>
+            <option id="32" value="Addiction">feat. Lorenz Hart, Richard Rogers</option>
+            <option id="33" value="Skit #2">No features</option>
+            <option id="34" value="Diamonds from Sierra Leone (Remix)">feat. Jay-Z</option>
+            <option id="35" value="We Major">feat. Nas, Really Doe</option>
+            <option id="36" value="Skit #3">No features</option>
+            <option id="37" value="Hey Mama">No features</option>
+            <option id="38" value="Celebration">No features</option>
+            <option id="39" value="Skit #4">No features</option>
+            <option id="40" value="Gone">feat. Cam'ron, Consequence</option>
+            <!-- <option id="41" value="Diamonds from Sierra Leone">No features</option> -->
+            <option id="42" value="Late">No features</option>
+
+            <option id="43" value="Good Morning">No features</option>
+            <option id="44" value="Champion">No features</option>
+            <option id="45" value="Stronger">feat. Daft Punk</option>
+            <option id="46" value="I Wonder">No features</option>
+            <option id="47" value="Good Life">feat. T-Pain</option>
+            <option id="48" value="Can't Tell Me Nothing">No features</option>
+            <option id="49" value="Barry Bonds">feat. Lil Wayne</option>
+            <option id="50" value="Drunk and Hot Girls">feat. Mos Def</option>
+            <option id="51" value="Flashing Lights">feat. Dwele</option>
+            <option id="52" value="Everything I Am">feat. DJ Premier</option>
+            <option id="53" value="The Glory">No features</option>
+            <option id="54" value="Homecoming">feat. Chris Martin</option>
+            <option id="55" value="Big Brother">No features</option>
+            <option id="56" value="Good Night">feat. Al Be Back, Mos Def</option>
+
+            <option id="57" value="Say You Will">No features</option>
+            <option id="58" value="Welcome to Heartbreak">feat. Kid Cudi</option>
+            <option id="59" value="Heartless">No features</option>
+            <option id="60" value="Amazing">No features</option>
+            <option id="61" value="Love Lockdown">No features</option>
+            <option id="62" value="Paranoid">feat. Mr Hudson</option>
+            <option id="63" value="RoboCop">No features</option>
+            <option id="64" value="Street Lights">No features</option>
+            <option id="65" value="Bad News">No features</option>
+            <option id="66" value="See You in My Nightmares">feat. Lil Wayne</option>
+            <option id="67" value="Coldest Winter">No features</option>
+            <option id="68" value="Pinocchio Story">No features</option>
+
+            <option id="69" value="Dark Fantasy">No features</option>
+            <option id="70" value="Gorgeous">feat. Kid Cudi, Raekwon</option>
+            <option id="71" value="POWER">No features</option>
+            <option id="72" value="All of the Lights (Interlude)">No features</option>
+            <option id="73" value="All of the Lights">No features</option>
+            <option id="74" value="Monster">feat. Jay-Z, Rick Ross, Nicki Minaj, Bon Iver</option>
+            <option id="75" value="So Appalled">feat. Jay-Z, Pusha T, CyHi the Prince, Swizz Beatz, RZA</option>
+            <option id="76" value="Devil in a New Dress">feat. Rick Ross</option>
+            <option id="77" value="Runaway">feat. Pusha T</option>
+            <option id="78" value="Hell of a Life">No features</option>
+            <option id="79" value="Blame Game">feat. John Legend</option>
+            <option id="80" value="Lost in the World">feat. Bon Iver</option>
+            <option id="81" value="Who Will Survive in America">No features</option>
+
+            <option id="82" value="No Chruch in the Wild">feat. Jay-Z, Frank Ocean</option>
+            <option id="83" value="Lift Off">feat. Jay-Z, Beyoncé</option>
+            <option id="84" value="Ni**as in Paris">feat. Jay-Z</option>
+            <option id="85" value="Otis">feat. Jay-Z, Otis Redding</option>
+            <option id="86" value="Gotta Have It">feat. Jay-Z</option>
+            <option id="87" value="New Day">feat. Jay-Z</option>
+            <option id="88" value="That's My Bitch">feat. Jay-Z</option>
+            <option id="89" value="Welcome to the Jungle">feat. Jay-Z</option>
+            <option id="90" value="Who Gon Stop Me">feat. Jay-Z</option>
+            <option id="91" value="Murder To Excellence">feat. Jay-Z</option>
+            <option id="92" value="Made in America">feat. Jay-Z, Frank Ocean</option>
+            <option id="93" value="Why I Love You">feat. Jay-Z, Mr Hudson</option>
+            <option id="94" value="Illest Motherfucker Alive">feat. Jay-Z</option>
+            <option id="95" value="H*A*M">feat. Jay-Z</option>
+            <option id="96" value="Primetime">feat. Jay-Z</option>
+            <option id="97" value="The Joy">feat. Jay-Z, Curtis Mayfield</option>
+
+            <option id="98" value="On Sight">No features</option>
+            <option id="99" value="Black Skinhead">No features</option>
+            <option id="100" value="I Am a God">feat. God</option>
+            <option id="101" value="New Slaves">No features</option>
+            <option id="102" value="Hold My Liquor">No features</option>
+            <option id="103" value="I'm in It">No features</option>
+            <option id="104" value="Blood on the Leaves">No features</option>
+            <option id="105" value="Guilt Trip">No features</option>
+            <option id="106" value="Send It Up">No features</option>
+            <option id="107" value="Bound 2">No features</option>
+
+            <option id="108" value="Ultralight Beam">feat. Chance The Rapper</option>
+            <option id="109" value="Father Stretch My Hands, Pt. 1">feat. Kid Cudi</option>
+            <option id="110" value="Pt.2">feat. Desiigner</option>
+            <option id="111" value="Famous">feat. Swizz Beatz, Rihanna</option>
+            <option id="112" value="Feedback">No features</option>
+            <option id="113" value="Low Lights">No features</option>
+            <option id="114" value="Highlights">feat. Young Thug</option>
+            <option id="115" value="Freestyle 4">feat. Desiigner</option>
+            <option id="116" value="I Love Kanye">No features</option>
+            <option id="117" value="Waves">feat. Chris Brown, Kid Cudi</option>
+            <option id="118" value="FML">feat. The Weeknd</option>
+            <option id="119" value="Real Friends">feat. Ty Dolla $ign</option>.
+            <option id="120" value="Wolves">feat. Vic Mensa, Sia, Caroline Shaw</option>
+            <option id="121" value="Frank's Track">feat. Frank Ocean</option>
+            <option id="122" value="Siiiiiiiiilver Surffffeeeeer Intermission">feat. Max B, French Montana</option>
+            <option id="123" value="30 Hours">feat. André 3000</option>
+            <option id="124" value="No More Parties in LA">feat. Kendrick Lamar</option>
+            <option id="125" value="Facts (Charlie Heat Version)">No features</option>
+            <option id="126" value="Fade">No features</option>
+            <option id="127" value="Saint Pablo">No features</option>
+
+            <option id="128" value="I Thought About Killing You">No features</option>
+            <option id="129" value="Yikes">No features</option>
+            <option id="130" value="All Mine">feat. Ant Clemons, Ty Dolla $ign</option>
+            <option id="131" value="Wouldn't Leave">feat. PartyNextDoor</option>
+            <option id="132" value="No Mistakes">feat. Kid Cudi, Charlie Wilson</option>
+            <option id="133" value="Ghost Town">feat. PartyNextDoor, 070 Shake, Kid Cudi</option>
+            <option id="134" value="Violent Crimes">feat. Nicky Minaj, 070 Shake, Ty Dolla $ign</option>
+
+            <option id="135" value="Feel the Love">feat. Kid Cudi</option>
+            <option id="136" value="Fire">feat. Kid Cudi, André 3000</option>
+            <option id="137" value="4th Dimension">feat. Kid Cudi, Louis Prima</option>
+            <option id="138" value="Freeee (Ghost Town, Pt. 2)">feat. Kid Cudi, Ty Dolla $ign</option>
+            <option id="139" value="Reborn">feat. Kid Cudi</option>
+            <option id="140" value="Kids See Ghosts">feat. Kid Cudi, Yasiin Bey</option>
+            <option id="141" value="Cudi Montage">feat. Kid Cudi</option>
+
+            <option id="142" value="Every Hour">feat. Sunday Service Choir</option>
+            <option id="143" value="Selah">No features</option>
+            <option id="144" value="Follow God">No features</option>
+            <option id="145" value="Closed on Sunday">No features</option>
+            <option id="146" value="On God">feat. Pi'erre Bourne</option>
+            <option id="147" value="Everything We Need">feat. Ty Dolla $ign</option>
+            <option id="148" value="Water">feat. Ant Clemons</option>
+            <option id="149" value="God Is">No features</option>
+            <option id="150" value="Hands On">feat. Fred Hammond</option>
+            <option id="151" value="Use This Gospel">feat. Clipse, Kenny G</option>
+            <option id="152" value="Jesus Is Lord">No features</option>
+            
+            <option id="153" value="Donda Chant">feat. Syleena Johnson</option>
+            <option id="154" value="Hurricane">feat. The Weeknd</option>
+            <option id="155" value="Moon">feat. Don Toliver, Kid Cudi</option>
+            <option id="156" value="Life of the Party">feat. André 3000</option>
+            <option id="157" value="Off The Grid">feat. Playboi Carti, Fivio Foreign</option>
+            <option id="158" value="Jail">feat. Jay-Z</option>
+            <option id="159" value="Praise God">feat. Travis Scott, Baby Keem</option>
+            <option id="160" value="Come to Life">No features</option>
+            <option id="161" value="Believe What I Say">No features</option>
+            <option id="162" value="No Child Left Behind">feat. Vory</option>
+            <option id="163" value="Up from the Ashes">feat. Sunday Service Choir</option>
+<!--             <option id="164" value="Remote Control pt 2">feat. Young Thug, Kid, The Globglogabgalab</option> -->
+            <option id="165" value="God Breathed">feat. Vory</option>
+            <option id="166" value="Lord I Need You">No features</option>
+            <option id="167" value="24">No features</option>
+            <option id="168" value="Junya">feat. Playboi Carti</option>
+            <option id="169" value="Never Abandon Your Family">No features</option>
+            <option id="170" value="Donda">feat. Stalone, The World Famous Tony Williams</option>
+            <option id="171" value="Keep My Spirit Alive">feat. Westside Gunn, Conway the Machine</option>
+<!--             <option id="172" value="Jesus Lord pt 2">feat. The LOX, Jay Electronica</option> -->
+            <option id="173" value="Heaven and Hell">No features</option>
+            <option id="174" value="Remote Control">feat. Young Thug, The Globglogabgalab</option>
+            <option id="175" value="Tell The Vision">feat. Pop Smoke</option>
+            <option id="176" value="Jonah">feat. Lil Durk, Vory</option>
+            <option id="177" value="Pure Souls">feat. Roddy Ricch, Shenseea</option>
+            <option id="178" value="Ok Ok">feat. Lil Yachty, Rooga</option>
+            <option id="179" value="New Again">No features</option>
+            <option id="180" value="Jesus Lord">feat. Jay Electronica</option>
+<!--             <option id="181" value="Ok Ok pt 2">feat. Rooga, Shenseea</option> -->
+<!--             <option id="182" value="Junya pt 2">feat. Playboi Carti, Ty Dolla $ign</option> -->
+<!--             <option id="183" value="Jail pt 2">feat. DaBaby, Marilyn Manson</option> -->
+<!--             <option id="184" value="Keep My Spirit Alive pt 2">feat. KayCyy, Conway the Machine</option> -->
+
+            <option id="185" value="STARS">feat. Ty Dolla $ign</option>
+            <option id="186" value="KEYS TO MY LIFE">feat. Ty Dolla $ign, Timbaland</option>
+            <option id="187" value="PAID">feat. Ty Dolla $ign, K-Ci</option>
+            <option id="188" value="TALKING">feat. Ty Dolla $ign, North West</option>
+            <option id="189" value="BACK TO ME">feat. Ty Dolla $ign, Freddie Gibbs, Quavo</option>
+            <option id="190" value="HOODRAT">feat. Ty Dolla $ign</option>
+            <option id="191" value="DO IT">feat. Ty Dolla $ign, YG, Nipsey Hussle</option>
+            <option id="192" value="PAPERWORK">feat. Ty Dolla $ign</option>
+            <option id="193" value="BURN">feat. Ty Dolla $ign</option>
+            <option id="194" value="FUK SUMN">feat. Ty Dolla $ign, Playboi Carti, Travis Scott</option>
+            <option id="195" value="VULTURES">feat. Ty Dolla $ign, Lil Durk, Bump J</option>
+            <option id="196" value="CARNIVAL">feat. Ty Dolla $ign, Playboi Carti, Rich The Kid</option>
+            <option id="197" value="BEG FORGIVENESS">feat. Ty Dolla $ign, Chris Brown</option>
+<!--             <option id="198" value="GOOD (DON'T DIE)">feat. Ty Dolla $ign, Jessica Rey Soul</option> -->
+            <option id="198" value="PROBLEMATIC">feat. Ty Dolla $ign</option>
+            <option id="199" value="KING">feat. Ty Dolla $ign, Lester Nowhere</option>
+            
+            <option id="200" value="SLIDE">feat. Ty Dolla $ign</option>
+            <option id="201" value="TIME MOVING SLOW">feat. Ty Dolla $ign</option>
+            <option id="202" value="FIELD TRIP">feat. Ty Dolla $ign, Playboi Carti, Don Toliver, Kodak Black</option>
+            <option id="203" value="FRIED">feat. Ty Dolla $ign</option>
+            <option id="204" value="ISABELLA">feat. Ty Dolla $ign</option>
+            <option id="205" value="PROMOTION">feat. Ty Dolla $ign, Future</option>
+            <option id="206" value="530">feat. Ty Dolla $ign</option>
+            <option id="207" value="DEAD">feat. Ty Dolla $ign, Future, Lil Durk</option>
+            <option id="208" value="FOREVER ROLLING">feat. Ty Dolla $ign, Lil Baby</option>
+            <option id="209" value="BOMB">feat. Ty Dolla $ign, North West, Chicago West, Yuno Miles</option>
+            <option id="210" value="RIVER">feat. Ty Dolla $ign, Young Thug</option>
+            <option id="211" value="FOREVER">feat. Ty Dolla $ign</option>
+            <option id="212" value="HUSBAND">feat. Ty Dolla $ign</option>
+            <option id="213" value="LIFESTYLE">feat. Ty Dolla $ign, Lil Wayne</option>
+            <option id="214" value="SKY CITY">feat. Ty Dolla $ign, 070 Shake, CyHi, Desiigner</option>
+            <option id="215" value="MY SOUL">feat. Ty Dolla $ign, Big TC</option>
+
+        </datalist>
+        
+        <!-- Pulsanti di skip, controllo e indizio -->
+        <input type="button" id="skip" value="Skip" onclick="skip()">
+<!--         <input type="button" id="indizi" value="Hint" onclick="hints()"> -->
+        <input type="button" id="submit" value="Submit" onclick="check()">
+        
+        <br><br>
+
+        <!-- Immagine di Kanye che varia in base all'esito della scelta. Cliccandola si viene reindirizzati a yeezy.com. -->
+        <div id="hintsdiv">
+<!--             <img id="exhint" src="./Hints/DK.png"> -->
+            
+        </div>
+        
+        </p>
+        <p id="result"><i>Song results will appear here. Good luck!</i></p>
+        <!-- Mostra la canzone corretta -->
+        <div id="bottomL">
+            <input type="button" id="howtoplay" value="?" onclick="howToPlay()" style="background: url(./Hints/UN.png)" ...>
+            <p id="insp">Inspired by <a href="https://www.yeezle.xyz">Yeezle</a><br>Made with ❤️ in Italy</a></p>
+        </div>
+        <div id="bottomR">
+            <img id="bottomLogo" src="./Kanye/alr.jpg">
+            <p>Wanna play with a specific set of songs?</p>
+            <select id="mode" onchange="genSet()">
+                <option value="1">All songs</option>
+                <option value="2">Popular songs</option>
+                <option value="3">Obscure songs</option>
+                <option value="4">The College Dropout</option>
+                <option value="5">Late Registration</option>
+                <option value="6">Graduation</option>
+                <option value="7">808s and Heartbreak</option>
+                <option value="8">My Beautiful Dark Twisted Fantasy</option>
+                <option value="9">Watch The Throne (Deluxe)</option>
+                <option value="10">Yeezus</option>
+                <option value="11">The Life Of Pablo</option>
+                <option value="12">ye</option>
+                <option value="13">KIDS SEE GHOSTS</option>
+                <option value="14">JESUS IS KING</option>
+                <option value="15">Donda (Deluxe)</option>
+                <option value="16">VULTURES 1</option>
+                <option value="17">VULTURES 2</option>
+              </select>
+            </div>
+            <div id="colonna3">
+        </div>
+    </body>
+    <script>
+        // Aggiunge l'evento di ascolto per il tasto premuto
+        document.getElementById("kanye-songs").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") { 
+                event.preventDefault();
+                check();
+            }
+        });
+
+        document.getElementById("kanye-songs").addEventListener("keydown", function(event) {
+            if (event.key === "-") { 
+                event.preventDefault(); 
+                skipMinus();
+            }
+        });
+    </script>
+</html>
+
+<!-- Select di controllo, viene nascosto subito dal DOM -->
+<select id="select" aria-placeholder="Select a song...">
+    <optgroup label="The College Dropout"><option value="1">Intro</option><option value="2">We Don't Care</option><option value="3">Graduation Day</option><option value="4">All Falls Down</option><option value="5">I'll Fly Away</option><option value="6">Spaceship</option><option value="7">Jesus Walks</option><option value="8">Never Let Me Down</option><option value="9">Get Em High</option><option value="10">Workout Plan</option><option value="11">The New Workout Plan</option><option value="12">Slow Jamz</option><option value="13">Breathe In Breathe Out</option><option value="14">School Spirit Skit #1</option><option value="15">School Spirit</option><option value="16">School Spirit Skit #2</option><option value="17">Lil Jimmy Skit</option><option value="18">Two Words</option><option value="19">Through The Wire</option><option value="20">Family Business</option><option value="21">Last Call</option><optgroup label="Late Registration"><option value="22">Wake Up Mr. West</option><option value="22">Heard 'Em Say</option><option value="24">Touch The Sky</option><option value="25">Gold Digger</option><option value="26">Skit #1</option><option value="27">Drive Slow</option><option value="28">My Way Home</option><option value="29">Crack Music</option><option value="30">Roses</option><option value="31">Bring Me Down</option><option value="32">Addiction</option><option value="33">Skit #2</option><option value="34">Diamonds From Sierra Leone (Remix)</option><option value="35">We Major</option><option value="36">Skit #3</option><option value="37">Hey Mama</option><option value="38">Celebration</option><option value="39">Skit #4</option><option value="40">Gone</option><option value="41">Diamonds From Sierra Leone</option><option value="42">Late</option><optgroup label="Graduation"><option value="43">Good Morning</option><option value="44">Champion</option><option value="45">Stronger</option><option value="46">I Wonder</option><option value="47">Good Life</option><option value="48">Can't Tell Me Nothing</option><option value="49">Barry Bonds</option><option value="50">Drunk And Hot Girls</option><option value="51">Flashing Lights</option><option value="52">Everything I Am</option><option value="53">The Glory</option><option value="54">Homecoming</option><option value="55">Big Brother</option><option value="56">Good Night</option><optgroup label="808s And Heartbreak"><option value="57">Say You Will</option><option value="58">Welcome To Heartbreak</option><option value="59">Heartless</option><option value="60">Amazing</option><option value="61">Love Lockdown</option><option value="62">Paranoid</option><option value="63">RoboCop</option><option value="64">Street Lights</option><option value="65">Bad News</option><option value="66">See You In My Nightmares</option><option value="67">Coldest Winter</option><option value="68">Pinocchio Story</option><optgroup label="My Beautiful Dark Twisted Fantasy"><option value="69">Dark Fantasy</option><option value="70">Gorgeous</option><option value="71">POWER</option><option value="72">All of the Lights (Interlude)</option><option value="73">All of the Lights</option><option value="74">Monster</option><option value="75">So Appalled</option><option value="76">Devil In a New Dress</option><option value="77">Runaway</option><option value="78">Hell of a Life</option><option value="79">Blame Game</option><option value="80">Lost In The World</option><option value="81">Who Will Survive In America</option><optgroup label="Watch The Throne"><option value="82">No Church In The Wild</option><option value="83">Lift Off</option><option value="84">Ni**as in Paris</option><option value="85">Otis</option><option value="86">Gotta Have It</option><option value="87">New Day</option><option value="88">That's My Bitch</option><option value="89">Welcome To The Jungle</option><option value="90">Who Gon Stop Me</option><option value="91">Murder to Excellence</option><option value="92">Made in America</option><option value="93">Why I Love You</option><option value="94">Illest Motherfucker Alive</option><option value="95">H.A.M</option><option value="96">Primetime</option><option value="97">The Joy</option><optgroup label="Yeezus"><option value="98">On Sight</option><option value="99">Black Skinhead</option><option value="100">I Am a God</option><option value="101">New Slaves</option><option value="102">Hold My Liquor</option><option value="103">I'm In It</option><option value="104">Blood On the Leaves</option><option value="105">Guilt Trip</option><option value="106">Send It Up</option><option value="107">Bound 2</option><optgroup label="The Life Of Pablo"><option value="108">Ultralight Beam</option><option value="109">Father Stretch My Hands, Pt. 1</option><option value="110">Pt. 2</option><option value="111">Famous</option><option value="112">Feedback</option><option value="113">Low Lights</option><option value="114">Highlights</option><option value="115">Freestyle 4</option><option value="116">I Love Kanye</option><option value="117">Waves</option><option value="118">FML</option><option value="119">Real Friends</option><option value="120">Wolves</option><option value="121">Frank's Track</option><option value="122">Siiiiiiiiilver Surffffeeeeer Intermission</option><option value="123">30 Hours</option><option value="124">No More Parties in LA</option><option value="125">Facts (Charlie Heat Version)</option><option value="126">Fade</option><option value="127">Saint Pablo</option><optgroup label="ye"><option value="128">I Though About Killing You</option><option value="129">Yikes</option><option value="130">All Mine</option><option value="131">Wouldn't Leave</option><option value="132">No Mistakes</option><option value="133">Ghost Town</option><option value="134">Violent Crimes</option><optgroup label="Kids See Ghosts"><option value="135">Feel the Love</option><option value="136">Fire</option><option value="137">4th Dimension</option><option value="138">Freeee (Ghost Town, Pt. 2)</option><option value="139">Reborn</option><option value="140">Kids See Ghosts</option><option value="141">Cudi Montage</option><optgroup label="JESUS IS KING"><option value="142">Every Hour</option><option value="143">Selah</option><option value="144">Follow God</option><option value="145">Closed on Sunday</option><option value="146">On God</option><option value="147">Everything We Need</option><option value="148">Water</option><option value="149">God Is</option><option value="150">Hands On</option><option value="151">Use This Gospel</option><option value="152">Jesus Is Lord</option><optgroup label="Donda"><option value="153">Donda Chant</option><option value="154">Hurricane</option><option value="155">Moon</option><option value="156">Life Of The Party</option><option value="157">Off the Grid</option><option value="158">Jail</option><option value="159">Praise God</option><option value="160">Come to Life</option><option value="161">Believe What I Say</option><option value="162">No Child Left Behind</option><option value="163">Up From The Ashes</option><!-- <option value="164">Remote Control pt 2</option> --><option value="165">God Breathed</option><option value="166">Lord I Need You</option><option value="167">24</option><option value="168">Junya</option><option value="169">Never Abandon Your Family</option><option value="170">Donda</option><option value="171">Keep My Spirit Alive</option><!-- <option value="172">Jesus Lord pt 2</option> --><option value="173">Heaven and Hell</option><option value="174">Remote Control</option><option value="175">Tell the Vision</option><option value="176">Jonah</option><option value="177">Pure Souls</option><option value="178">Ok Ok</option><option value="179">New Again</option><!-- <option value="180">Jesus Lord</option><option value="181">Ok Ok pt 2</option><option value="182">Junya pt 2</option><option value="183">Jail pt 2</option> --><!-- <option value="184">Keep My Spirit Alive pt 2 --></option><optgroup label="VULTURES 1"><option value="185">STARS</option><option value="186">KEYS TO MY LIFE</option><option value="187">PAID</option><option value="188">TALKING</option><option value="189">BACK TO ME</option><option value="190">HOODRAT</option><option value="191">DO IT</option><option value="192">PAPERWORK</option><option value="193">BURN</option><option value="194">FUK SUMN</option><option value="195">VULTURES</option><option value="196">CARNIVAL</option><option value="197">BEG FORGIVENESS</option><!-- <option value="198">GOOD (DON'T DIE)</option> --><option value="198">PROBLEMATIC</option><option value="199">KING</option>
+    <option value="200">SLIDE</option>
+    <option value="201">TIME MOVING SLOW</option>
+    <option value="202">FIELD TRIP</option>
+    <option value="203">FRIED</option>
+    <option value="204">ISABELLA</option>
+    <option value="205">PROMOTION</option>
+    <option value="206">530</option>
+    <option value="207">DEAD</option>
+    <option value="208">FOREVER ROLLING</option>
+    <option value="209">BOMB</option>
+    <option value="210">RIVER</option>
+    <option value="211">FOREVER</option>
+    <option value="212">HUSBAND</option>
+    <option value="213">LIFESTYLE</option>
+    <option value="214">SKY CITY</option>
+    <option value="215">MY SOUL</option>
+</select>
+>>>>>>> ce30fc3e436298369811c1e56ad319deb94c4677
