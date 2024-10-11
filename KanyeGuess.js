@@ -2817,7 +2817,7 @@ let roses = [
   "That's where I get my confidence from",
   "I asked the nurse \"Did you do the research?\"",
   "She asked me, \"Can you sign some t-shirts?\"",
-  "-, is you smokin -?",
+  "Bitch, is you smokin reefer?",
   "You don't see that we hurt? But still",
   "I smile, when Rosie comes to see me",
   "And I can't wait for a sunny day (seeing it through your eyes)",
