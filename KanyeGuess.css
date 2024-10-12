@@ -108,6 +108,9 @@ a{
   border-color: white;
 }
 
+#howtoplay:hover{
+  cursor: pointer;
+}
 #warningmobile{ 
   width: 70%;
   color: rgb(252, 46, 46);
