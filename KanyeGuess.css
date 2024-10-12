@@ -93,6 +93,10 @@ a{
   border-width: 2px;
 }
 
+mode:hover{
+  cursor: pointer;
+}
+
 #insp{
   text-align: left;
   padding-left: 10px;
