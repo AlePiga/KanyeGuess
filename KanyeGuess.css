@@ -9,6 +9,14 @@
 }
 
 @media only screen and (max-width: 780px) {
+  #control{
+    margin-bottom: 20px;
+  }
+
+  body {
+    overflow: hidden;
+  }
+
   #kofi:hover{
     cursor: pointer;
   }
