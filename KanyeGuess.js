@@ -128,7 +128,7 @@ function genSet(){
   let c = parseInt(document.getElementById("mode").value);
   let bottomLogo = document.getElementById("bottomLogo");
   switch(c){
-    case 1: min = 1; max = 216; break;
+    case 1: min = 1; max = 216; bottomLogo.src = "./Kanye/alr.jpg"; break;
     case 2: min = 1; max = 216; mod = 2; bottomLogo.src = "./Kanye/alr.jpg"; break;
     case 3: min = 1; max = 216; mod = 1; bottomLogo.src = "./Kanye/alr.jpg"; break;
     case 4: min = 1; max = 21;  bottomLogo.src = "./Covers/CD.jpg"; break;
