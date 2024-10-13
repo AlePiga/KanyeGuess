@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1GF4J1EYXB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1GF4J1EYXB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-1GF4J1EYXB');
-</script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5464376632607038"
-     crossorigin="anonymous"></script>
-  <script async src="https://fundingchoicesmessages.google.com/i/pub-5464376632607038?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
-<!-- Qui comincia il vero sito hehehe -->
-<title>Kanye Guess</title> <!-- Titolo -->
-<link rel="stylesheet" href="./KanyeGuess.css"> <!-- Link CSS -->
-<script src="./KanyeGuess.js" charset="UTF-8"></script> <!-- Link JS -->
-<link rel="icon" href="./Favicon.png"> <!-- Link favicon -->
+      gtag('config', 'G-1GF4J1EYXB');
+    </script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5464376632607038"
+         crossorigin="anonymous"></script>
+      <script async src="https://fundingchoicesmessages.google.com/i/pub-5464376632607038?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
+    <!-- Qui comincia il vero sito hehehe -->
+    <title>Kanye Guess</title> <!-- Titolo -->
+    <link rel="stylesheet" href="./KanyeGuess.css"> <!-- Link CSS -->
+    <script src="./KanyeGuess.js" charset="UTF-8"></script> <!-- Link JS -->
+    <link rel="icon" href="./Favicon.png"> <!-- Link favicon -->
 </head>
 
 <html>
     <!-- All'apertura del sito è chiamata la funzione load -->
     <body onload="load()">
-        <div id="colonna1"></div>
-        <div id="colonna2">
         <!-- <label id="wmmsg">KanyeGuess is more optimized for PC screens. For a better experience, we reccomend you to visit this site on a PC</label> -->
         <!-- Paragrafo contenente il punteggio, le vite e gli skip -->
         <p id="top">
@@ -45,9 +44,9 @@
         <!-- Audio con la prima nota di Runaway e poopity scoop -->
         <audio id="runaway" src="./Music/runawayE.mp3"></audio>
         <audio id="poopityscoop" src="./Music/poopityscoop.mp3"></audio>
-
+        <div id="fix">
         <!-- Datalist abnorme con tutte le canzoni di Kanye, gli artisti e i feat -->
-        <input list="yelist" id="kanye-songs" placeholder="Start by typing any Ye song!">
+        <input list="yelist" id="kanye-songs" placeholder="Type any Ye song!">
         <datalist id="yelist">
 
             <option id="1" value="Intro">No features</option>
@@ -94,6 +93,8 @@
             <!-- <option id="41" value="Diamonds from Sierra Leone">No features</option> -->
             <option id="42" value="Late">No features</option>
 
+            <option id="1001" value="Impossible">feat. Twista, Keyshia Cole, BJ</option>
+
             <option id="43" value="Good Morning">No features</option>
             <option id="44" value="Champion">No features</option>
             <option id="45" value="Stronger">feat. Daft Punk</option>
@@ -121,6 +122,8 @@
             <option id="66" value="See You in My Nightmares">feat. Lil Wayne</option>
             <option id="67" value="Coldest Winter">No features</option>
             <option id="68" value="Pinocchio Story">No features</option>
+
+            <option id="1002" value="Christmas in Harlem">feat. CyHi, Teyana Taylor</option>
 
             <option id="69" value="Dark Fantasy">No features</option>
             <option id="70" value="Gorgeous">feat. Kid Cudi, Raekwon</option>
@@ -153,6 +156,10 @@
             <option id="96" value="Primetime">feat. Jay-Z</option>
             <option id="97" value="The Joy">feat. Jay-Z, Curtis Mayfield</option>
 
+            <option id="1003" value="Cold">feat. DJ Khaled</option>
+            <option id="1004" value="New God Flow">feat. Pusha T</option>
+            <option id="1005" value="Mercy">feat. Big Sean, Pusha T, 2 Chainz</option>
+            
             <option id="98" value="On Sight">No features</option>
             <option id="99" value="Black Skinhead">No features</option>
             <option id="100" value="I Am a God">feat. God</option>
@@ -281,12 +288,13 @@
             <option id="215" value="MY SOUL">feat. Ty Dolla $ign, Big TC</option>
 
         </datalist>
-        
+        <div id="control">
         <!-- Pulsanti di skip, controllo e indizio -->
         <input type="button" id="skip" value="Skip" onclick="skip()">
 <!--         <input type="button" id="indizi" value="Hint" onclick="hints()"> -->
         <input type="button" id="submit" value="Submit" onclick="check()">
-        
+        </div>
+        </div>
         <br><br>
 
         <!-- Immagine di Kanye che varia in base all'esito della scelta. Cliccandola si viene reindirizzati a yeezy.com. -->
@@ -298,10 +306,7 @@
         </p>
         <p id="result"><i>Song results will appear here. Good luck!</i></p>
         <!-- Mostra la canzone corretta -->
-        <div id="bottomL">
-            <input type="button" id="howtoplay" value="?" onclick="howToPlay()" style="background: url(./Hints/UN.png)" ...>
-            <p id="insp">Inspired by <a href="https://www.yeezle.xyz">Yeezle</a><br>Made with ❤️ in Italy</a></p>
-        </div>
+        <div id="bottom">
         <div id="bottomR">
             <img id="bottomLogo" src="./Kanye/alr.jpg">
             <p>Wanna play with a specific set of songs?</p>
@@ -325,8 +330,11 @@
                 <option value="17">VULTURES 2</option>
               </select>
             </div>
-            <div id="colonna3">
+        <div id="bottomL">
+            <input type="button" id="howtoplay" value="?" onclick="howToPlay()" ...>
+            <p id="insp">Inspired by <a href="https://www.yeezle.xyz">Yeezle</a><br>Made with ❤️ in Italy</a></p>
         </div>
+    </div>
     </body>
     <script>
         // Aggiunge l'evento di ascolto per il tasto premuto

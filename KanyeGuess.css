@@ -8,566 +8,342 @@
   src: url(./Fontfaces/Bold.ttf);
 }
 
-/* html
-{
+@media only screen and (max-width: 780px) {
+  #kofi:hover{
+    cursor: pointer;
+  }
+
+  #reload:hover{
+    cursor: pointer;
+  }
+
+  #skip:hover{
+    cursor: pointer;
+  }
+
+  #submit:hover{
+    cursor: pointer;
+  }
+
+  #mode:hover{
+    cursor: pointer;
+  }
+
+  #kanye-songs:hover{
+    cursor: text;
+  }
+  
+  #mode{
+    width: 325px;
+    font-family: Poppins;
+    font-size: 12pt;
+    border-radius: 12.5px;
+    border-color: white;
+    border-width: 2px;
+  }
+
+  #bars {
     width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    background-color: rgb(32, 32, 32);
+    font-family: Poppins;
+    font-size: 12pt;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  label{
+    font-family: Poppins;
+  }
+
+  *{
+    text-align: center;
+    background-color: #181818;
+    color: white;
     align-items: center;
-} */
+  }
 
-#bottomLogo{
-  height: 100px;
-  border-radius: 12.5px;
-  -webkit-user-drag: none;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-}
+  #kanye-songs{
+    margin-bottom: 10px;
+  }
 
-*{
-  text-align: center;
-  background-color: #181818;
-  color: white;
-  align-items: center;
-}
-
-h1{
-  font-family: PoppinsBold;
-  font-size: 48pt;
-}
-
-h2{
-  font-family: Poppins;
-  font-size: 24pt;
-}
-
-label[name="lt"]{
-  font-size: 100%;
-}
-
-p{
-  font-family: Poppins;
-  font-size: 100%;
-  text-align: center;
-}
-
-label{
-  font-family: Poppins;
-  font-size: 14pt;
-  text-align: center;
-}
-
-a{
-  text-emphasis: bold;
-}
-
-#welcome{
-  font-size: 12pt;
-}
-
-#bottomL{
-  display: flex;
-  text-align: left;
-  position: absolute;
-  left: 20px;
-  bottom: 10px;
-}
-
-#bottomR{
-  text-align: right;
-  position: absolute;
-  right: 20px;
-  bottom: 22.5px;
-}
-
-#mode{
-  width: 325px;
-  font-family: Poppins;
-  font-size: 12pt;
-  border-radius: 12.5px;
-  border-color: white;
-  border-width: 2px;
-}
-
-mode:hover{
-  cursor: pointer;
-}
-
-#insp{
-  text-align: left;
-  padding-left: 10px;
-}
-
-#howtoplay{
-  text-align: center;
-  font-family: Poppins;
-  font-size: 24pt;
-  height: 48pt;
-  width: 48pt;
-  border-radius: 12.5px;
-  border-color: white;
-}
-
-#howtoplay:hover{
-  cursor: pointer;
-}
-#warningmobile{ 
-  width: 70%;
-  color: rgb(252, 46, 46);
-}
-
-#wmmsg{
-  color: rgb(252, 46, 46);
-  border-style: solid;
-  border-color: rgb(252, 46, 46);
-  padding: 10px;
-}
-
-#bars{
-  background-color: rgb(32, 32, 32);
-  padding: 1%;
-}
-
-#kanye-songs{
-  width: 30%;
-  font-family: Poppins;
-  font-size: 16pt;
-  border-radius: 12.5px;
-  border-color: white;
-  border-width: 2px;
-}
-
-#logo{
-  width: 70%;
-  transition: transform .2s;
-  -webkit-user-drag: none;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-}
-
-#logo:hover{
-  cursor: pointer;
-  transform: scale(1.05);
-}
-
-#hint{
-  height: 100px;
-  /*   transition: transform .2s; */
-  -webkit-user-drag: none;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-}
-
-#hint:hover{
-  /* transform: scale(1.05); */
-  cursor: pointer;
-}
-
-#exhint{
-  height: 70px;
-  /*   transition: transform .2s; */
-  -webkit-user-drag: none;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-}
-
-#exhint:hover{
-  /* transform: scale(1.05); */
-  cursor: pointer;
-}
-
-#hintsdiv{
-  justify-content: baseline;
-}
-
-#submit{
-  font-family: Poppins;
-  font-size: 16pt;
-  border-radius: 12.5px;
-  border-color: white;
-}
-
-#submit:hover{
-  cursor: pointer;
-}
-
-#indizi{
-  font-family: Poppins;
-  font-size: 12pt;
-  border-radius: 12.5px;
-  border-color: white;
-}
-
-#indizi:hover{
-  cursor: pointer;
-}
-
-#kofi{
-  text-align: center;
-  font-family: Poppins;
-  font-size: 12pt;
-  border-radius: 12.5px;
-  border-color: white;
-}
-
-#kofi:hover{
-  cursor: pointer;
-}
-
-#reload{
-  text-align: center;
-  font-family: Poppins;
-  font-size: 12pt;
-  border-radius: 12.5px;
-  border-color: white;
-}
-
-#reload:hover{
-  cursor: pointer;
-}
-
-#skip{
-  font-family: Poppins;
-  font-size: 16pt;
-  border-radius: 12.5px;
-  border-color: white;
-}
-
-#skip:hover{
-  cursor: pointer;
-}
-
-#select{
-  display: none !important;
-}
-
-#borraccia{
-  height: 65%;
-}
-
-#te_al_limone{
-  height: 35%;
-}
-
-.search-box{
-  width: 600px;
-  background: #fff;
-  margin: 10px auto 0;
-  border-radius: 5px;
-}
-
-#input-box{
-  font-family: Poppins;
-  font-size: 12pt;
-  border-radius: 12.5px;
-  border-color: white;
-  border-width: 2px;
-  width: 250px;
-}
-
-.result-box ul{
-  border-top: 1px solid #999;
-  padding: 15px 10px;
-}
-
-.result-box li{
-  list-style: none;
-  border-radius: 3px;
-  padding: 15px 10px;
-  cursor: pointer;
-}
-
-.result-box li:hover{
-  background: #999;
-}
-
-@font-face {
-  font-family: Poppins;
-  src: url(./Fontfaces/Regular.ttf);
-}
-
-@font-face {
-  font-family: PoppinsBold;
-  src: url(./Fontfaces/Bold.ttf);
-}
-
-/* html
-{
+  #top{
     width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  }
+
+  label[name="lt"]{
+    font-size: 12pt;
+  }
+
+  #logo{
     align-items: center;
-} */
+    width: 100%;
+  }
 
-#bottomLogo{
-  width: 100px;
-  border-radius: 12.5px;
+  #select{
+    display: none;
+  }
+
+  #bottomLogo{
+    height: 100px;
+    border-radius: 12.5px;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+
+  #bottomL{
+    display: none;
+  }
+
+  #bottomR{
+    font-family: Poppins;
+  }
+
+  #mode{
+    font-family: Poppins;
+  }
+
+  #bottom{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #kanye-songs{
+    width: 90%;
+    font-family: Poppins;
+    font-size: 14pt;
+    border-radius: 12.5px;
+    border-color: white;
+    border-width: 2px;
+  }
+
+  #skip{
+    font-family: Poppins;
+    font-size: 14pt;
+    border-radius: 12.5px;
+    border-color: white;
+  }
+
+  #submit{
+    font-family: Poppins;
+    font-size: 14pt;
+    border-radius: 12.5px;
+    border-color: white;
+  }
+
+  #result{
+    font-family: Poppins;
+  }
+
+  #reload{
+    text-align: center;
+    font-family: Poppins;
+    font-size: 12pt;
+    border-radius: 12.5px;
+    border-color: white;
+  }
+
+  #kofi{
+    text-align: center;
+    font-family: Poppins;
+    font-size: 12pt;
+    border-radius: 12.5px;
+    border-color: white;
+  }
 }
 
-*{
-  text-align: center;
-  background-color: #181818;
-  color: white;
-  align-items: center;
-}
+@media only screen and (min-width: 781px) {
+  #bars {
+    background-color: blue; /* Cambia lo sfondo su schermi più grandi */
+  }
 
-h1{
-  font-family: PoppinsBold;
-  font-size: 48pt;
-}
+  *{
+    text-align: center;
+    background-color: #181818;
+    color: white;
+    align-items: center;
+  }
+  
+  h1{
+    font-family: PoppinsBold;
+    font-size: 48pt;
+  }
+  
+  h2{
+    font-family: Poppins;
+    font-size: 24pt;
+  }
+  
+  label[name="lt"]{
+    font-size: 100%;
+  }
+  
+  p{
+    font-family: Poppins;
+    font-size: 14pt;
+    text-align: center;
+  }
+  
+  label{
+    font-family: Poppins;
+    font-size: 14pt;
+    text-align: center;
+  }
+  
+  a{
+    text-emphasis: bold;
+  }
+  
+  #welcome{
+    font-size: 12pt;
+  }
+  
+  #bottomL{
+    display: flex;
+    text-align: left;
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+  }
+  
+  #bottomR{
+    text-align: right;
+    position: absolute;
+    right: 20px;
+    bottom: 22.5px;
+  }
+  
+  #mode{
+    width: 325px;
+    font-family: Poppins;
+    font-size: 12pt;
+    border-radius: 12.5px;
+    border-color: white;
+    border-width: 2px;
+  }
+  
+  #mode:hover{
+    cursor: pointer;
+  }
+  
+  #insp{
+    text-align: left;
+    padding-left: 10px;
+  }
+  
+  #howtoplay{
+    text-align: center;
+    font-family: Poppins;
+    font-size: 24pt;
+    height: 48pt;
+    width: 48pt;
+    border-radius: 12.5px;
+    border-color: white;
+  }
+  
+  #howtoplay:hover{
+    cursor: pointer;
+  }
+  
+  #bars{
+    background-color: rgb(32, 32, 32);
+    padding: 1%;
+  }
+  
+  #kanye-songs{
+    width: 70%;
+    font-family: Poppins;
+    font-size: 16pt;
+    border-radius: 12.5px;
+    border-color: white;
+    border-width: 2px;
+    margin-bottom: 10px;
+  }
+  
+  #logo{
+    width: 70%;
+    transition: transform .2s;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+  
+  #logo:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+  }
+  
+  #fix{
+    display: block;
+  }
 
-h2{
-  font-family: Poppins;
-  font-size: 24pt;
-}
+  #submit{
+    font-family: Poppins;
+    font-size: 16pt;
+    border-radius: 12.5px;
+    border-color: white;
+  }
+  
+  #submit:hover{
+    cursor: pointer;
+  }
+  
+  #reload{
+    text-align: center;
+    font-family: Poppins;
+    font-size: 12pt;
+    border-radius: 12.5px;
+    border-color: white;
+  }
+  
+  #reload:hover{
+    cursor: pointer;
+  }
+  
+  #skip{
+    font-family: Poppins;
+    font-size: 16pt;
+    border-radius: 12.5px;
+    border-color: white;
+  }
+  
+  #skip:hover{
+    cursor: pointer;
+  }
+  
+  #bottomLogo{
+    height: 100px;
+    border-radius: 12.5px;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
 
-label[name="lt"]{
-  font-size: 100%;
-}
+  #select{
+    display: none !important;
+  }
 
-p{
-  font-family: Poppins;
-  font-size: 100%;
-  text-align: center;
-}
+  #kofi{
+    text-align: center;
+    font-family: Poppins;
+    font-size: 12pt;
+    border-radius: 12.5px;
+    border-color: white;
+  }
 
-label{
-  font-family: Poppins;
-  font-size: 14pt;
-  text-align: center;
-}
+  #kofi:hover{
+    cursor: pointer;
+  }
 
-a{
-  text-emphasis: bold;
+  #kanye-songs:hover{
+    cursor: text;
+  }
 }
-
-#welcome{
-  font-size: 12pt;
-}
-
-#bottomL{
-  display: flex;
-  text-align: left;
-  position: absolute;
-  left: 20px;
-  bottom: 10px;
-}
-
-#bottomR{
-  text-align: right;
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-}
-
-#mode{
-  width: 325px;
-  font-family: Poppins;
-  font-size: 12pt;
-  border-radius: 12.5px;
-  border-color: white;
-  border-width: 2px;
-}
-
-#insp{
-  text-align: left;
-  padding-left: 10px;
-}
-
-#howtoplay{
-  text-align: center;
-  font-family: Poppins;
-  font-size: 24pt;
-  height: 48pt;
-  width: 48pt;
-  border-radius: 12.5px;
-  border-color: white;
-}
-
-#warningmobile{ 
-  width: 70%;
-  color: rgb(252, 46, 46);
-}
-
-#wmmsg{
-  color: rgb(252, 46, 46);
-  border-style: solid;
-  border-color: rgb(252, 46, 46);
-  padding: 10px;
-}
-
-#bars{
-  background-color: rgb(32, 32, 32);
-  padding: 1%;
-}
-
-#kanye-songs{
-  width: 30%;
-  font-family: Poppins;
-  font-size: 16pt;
-  border-radius: 12.5px;
-  border-color: white;
-  border-width: 2px;
-}
-
-#logo{
-  width: 70%;
-  transition: transform .2s;
-  -webkit-user-drag: none;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-}
-
-#logo:hover{
-  cursor: pointer;
-  transform: scale(1.05);
-}
-
-#hint{
-  height: 100px;
-  /*   transition: transform .2s; */
-  -webkit-user-drag: none;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-}
-
-#hint:hover{
-  /* transform: scale(1.05); */
-  cursor: pointer;
-}
-
-#exhint{
-  height: 70px;
-  /*   transition: transform .2s; */
-  -webkit-user-drag: none;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-}
-
-#exhint:hover{
-  /* transform: scale(1.05); */
-  cursor: pointer;
-}
-
-#hintsdiv{
-  justify-content: baseline;
-}
-
-#submit{
-  font-family: Poppins;
-  font-size: 16pt;
-  border-radius: 12.5px;
-  border-color: white;
-}
-
-#submit:hover{
-  cursor: pointer;
-}
-
-#indizi{
-  font-family: Poppins;
-  font-size: 12pt;
-  border-radius: 12.5px;
-  border-color: white;
-}
-
-#indizi:hover{
-  cursor: pointer;
-}
-
-#kofi{
-  text-align: center;
-  font-family: Poppins;
-  font-size: 12pt;
-  border-radius: 12.5px;
-  border-color: white;
-}
-
-#kofi:hover{
-  cursor: pointer;
-}
-
-#reload{
-  text-align: center;
-  font-family: Poppins;
-  font-size: 12pt;
-  border-radius: 12.5px;
-  border-color: white;
-}
-
-#reload:hover{
-  cursor: pointer;
-}
-
-#skip{
-  font-family: Poppins;
-  font-size: 16pt;
-  border-radius: 12.5px;
-  border-color: white;
-}
-
-#skip:hover{
-  cursor: pointer;
-}
-
-#select{
-  display: none !important;
-}
-
-#borraccia{
-  height: 65%;
-}
-
-#te_al_limone{
-  height: 35%;
-}
-
-.search-box{
-  width: 600px;
-  background: #fff;
-  margin: 10px auto 0;
-  border-radius: 5px;
-}
-
-#input-box{
-  font-family: Poppins;
-  font-size: 12pt;
-  border-radius: 12.5px;
-  border-color: white;
-  border-width: 2px;
-  width: 250px;
-}
-
-.result-box ul{
-  border-top: 1px solid #999;
-  padding: 15px 10px;
-}
-
-.result-box li{
-  list-style: none;
-  border-radius: 3px;
-  padding: 15px 10px;
-  cursor: pointer;
-}
-
-.result-box li:hover{
-  background: #999;
-} 
