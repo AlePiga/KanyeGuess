@@ -8154,7 +8154,11 @@ let ultralightbeam = [
   "But I'm looking for more",
   "Somewhere I can feel safe",
   "And end my holy war",
-  "Father, this prayer is for everyone that feels they're not good enough. This prayer's for everybody that feels like they're too messed up. For everyone that feels they've said \"I'm sorry\" too many times. You can never go too far when you can't come back home again. That's why I need...",
+  "Father, this prayer is for everyone that feels they're not good enough,",
+  "This prayer's for everybody that feels like they're too messed up,",
+  "For everyone that feels they've said \"I'm sorry\" too many times,",
+  "You can never go too far when you can't come back home again. ",
+  "That's why I need...",
   "Faith, more, safe, war"
 ]
 
