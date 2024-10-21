@@ -32,7 +32,6 @@ let logos = [
   "./Logos/GR_Logo.png",
   "./Logos/8H_Logo.png",
   "./Logos/MF_Logo.png",
-/*   "./Logos/WT_Logo.png", */
   "./Logos/YZ_Logo.png",
   "./Logos/TP_Logo.png",
   "./Logos/YE_Logo.png",
@@ -74,9 +73,7 @@ function gameOver() {
   }
   hide("reload");
   hide("kofi");
-  hide("kanye-songs");
-  hide("kanye-songs");
-  
+
   // Mostra il pulsante per ricaricare la pagina o riprovare
   let reloadButton = document.getElementById("reload");
   if (reloadButton.style.display === "none") {
@@ -206,8 +203,8 @@ function getSong(act){
   }
   if(act == 0 /* Caso scelta sbagliata */){
     for(let i = 0; i < allsongs.length; i++) {
-        if(allsongs[i + 1] == random) {
-          document.getElementById("result").innerHTML = ("<i>Wrong! The song was " + '"' + allsongs[random] + '".</i>');
+        if(i == random) {
+          document.getElementById("result").innerHTML = ("<i>Wrong! The song was " + '"' + allsongs[random - 1] + '".</i>');
             break;
         }
     }
@@ -215,8 +212,8 @@ function getSong(act){
 
   else if(act == 1 /* Caso skip */){
     for(let i = 0; i < allsongs.length; i++) {
-        if(allsongs[i + 1] == random) {
-          document.getElementById("result").innerHTML = ("<i>The song you just skipped was " + '"' + allsongs[random] + '".</i>');
+        if(i == random) {
+          document.getElementById("result").innerHTML = ("<i>The song you just skipped was " + '"' + allsongs[random - 1] + '".</i>');
           break;
         }
     }
@@ -225,8 +222,8 @@ function getSong(act){
   else if(act == 2 /* Caso scelta corretta */){
     playE();
     for(let i = 0; i < allsongs.length; i++) {
-        if(allsongs[i + 1] == random) {
-          document.getElementById("result").innerHTML = ("<i>Correct! The song was " + '"' + allsongs[random] + '".</i>');
+        if(i == random) {
+          document.getElementById("result").innerHTML = ("<i>Correct! The song was " + '"' + allsongs[random - 1] + '".</i>');
             break;
         }
     }

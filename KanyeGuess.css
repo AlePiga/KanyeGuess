@@ -9,6 +9,10 @@
 }
 
 @media only screen and (max-width: 780px) {
+  option{
+    font-size: 12pt;
+  }
+
   #hint{
     display: none;
   }
@@ -173,6 +177,10 @@
     background-color: blue; /* Cambia lo sfondo su schermi più grandi */
   }
 
+  option{
+    font-size: 12pt;
+  }
+
   *{
     text-align: center;
     background-color: #181818;
@@ -215,24 +223,37 @@
   }
   
   #bottomL{
-    display: flex;
+    display: grid;
     text-align: left;
     position: absolute;
     left: 20px;
-    bottom: 10px;
+    bottom: 15px;
   }
   
   #bottomR{
+    display: grid;
     text-align: right;
     position: absolute;
     right: 20px;
-    bottom: 22.5px;
+    bottom: 15px;
   }
   
+  #bottomLogo{
+    justify-self: end;
+    height: 100px;
+    border-radius: 12.5px;
+    margin-bottom: 10px;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+
   #mode{
     width: 325px;
     font-family: Poppins;
-    font-size: 12pt;
+    font-size: 14pt;
     border-radius: 12.5px;
     border-color: white;
     border-width: 2px;
@@ -244,7 +265,8 @@
   
   #insp{
     text-align: left;
-    padding-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 0px;
   }
   
   #howtoplay{
@@ -255,9 +277,32 @@
     width: 48pt;
     border-radius: 12.5px;
     border-color: white;
+    background-image: url("./Covers/UN.png"); 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
   
   #howtoplay:hover{
+    cursor: pointer;
+  }
+
+  #video{
+    text-align: center;
+    font-family: Poppins;
+    font-size: 24pt;
+    height: 48pt;
+    width: 48pt;
+    border-radius: 12.5px;
+    border-color: white;
+    margin-bottom: 10px;
+    background-image: url("./Covers/VD.png"); 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  #video:hover{
     cursor: pointer;
   }
   
@@ -267,7 +312,7 @@
   }
   
   #kanye-songs{
-    width: 30%;
+    width: 55%;
     font-family: Poppins;
     font-size: 16pt;
     border-radius: 12.5px;
@@ -297,7 +342,7 @@
 
   #submit{
     font-family: Poppins;
-    font-size: 16pt;
+    font-size: 12pt;
     border-radius: 12.5px;
     border-color: white;
   }
@@ -320,23 +365,13 @@
   
   #skip{
     font-family: Poppins;
-    font-size: 16pt;
+    font-size: 12pt;
     border-radius: 12.5px;
     border-color: white;
   }
   
   #skip:hover{
     cursor: pointer;
-  }
-  
-  #bottomLogo{
-    height: 100px;
-    border-radius: 12.5px;
-    -webkit-user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
   }
 
   #select{
