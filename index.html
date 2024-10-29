@@ -139,7 +139,7 @@
             <option id="80" value="Lost in the World">feat. Bon Iver</option>
             <option id="81" value="Who Will Survive in America">No features</option>
 
-            <option id="82" value="No Chruch in the Wild">feat. Jay-Z, Frank Ocean</option>
+            <option id="82" value="No Church in the Wild">feat. Jay-Z, Frank Ocean</option>
             <option id="83" value="Lift Off">feat. Jay-Z, Beyoncé</option>
             <option id="84" value="Ni**as in Paris">feat. Jay-Z</option>
             <option id="85" value="Otis">feat. Jay-Z, Otis Redding</option>
@@ -295,13 +295,21 @@
         <input type="button" id="submit" value="Submit" onclick="check()">
         </div>
         </div>
-
-        <!-- Immagine di Kanye che varia in base all'esito della scelta. Cliccandola si viene reindirizzati a yeezy.com. -->
-        <div id="hintsdiv">
-<!--             <img id="exhint" src="./Hints/DK.png"> -->
-            
-        </div>
         
+        <div id="overlay">
+            <div id="howToPlayDiv">
+                <h2 id="htpTitle">Welcome to KanyeGuess!</h2>
+                <p id="htpParagraph">
+                    To start playing, read the lyrics and write the name of the song they come from in the text box, then press the submit button or press the enter key.<br><br>
+                    If you have no idea what the song is, you can skip it by pressing the skip button or entering the minus (-) key. Keep in mind that you can use the skip button 10 times, and that you only have 5 lives.<br><br>
+                    You lose a life when you get a song wrong, and if you lose all of your lives you'll be prompted with a game over screen.<br><br>
+                    Have fun playing KanyeGuess and testing your Yeezy knowledge! :)<br><br>
+                    ~AlePiga
+                </p>
+                <button id="close-btn" onclick="closeOverlay()">Close</button>
+            </div>
+        </div>
+
         </p>
         <p id="result"><i>Song results will appear here. Good luck!</i></p>
         <!-- Mostra la canzone corretta -->

@@ -59,9 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-function howToPlay(){
-  alert("Welcome to KanyeGuess!\n\nIn this game, you're prompted with four bars from a random Ye song and you need to guess which one is it.\n\nTo start playing, read the lyrics and write the name of the song they come from in the text box below them, then press the submit button or enter the enter key.\n\nIf you have no idea what the song is, you can skip the round by pressing the skip button or entering the minus (-) key. You usually do this whenever you're given something from Watch The Throne... That album sucks IMO...\n\nAnyways, keep in mind that in each game you'll be given the possibility to skip for only 10 times, and that you only have 5 lives.\n\nYou lose a life when you get a song wrong, and if you lose all of your lives you'll be prompted with a game over screen.\n\nHave fun playing KanyeGuess and testing your Yeezy knowledge! :)\n~AlePiga")
-}
 
 function gameOver() {
   // Nascondi tutti i pulsanti e le sezioni rilevanti
@@ -81,6 +78,14 @@ function gameOver() {
   }
 }
 
+function howToPlay(){
+document.getElementById("overlay").style.display = "block";
+}
+
+function closeOverlay() {
+  hide("overlay");
+  hide("overlay");
+}
 
 function openkofi(){
   window.open("https://instagram.com/iosonopiga", "_blank");
@@ -94,10 +99,21 @@ function hide(a) {
   let x = document.getElementById(a);
   if (x.style.display === "none" || x.style.display === "") {
     x.style.display = "inline-block";
-  } else {
+  } 
+  else 
+  {
     x.style.display = "none";
   }
 }
+
+function show(a) {
+  let x = document.getElementById(a);
+  if (x.style.display === "none" || x.style.display === "") {
+    x.style.display = "inline-block";
+  }
+}
+
+
 
 function playE(){
   let E = document.getElementById("runaway");
