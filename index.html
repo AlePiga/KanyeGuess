@@ -139,7 +139,7 @@
             <option id="80" value="Lost in the World">feat. Bon Iver</option>
             <option id="81" value="Who Will Survive in America">No features</option>
 
-            <option id="82" value="No Chruch in the Wild">feat. Jay-Z, Frank Ocean</option>
+            <option id="82" value="No Church in the Wild">feat. Jay-Z, Frank Ocean</option>
             <option id="83" value="Lift Off">feat. Jay-Z, Beyoncé</option>
             <option id="84" value="Ni**as in Paris">feat. Jay-Z</option>
             <option id="85" value="Otis">feat. Jay-Z, Otis Redding</option>
@@ -295,20 +295,37 @@
         <input type="button" id="submit" value="Submit" onclick="check()">
         </div>
         </div>
-
-        <!-- Immagine di Kanye che varia in base all'esito della scelta. Cliccandola si viene reindirizzati a yeezy.com. -->
-        <div id="hintsdiv">
-<!--             <img id="exhint" src="./Hints/DK.png"> -->
-            
-        </div>
         
+        <div id="overlay">
+            <div id="howToPlayDiv">
+                <h2 id="htpTitle">👋 Welcome to KanyeGuess!</h2>
+                <p id="htpParagraph">
+                    Ready to test your Yeezy knowledge? Start by reading the lyrics on screen and guessing the song title by typing it in the text box, then hit “Submit” or press Enter.<br><br>
+                    If you're stumped, you can skip to the next song by pressing the “Skip” button or entering a dash (-). Remember, you have only 10 skips and 5 lives.<br><br>
+                    Every incorrect answer costs a life, and if you lose all your lives, well, it’s game over!<br><br>
+                    Enjoy KanyeGuess and have fun testing your Yeezy knowledge! ✌️
+                </p>
+                <button id="close-btn" onclick="closeOverlay()">Start playing</button>
+            </div>
+        </div>
+
+        <div id="videoDiv" style="display: none;">
+            <div id="htpVideo">
+                <h2 id="htpVideoTitle">🎬 Coming soon: video mode!</h2>
+                <p id="htpVideoParagraph">
+                    Soon, you’ll be able to guess Kanye West songs based on music video clips!<br><br>
+                    Stay tuned for updates!
+                </p>
+                <button id="close-video-btn" onclick="closeVideoOverlay()">Close</button>
+            </div>
+        </div>
+
         </p>
         <p id="result"><i>Song results will appear here. Good luck!</i></p>
         <!-- Mostra la canzone corretta -->
         <div id="bottom">
         <div id="bottomR">
             <img id="bottomLogo" src="./Kanye/alr.jpg">
-            <p>Wanna play with a specific set of songs?</p>
             <select id="mode" onchange="genSet()">
                 <option value="1">All songs</option>
                 <option value="2">Popular songs</option>
@@ -330,8 +347,9 @@
               </select>
             </div>
         <div id="bottomL">
-            <input type="button" id="howtoplay" value="?" onclick="howToPlay()" ...>
-            <p id="insp">Inspired by <a href="https://www.yeezle.xyz">Yeezle</a><br>Made with ❤️ in Italy</a></p>
+            <input type="button" id="video" title="Video guess mode" onclick="showVideoOverlay()">
+            <input type="button" id="howtoplay" title="How to play" onclick="howToPlay()">
+            <p id="insp">Inspired by <a href="https://www.yeezle.xyz">Yeezle</a> and <a href="https://www.lyricle.app/">Lyricle</a><br>Made with ❤️ in <a href="https://maps.app.goo.gl/LwvpFzJ39YPGoeNJ6">Vicenza, Italy</a></p>
         </div>
     </div>
     </body>
@@ -352,24 +370,3 @@
         });
     </script>
 </html>
-
-<!-- Select di controllo, viene nascosto subito dal DOM -->
-<select id="select" aria-placeholder="Select a song...">
-    <optgroup label="The College Dropout"><option value="1">Intro</option><option value="2">We Don't Care</option><option value="3">Graduation Day</option><option value="4">All Falls Down</option><option value="5">I'll Fly Away</option><option value="6">Spaceship</option><option value="7">Jesus Walks</option><option value="8">Never Let Me Down</option><option value="9">Get Em High</option><option value="10">Workout Plan</option><option value="11">The New Workout Plan</option><option value="12">Slow Jamz</option><option value="13">Breathe In Breathe Out</option><option value="14">School Spirit Skit #1</option><option value="15">School Spirit</option><option value="16">School Spirit Skit #2</option><option value="17">Lil Jimmy Skit</option><option value="18">Two Words</option><option value="19">Through The Wire</option><option value="20">Family Business</option><option value="21">Last Call</option><optgroup label="Late Registration"><option value="22">Wake Up Mr. West</option><option value="22">Heard 'Em Say</option><option value="24">Touch The Sky</option><option value="25">Gold Digger</option><option value="26">Skit #1</option><option value="27">Drive Slow</option><option value="28">My Way Home</option><option value="29">Crack Music</option><option value="30">Roses</option><option value="31">Bring Me Down</option><option value="32">Addiction</option><option value="33">Skit #2</option><option value="34">Diamonds From Sierra Leone (Remix)</option><option value="35">We Major</option><option value="36">Skit #3</option><option value="37">Hey Mama</option><option value="38">Celebration</option><option value="39">Skit #4</option><option value="40">Gone</option><option value="41">Diamonds From Sierra Leone</option><option value="42">Late</option><optgroup label="Graduation"><option value="43">Good Morning</option><option value="44">Champion</option><option value="45">Stronger</option><option value="46">I Wonder</option><option value="47">Good Life</option><option value="48">Can't Tell Me Nothing</option><option value="49">Barry Bonds</option><option value="50">Drunk And Hot Girls</option><option value="51">Flashing Lights</option><option value="52">Everything I Am</option><option value="53">The Glory</option><option value="54">Homecoming</option><option value="55">Big Brother</option><option value="56">Good Night</option><optgroup label="808s And Heartbreak"><option value="57">Say You Will</option><option value="58">Welcome To Heartbreak</option><option value="59">Heartless</option><option value="60">Amazing</option><option value="61">Love Lockdown</option><option value="62">Paranoid</option><option value="63">RoboCop</option><option value="64">Street Lights</option><option value="65">Bad News</option><option value="66">See You In My Nightmares</option><option value="67">Coldest Winter</option><option value="68">Pinocchio Story</option><optgroup label="My Beautiful Dark Twisted Fantasy"><option value="69">Dark Fantasy</option><option value="70">Gorgeous</option><option value="71">POWER</option><option value="72">All of the Lights (Interlude)</option><option value="73">All of the Lights</option><option value="74">Monster</option><option value="75">So Appalled</option><option value="76">Devil In a New Dress</option><option value="77">Runaway</option><option value="78">Hell of a Life</option><option value="79">Blame Game</option><option value="80">Lost In The World</option><option value="81">Who Will Survive In America</option><optgroup label="Watch The Throne"><option value="82">No Church In The Wild</option><option value="83">Lift Off</option><option value="84">Ni**as in Paris</option><option value="85">Otis</option><option value="86">Gotta Have It</option><option value="87">New Day</option><option value="88">That's My Bitch</option><option value="89">Welcome To The Jungle</option><option value="90">Who Gon Stop Me</option><option value="91">Murder to Excellence</option><option value="92">Made in America</option><option value="93">Why I Love You</option><option value="94">Illest Motherfucker Alive</option><option value="95">H.A.M</option><option value="96">Primetime</option><option value="97">The Joy</option><optgroup label="Yeezus"><option value="98">On Sight</option><option value="99">Black Skinhead</option><option value="100">I Am a God</option><option value="101">New Slaves</option><option value="102">Hold My Liquor</option><option value="103">I'm In It</option><option value="104">Blood On the Leaves</option><option value="105">Guilt Trip</option><option value="106">Send It Up</option><option value="107">Bound 2</option><optgroup label="The Life Of Pablo"><option value="108">Ultralight Beam</option><option value="109">Father Stretch My Hands, Pt. 1</option><option value="110">Pt. 2</option><option value="111">Famous</option><option value="112">Feedback</option><option value="113">Low Lights</option><option value="114">Highlights</option><option value="115">Freestyle 4</option><option value="116">I Love Kanye</option><option value="117">Waves</option><option value="118">FML</option><option value="119">Real Friends</option><option value="120">Wolves</option><option value="121">Frank's Track</option><option value="122">Siiiiiiiiilver Surffffeeeeer Intermission</option><option value="123">30 Hours</option><option value="124">No More Parties in LA</option><option value="125">Facts (Charlie Heat Version)</option><option value="126">Fade</option><option value="127">Saint Pablo</option><optgroup label="ye"><option value="128">I Though About Killing You</option><option value="129">Yikes</option><option value="130">All Mine</option><option value="131">Wouldn't Leave</option><option value="132">No Mistakes</option><option value="133">Ghost Town</option><option value="134">Violent Crimes</option><optgroup label="Kids See Ghosts"><option value="135">Feel the Love</option><option value="136">Fire</option><option value="137">4th Dimension</option><option value="138">Freeee (Ghost Town, Pt. 2)</option><option value="139">Reborn</option><option value="140">Kids See Ghosts</option><option value="141">Cudi Montage</option><optgroup label="JESUS IS KING"><option value="142">Every Hour</option><option value="143">Selah</option><option value="144">Follow God</option><option value="145">Closed on Sunday</option><option value="146">On God</option><option value="147">Everything We Need</option><option value="148">Water</option><option value="149">God Is</option><option value="150">Hands On</option><option value="151">Use This Gospel</option><option value="152">Jesus Is Lord</option><optgroup label="Donda"><option value="153">Donda Chant</option><option value="154">Hurricane</option><option value="155">Moon</option><option value="156">Life Of The Party</option><option value="157">Off the Grid</option><option value="158">Jail</option><option value="159">Praise God</option><option value="160">Come to Life</option><option value="161">Believe What I Say</option><option value="162">No Child Left Behind</option><option value="163">Up From The Ashes</option><!-- <option value="164">Remote Control pt 2</option> --><option value="165">God Breathed</option><option value="166">Lord I Need You</option><option value="167">24</option><option value="168">Junya</option><option value="169">Never Abandon Your Family</option><option value="170">Donda</option><option value="171">Keep My Spirit Alive</option><!-- <option value="172">Jesus Lord pt 2</option> --><option value="173">Heaven and Hell</option><option value="174">Remote Control</option><option value="175">Tell the Vision</option><option value="176">Jonah</option><option value="177">Pure Souls</option><option value="178">Ok Ok</option><option value="179">New Again</option><!-- <option value="180">Jesus Lord</option><option value="181">Ok Ok pt 2</option><option value="182">Junya pt 2</option><option value="183">Jail pt 2</option> --><!-- <option value="184">Keep My Spirit Alive pt 2 --></option><optgroup label="VULTURES 1"><option value="185">STARS</option><option value="186">KEYS TO MY LIFE</option><option value="187">PAID</option><option value="188">TALKING</option><option value="189">BACK TO ME</option><option value="190">HOODRAT</option><option value="191">DO IT</option><option value="192">PAPERWORK</option><option value="193">BURN</option><option value="194">FUK SUMN</option><option value="195">VULTURES</option><option value="196">CARNIVAL</option><option value="197">BEG FORGIVENESS</option><!-- <option value="198">GOOD (DON'T DIE)</option> --><option value="198">PROBLEMATIC</option><option value="199">KING</option>
-    <option value="200">SLIDE</option>
-    <option value="201">TIME MOVING SLOW</option>
-    <option value="202">FIELD TRIP</option>
-    <option value="203">FRIED</option>
-    <option value="204">ISABELLA</option>
-    <option value="205">PROMOTION</option>
-    <option value="206">530</option>
-    <option value="207">DEAD</option>
-    <option value="208">FOREVER ROLLING</option>
-    <option value="209">BOMB</option>
-    <option value="210">RIVER</option>
-    <option value="211">FOREVER</option>
-    <option value="212">HUSBAND</option>
-    <option value="213">LIFESTYLE</option>
-    <option value="214">SKY CITY</option>
-    <option value="215">MY SOUL</option>
-</select>

@@ -10,6 +10,9 @@ let hint = 5;
 let min;
 let max;
 
+
+let allsongs = ["Intro","We Don't Care","Graduation Day","All Falls Down","I'll Fly Away","Spaceship","Jesus Walks","Never Let Me Down","Get Em High","Workout Plan","The New Workout Plan","Slow Jamz","Breathe In Breathe Out","School Spirit Skit #1","School Spirit","School Spirit Skit #2","Lil Jimmy Skit","Two Words","Through The Wire","Family Business","Last Call","Wake Up Mr. West","Heard 'Em Say","Touch The Sky","Gold Digger","Skit #1","Drive Slow","My Way Home","Crack Music","Roses","Bring Me Down","Addiction","Skit #2","Diamonds From Sierra Leone (Remix)","We Major","Skit #3","Hey Mama","Celebration","Skit #4","Gone","Diamonds From Sierra Leone","Late","Good Morning","Champion","Stronger","I Wonder","Good Life","Can't Tell Me Nothing","Barry Bonds","Drunk And Hot Girls","Flashing Lights","Everything I Am","The Glory","Homecoming","Big Brother","Good Night","Say You Will","Welcome To Heartbreak","Heartless","Amazing","Love Lockdown","Paranoid","RoboCop","Street Lights","Bad News","See You In My Nightmares","Coldest Winter","Pinocchio Story","Dark Fantasy","Gorgeous","POWER","All of the Lights (Interlude)","All of the Lights","Monster","So Appalled","Devil In a New Dress","Runaway","Hell of a Life","Blame Game","Lost In The World","Who Will Survive In America","No Church In The Wild","Lift Off","Ni**as in Paris","Otis","Gotta Have It","New Day","That's My Bitch","Welcome To The Jungle","Who Gon Stop Me","Murder to Excellence","Made in America","Why I Love You","Illest Motherfucker Alive","H.A.M","Primetime","The Joy","On Sight","Black Skinhead","I Am a God","New Slaves","Hold My Liquor","I'm In It","Blood On the Leaves","Guilt Trip","Send It Up","Bound 2","Ultralight Beam","Father Stretch My Hands, Pt. 1","Pt. 2","Famous","Feedback","Low Lights","Highlights","Freestyle 4","I Love Kanye","Waves","FML","Real Friends","Wolves","Frank's Track","Siiiiiiiiilver Surffffeeeeer Intermission","30 Hours","No More Parties in LA","Facts (Charlie Heat Version)","Fade","Saint Pablo","I Though About Killing You","Yikes","All Mine","Wouldn't Leave","No Mistakes","Ghost Town","Violent Crimes","Feel the Love","Fire","4th Dimension","Freeee (Ghost Town, Pt. 2)","Reborn","Kids See Ghosts","Cudi Montage","Every Hour","Selah","Follow God","Closed on Sunday","On God","Everything We Need","Water","God Is","Hands On","Use This Gospel","Jesus Is Lord","Donda Chant","Hurricane","Moon","Life Of The Party","Off the Grid","Jail","Praise God","Come to Life","Believe What I Say","No Child Left Behind","Up From The Ashes","God Breathed","Lord I Need You","24","Junya","Never Abandon Your Family","Donda","Keep My Spirit Alive","Heaven and Hell","Remote Control","Tell the Vision","Jonah","Pure Souls","Ok Ok","New Again","STARS","KEYS TO MY LIFE","PAID","TALKING","BACK TO ME","HOODRAT","DO IT","PAPERWORK","BURN","FUK SUMN","VULTURES","CARNIVAL","BEG FORGIVENESS","PROBLEMATIC","KING","SLIDE","TIME MOVING SLOW","FIELD TRIP","FRIED","ISABELLA","PROMOTION","530","DEAD","FOREVER ROLLING","BOMB","RIVER","FOREVER","HUSBAND","LIFESTYLE","SKY CITY","MY SOUL"]
+
 function eseguiInBackground() {
   if (skipSong <= 0) {
     hide("skip");
@@ -29,7 +32,6 @@ let logos = [
   "./Logos/GR_Logo.png",
   "./Logos/8H_Logo.png",
   "./Logos/MF_Logo.png",
-/*   "./Logos/WT_Logo.png", */
   "./Logos/YZ_Logo.png",
   "./Logos/TP_Logo.png",
   "./Logos/YE_Logo.png",
@@ -57,9 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-function howToPlay(){
-  alert("Welcome to KanyeGuess!\n\nIn this game, you're prompted with four bars from a random Ye song and you need to guess which one is it.\n\nTo start playing, read the lyrics and write the name of the song they come from in the text box below them, then press the submit button or enter the enter key.\n\nIf you have no idea what the song is, you can skip the round by pressing the skip button or entering the minus (-) key. You usually do this whenever you're given something from Watch The Throne... That album sucks IMO...\n\nAnyways, keep in mind that in each game you'll be given the possibility to skip for only 10 times, and that you only have 5 lives.\n\nYou lose a life when you get a song wrong, and if you lose all of your lives you'll be prompted with a game over screen.\n\nHave fun playing KanyeGuess and testing your Yeezy knowledge! :)\n~AlePiga")
-}
 
 function gameOver() {
   // Nascondi tutti i pulsanti e le sezioni rilevanti
@@ -71,9 +70,7 @@ function gameOver() {
   }
   hide("reload");
   hide("kofi");
-  hide("kanye-songs");
-  hide("kanye-songs");
-  
+
   // Mostra il pulsante per ricaricare la pagina o riprovare
   let reloadButton = document.getElementById("reload");
   if (reloadButton.style.display === "none") {
@@ -81,21 +78,49 @@ function gameOver() {
   }
 }
 
+function showOverlay() {
+  let overlay = document.getElementById("overlay");
+  overlay.style.display = "flex";  // Mostra il div con flex, così è centrato
+}
+
+function closeOverlay() {
+  let overlay = document.getElementById("overlay");
+  overlay.style.display = "none";  // Nasconde il div riportandolo a "display: none"
+}
+
+function howToPlay() {
+  showOverlay();
+}
+
+function showVideoOverlay() {
+  let videoDiv = document.getElementById("videoDiv");
+  videoDiv.style.display = "flex";
+}
+
+function closeVideoOverlay() {
+  let videoDiv = document.getElementById("videoDiv");
+  videoDiv.style.display = "none";
+}
 
 function openkofi(){
   window.open("https://instagram.com/iosonopiga", "_blank");
-}
-
-function openyzy(){
-  window.open("https://yeezy.com", "_blank");
 }
 
 function hide(a) {
   let x = document.getElementById(a);
   if (x.style.display === "none" || x.style.display === "") {
     x.style.display = "inline-block";
-  } else {
+  } 
+  else 
+  {
     x.style.display = "none";
+  }
+}
+
+function show(a) {
+  let x = document.getElementById(a);
+  if (x.style.display === "none" || x.style.display === "") {
+    x.style.display = "inline-block";
   }
 }
 
@@ -202,21 +227,18 @@ function getSong(act){
     gameOver();
   }
   if(act == 0 /* Caso scelta sbagliata */){
-    let select = document.getElementById("select");
-    for(let i = 0; i < select.options.length; i++) {
-        if(select.options[i].value == random) {
-          document.getElementById("result").innerHTML = ("<i>Wrong! The song was " + '"' + select.options[i].text + '".</i>');
+    for(let i = 0; i < allsongs.length; i++) {
+        if(i == random) {
+          document.getElementById("result").innerHTML = ("<i>Wrong! The song was " + '"' + allsongs[random - 1] + '".</i>');
             break;
         }
     }
   }
 
   else if(act == 1 /* Caso skip */){
-    let ye = document.getElementById("ye"); 
-    let select = document.getElementById("select");
-    for(let i = 0; i < select.options.length; i++) {
-        if(select.options[i].value == random) {
-          document.getElementById("result").innerHTML = ("<i>The song you just skipped was " + '"' + select.options[i].text + '".</i>');
+    for(let i = 0; i < allsongs.length; i++) {
+        if(i == random) {
+          document.getElementById("result").innerHTML = ("<i>The song you just skipped was " + '"' + allsongs[random - 1] + '".</i>');
           break;
         }
     }
@@ -224,11 +246,9 @@ function getSong(act){
 
   else if(act == 2 /* Caso scelta corretta */){
     playE();
-    let ye = document.getElementById("ye"); 
-    let select = document.getElementById("select");
-    for(let i = 0; i < select.options.length; i++) {
-        if(select.options[i].value == random) {
-          document.getElementById("result").innerHTML = ("<i>Correct! The song was " + '"' + select.options[i].text + '".</i>');
+    for(let i = 0; i < allsongs.length; i++) {
+        if(i == random) {
+          document.getElementById("result").innerHTML = ("<i>Correct! The song was " + '"' + allsongs[random - 1] + '".</i>');
             break;
         }
     }
