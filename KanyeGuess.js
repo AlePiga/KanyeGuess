@@ -1,52 +1,24 @@
-let random = "";
-let bars = [];
-let song = "";
-let cnt = 0;
-let mod = 0;
-let skipSong = 10;
-let err = 5;
-let hint = 5;
+let random = ""; let bars = []; let song = ""; let cnt = 0; let mod = 0; let skipSong = 10; let err = 5;
+let min; let max;
 
-let min;
-let max;
-
-
-let allsongs = ["Intro","We Don't Care","Graduation Day","All Falls Down","I'll Fly Away","Spaceship","Jesus Walks","Never Let Me Down","Get Em High","Workout Plan","The New Workout Plan","Slow Jamz","Breathe In Breathe Out","School Spirit Skit #1","School Spirit","School Spirit Skit #2","Lil Jimmy Skit","Two Words","Through The Wire","Family Business","Last Call","Wake Up Mr. West","Heard 'Em Say","Touch The Sky","Gold Digger","Skit #1","Drive Slow","My Way Home","Crack Music","Roses","Bring Me Down","Addiction","Skit #2","Diamonds From Sierra Leone (Remix)","We Major","Skit #3","Hey Mama","Celebration","Skit #4","Gone","Diamonds From Sierra Leone","Late","Good Morning","Champion","Stronger","I Wonder","Good Life","Can't Tell Me Nothing","Barry Bonds","Drunk And Hot Girls","Flashing Lights","Everything I Am","The Glory","Homecoming","Big Brother","Good Night","Say You Will","Welcome To Heartbreak","Heartless","Amazing","Love Lockdown","Paranoid","RoboCop","Street Lights","Bad News","See You In My Nightmares","Coldest Winter","Pinocchio Story","Dark Fantasy","Gorgeous","POWER","All of the Lights (Interlude)","All of the Lights","Monster","So Appalled","Devil In a New Dress","Runaway","Hell of a Life","Blame Game","Lost In The World","Who Will Survive In America","No Church In The Wild","Lift Off","Ni**as in Paris","Otis","Gotta Have It","New Day","That's My Bitch","Welcome To The Jungle","Who Gon Stop Me","Murder to Excellence","Made in America","Why I Love You","Illest Motherfucker Alive","H.A.M","Primetime","The Joy","On Sight","Black Skinhead","I Am a God","New Slaves","Hold My Liquor","I'm In It","Blood On the Leaves","Guilt Trip","Send It Up","Bound 2","Ultralight Beam","Father Stretch My Hands, Pt. 1","Pt. 2","Famous","Feedback","Low Lights","Highlights","Freestyle 4","I Love Kanye","Waves","FML","Real Friends","Wolves","Frank's Track","Siiiiiiiiilver Surffffeeeeer Intermission","30 Hours","No More Parties in LA","Facts (Charlie Heat Version)","Fade","Saint Pablo","I Though About Killing You","Yikes","All Mine","Wouldn't Leave","No Mistakes","Ghost Town","Violent Crimes","Feel the Love","Fire","4th Dimension","Freeee (Ghost Town, Pt. 2)","Reborn","Kids See Ghosts","Cudi Montage","Every Hour","Selah","Follow God","Closed on Sunday","On God","Everything We Need","Water","God Is","Hands On","Use This Gospel","Jesus Is Lord","Donda Chant","Hurricane","Moon","Life Of The Party","Off the Grid","Jail","Praise God","Come to Life","Believe What I Say","No Child Left Behind","Up From The Ashes","God Breathed","Lord I Need You","24","Junya","Never Abandon Your Family","Donda","Keep My Spirit Alive","Heaven and Hell","Remote Control","Tell the Vision","Jonah","Pure Souls","Ok Ok","New Again","STARS","KEYS TO MY LIFE","PAID","TALKING","BACK TO ME","HOODRAT","DO IT","PAPERWORK","BURN","FUK SUMN","VULTURES","CARNIVAL","BEG FORGIVENESS","PROBLEMATIC","KING","SLIDE","TIME MOVING SLOW","FIELD TRIP","FRIED","ISABELLA","PROMOTION","530","DEAD","FOREVER ROLLING","BOMB","RIVER","FOREVER","HUSBAND","LIFESTYLE","SKY CITY","MY SOUL"]
+let allsongs = ["Intro","We Don't Care","Graduation Day","All Falls Down","I'll Fly Away","Spaceship","Jesus Walks","Never Let Me Down","Get Em High","Workout Plan","The New Workout Plan","Slow Jamz","Breathe In Breathe Out","School Spirit Skit #1","School Spirit","School Spirit Skit #2","Lil Jimmy Skit","Two Words","Through The Wire","Family Business","Last Call","Wake Up Mr West","Heard 'Em Say","Touch The Sky","Gold Digger","Skit #1","Drive Slow","My Way Home","Crack Music","Roses","Bring Me Down","Addiction","Skit #2","Diamonds from Sierra Leone (Remix)","We Major","Skit #3","Hey Mama","Celebration","Skit #4","Gone","Late","Good Morning","Champion","Stronger","I Wonder","Good Life","Can't Tell Me Nothing","Barry Bonds","Drunk and Hot Girls","Flashing Lights","Everything I Am","The Glory","Homecoming","Big Brother","Good Night","Say You Will","Welcome to Heartbreak","Heartless","Amazing","Love Lockdown","Paranoid","RoboCop","Street Lights","Bad News","See You in My Nightmares","Coldest Winter","Pinocchio Story","Dark Fantasy","Gorgeous","POWER","All of the Lights (Interlude)","All of the Lights","Monster","So Appalled","Devil in a New Dress","Runaway","Hell of a Life","Blame Game","Lost in the World","Who Will Survive in America","No Church in the Wild","Lift Off","Ni**as in Paris","Otis","Gotta Have It","New Day","That's My Bitch","Welcome to the Jungle","Who Gon Stop Me","Murder To Excellence","Made in America","Why I Love You","Illest Motherfucker Alive","H*A*M","Primetime","The Joy","On Sight","Black Skinhead","I Am a God","New Slaves","Hold My Liquor","I'm in It","Blood on the Leaves","Guilt Trip","Send It Up","Bound 2","Ultralight Beam","Father Stretch My Hands, Pt. 1","Pt.2","Famous","Feedback","Low Lights","Highlights","Freestyle 4","I Love Kanye","Waves","FML","Real Friends","Wolves","Frank's Track","Siiiiiiiiilver Surffffeeeeer Intermission","30 Hours","No More Parties in LA","Facts (Charlie Heat Version)","Fade","Saint Pablo","I Thought About Killing You","Yikes","All Mine","Wouldn't Leave","No Mistakes","Ghost Town","Violent Crimes","Feel the Love","Fire","4th Dimension","Freeee (Ghost Town, Pt. 2)","Reborn","Kids See Ghosts","Cudi Montage","Every Hour","Selah","Follow God","Closed on Sunday","On God","Everything We Need","Water","God Is","Hands On","Use This Gospel","Jesus Is Lord","Donda Chant","Hurricane","Moon","Life of the Party","Off The Grid","Jail","Praise God","Come to Life","Believe What I Say","No Child Left Behind","Up from the Ashes","God Breathed","Lord I Need You","24","Junya","Never Abandon Your Family","Donda","Keep My Spirit Alive","Heaven and Hell","Remote Control","Tell The Vision","Jonah","Pure Souls","Ok Ok","New Again","Jesus Lord","STARS","KEYS TO MY LIFE","PAID","TALKING","BACK TO ME","HOODRAT","DO IT","PAPERWORK","BURN","FUK SUMN","VULTURES","CARNIVAL","BEG FORGIVENESS","PROBLEMATIC","KING","SLIDE","TIME MOVING SLOW","FIELD TRIP","FRIED","ISABELLA","PROMOTION","530","DEAD","FOREVER ROLLING","BOMB","RIVER","FOREVER","HUSBAND","LIFESTYLE","SKY CITY","MY SOUL"]
 
 function eseguiInBackground() {
   if (skipSong <= 0) {
     hide("skip");
     hide("skip");
   }
-  if (hint <= 0) {
-    hint = 0;
-    hide("indizi");
-    hide("indizi");
-  }
 }
 setInterval(eseguiInBackground, 10);
 
-let logos = [
-  "./Logos/CD_Logo.png",  
-  "./Logos/LR_Logo.jpg",
-  "./Logos/GR_Logo.png",
-  "./Logos/8H_Logo.png",
-  "./Logos/MF_Logo.png",
-  "./Logos/YZ_Logo.png",
-  "./Logos/TP_Logo.png",
-  "./Logos/YE_Logo.png",
-  "./Logos/KG_Logo.png",
-  "./Logos/JK_Logo.png",
-  "./Logos/DO_Logo.png",
-  "./Logos/V1_Logo.png",
-  "./Logos/V2_Logo.png",
-];
+// Array con loghi
+let logos = [ "./Logos/CD_Logo.png", "./Logos/LR_Logo.jpg", "./Logos/GR_Logo.png", "./Logos/8H_Logo.png", "./Logos/MF_Logo.png", "./Logos/YZ_Logo.png", "./Logos/TP_Logo.png", "./Logos/YE_Logo.png", "./Logos/KG_Logo.png", "./Logos/JK_Logo.png", "./Logos/DO_Logo.png", "./Logos/V1_Logo.png", "./Logos/V2_Logo.png"];
 
-let il = logos.length;
-let randomIndex = Math.floor(Math.random() * il);
+// Indice a caso dell'array con i loghi
+let randomIndex = Math.floor(Math.random() * logos.length);
 
-function clickImage(){
-  randomIndex = (randomIndex + 1) % il;
+function clickImage() {
+  randomIndex = (randomIndex + 1) % logos.length;
   let urlImmagine = logos[randomIndex];
   let elementoImmagine = document.getElementById("logo"); 
   elementoImmagine.src = urlImmagine; 
@@ -56,18 +28,15 @@ document.addEventListener("DOMContentLoaded", () => {
   let elementoImmagine = document.getElementById("logo");
   if (elementoImmagine) {
     elementoImmagine.src = logos[randomIndex];
+    // Aggiungi evento click all'immagine
+    elementoImmagine.addEventListener("click", clickImage);
   }
 });
 
-
 function gameOver() {
   // Nascondi tutti i pulsanti e le sezioni rilevanti
-  hide("submit");
-  hide("submit");
-  if (document.getElementById("skip").style.display !== "none") {
-    hide("skip");
-    hide("skip");
-  }
+  hide("submit"); hide("submit");
+  if (document.getElementById("skip").style.display !== "none") { hide("skip"); hide("skip"); }
   hide("reload");
   hide("kofi");
 
@@ -78,107 +47,53 @@ function gameOver() {
   }
 }
 
-function howToPlay(){
-document.getElementById("overlay").style.display = "block";
-}
+// Funzioni DIV HowToPlay
+function showHTPOverlay() { let overlay = document.getElementById("overlay"); overlay.style.display = "flex"; }
+function closeHTPOverlay() { let overlay = document.getElementById("overlay"); overlay.style.display = "none"; }
 
-function closeOverlay() {
-  hide("overlay");
-  hide("overlay");
-}
+// Funzioni DIV Video
+function showVideoOverlay() { let videoDiv = document.getElementById("videoDiv"); videoDiv.style.display = "flex"; }
+function closeVideoOverlay() { let videoDiv = document.getElementById("videoDiv"); videoDiv.style.display = "none"; }
 
-function openkofi(){
-  window.open("https://instagram.com/iosonopiga", "_blank");
-}
+// Funzione per aprire Instagram da bottone
+function openInstagram(){ window.open("https://instagram.com/iosonopiga", "_blank"); }
 
-function openyzy(){
-  window.open("https://yeezy.com", "_blank");
-}
+// Funzione per nasconde bottoni e sezioni
+function hide(a) { let x = document.getElementById(a); x.style.display = "none"; }
+// Funzioni per far partire tag HTML audio
+function playE(){ document.getElementById("runaway").play(); }
+function poopityScoop(){ document.getElementById("poopityscoop").play(); }
 
-function hide(a) {
-  let x = document.getElementById(a);
-  if (x.style.display === "none" || x.style.display === "") {
-    x.style.display = "inline-block";
-  } 
-  else 
-  {
-    x.style.display = "none";
-  }
-}
-
-function show(a) {
-  let x = document.getElementById(a);
-  if (x.style.display === "none" || x.style.display === "") {
-    x.style.display = "inline-block";
-  }
-}
-
-
-
-function playE(){
-  let E = document.getElementById("runaway");
-  E.play();
-}
-
-function poopityScoop(){
-  let ps = document.getElementById("poopityscoop");
-  ps.play();
-}
-
+// Funzione per resettare la partita
 function reset(){
-  random = "";
-  bars = [];
-  song = "";
-  cnt = 0;
-  skipSong = 10;
-  err = 5;
-  hint = 5;
+  random = ""; bars = []; song = ""; cnt = 0; skipSong = 10; err = 5;
   document.getElementById("vite").innerHTML = "<b>Lives: </b>" + err;
   document.getElementById("skipp").innerHTML = "<b>Skips: </b>" + skipSong;
   document.getElementById("streak").innerHTML = "<b>Score: </b>" + cnt;
   document.getElementById("result").innerHTML = "<i>Song results will appear here. Good luck!</i>"
 }
 
+// ! Funzione per generare set di canzoni
 function genSet(){
   reset();
   let c = parseInt(document.getElementById("mode").value);
   let bottomLogo = document.getElementById("bottomLogo");
-  switch(c){
-    case 1: min = 1; max = 216; bottomLogo.src = "./Kanye/alr.jpg"; break;
-    case 2: min = 1; max = 216; mod = 2; bottomLogo.src = "./Kanye/alr.jpg"; break;
-    case 3: min = 1; max = 216; mod = 1; bottomLogo.src = "./Kanye/alr.jpg"; break;
-    case 4: min = 1; max = 21;  bottomLogo.src = "./Covers/CD.jpg"; break;
-    case 5: min = 22; max = 42; bottomLogo.src = "./Covers/LR.jpg"; break;
-    case 6: min = 43; max = 56; bottomLogo.src = "./Covers/GR.jpg"; break;
-    case 7: min = 57; max = 68; bottomLogo.src = "./Covers/8H.png"; break;
-    case 8: min = 69; max = 81; bottomLogo.src = "./Covers/MF.jpg"; break;
-    case 9: min = 82; max = 97; bottomLogo.src = "./Covers/WT.jpg"; break;
-    case 10: min = 98; max = 107; bottomLogo.src = "./Covers/YZ.png"; break;
-    case 11: min = 108; max = 127; bottomLogo.src = "./Covers/TP.jpg"; break;
-    case 12: min = 128; max = 134; bottomLogo.src = "./Covers/YE.jpg"; break;
-    case 13: min = 135; max = 141; bottomLogo.src = "./Covers/KG.png"; break;
-    case 14: min = 142; max = 152; bottomLogo.src = "./Covers/JK.jpg"; break;
-    case 15: min = 153; max = 180; bottomLogo.src = "./Covers/DO.jpeg"; break;
-    case 16: min = 185; max = 199; bottomLogo.src = "./Covers/V1.png"; break;
-    case 17: min = 200; max = 215; bottomLogo.src = "./Covers/V2.png"; break;
-  }
+  switch(c){ case 1: min = 1; max = 216; bottomLogo.src = "./Kanye/alr.jpg"; break; case 2: min = 1; max = 216; mod = 2; bottomLogo.src = "./Kanye/alr.jpg"; break; case 3: min = 1; max = 216; mod = 1; bottomLogo.src = "./Kanye/alr.jpg"; break; case 4: min = 1; max = 21;  bottomLogo.src = "./Covers/CD.jpg"; break; case 5: min = 22; max = 42; bottomLogo.src = "./Covers/LR.jpg"; break; case 6: min = 43; max = 56; bottomLogo.src = "./Covers/GR.jpg"; break; case 7: min = 57; max = 68; bottomLogo.src = "./Covers/8H.png"; break; case 8: min = 69; max = 81; bottomLogo.src = "./Covers/MF.jpg"; break; case 9: min = 82; max = 97; bottomLogo.src = "./Covers/WT.jpg"; break; case 10: min = 98; max = 107; bottomLogo.src = "./Covers/YZ.png"; break; case 11: min = 108; max = 127; bottomLogo.src = "./Covers/TP.jpg"; break; case 12: min = 128; max = 134; bottomLogo.src = "./Covers/YE.jpg"; break; case 13: min = 135; max = 141; bottomLogo.src = "./Covers/KG.png"; break; case 14: min = 142; max = 152; bottomLogo.src = "./Covers/JK.jpg"; break; case 15: min = 153; max = 180; bottomLogo.src = "./Covers/DO.jpeg"; break; case 16: min = 185; max = 199; bottomLogo.src = "./Covers/V1.png"; break; case 17: min = 200; max = 215; bottomLogo.src = "./Covers/V2.png"; break; }
   if(c != 2 || c != 3){
     randomSong(mod);
   }
 }
-
 
 function load(){
   if(document.getElementById("mode").value = 1){
     min = 1;
     max = 216;
   }
-  randomImage(); //Genera un'immagine a caso per il logo del sito
-  randomSong(mod); //Sceglie la canzone di cui apparirà il testo
-  hide("reload"); //Nasconde il pulsante per rigiocare
-  hide("reload"); //Non so perché ma mi tocca richiamarla due volte
-  hide("kofi"); //Nasconde il pulsante per passare a Kofi
-  hide("kofi"); //Non so perché ma mi tocca richiamarla due volte
+  randomSong(mod); 
+  hide("reload");
+  hide("reload");
+  hide("kofi"); 
+  hide("kofi"); 
 }
 
 function randomBars() {
@@ -187,6 +102,7 @@ function randomBars() {
     bars.length = 0;
     bars.push("Game over!<br>You lost all your lives :(")
   }
+
   else{
     bars = [];
     let length = song.length - 1;
@@ -197,14 +113,17 @@ function randomBars() {
       if (err != 0) {
         bars.push(song[randomB] + "<br>" + song[randomB + 1] + "<br>" + song[randomB + 2] + "<br>" + song[randomB + 3]);
         document.getElementById("bars").innerHTML = bars.join(''); // Unisce gli elementi senza virgole
-      } else if (err == 0) {
+      } 
+      else if (err == 0) {
         bars.push("Game over! You lost all your lives :(");
         document.getElementById("bars").innerHTML = bars.join(''); // Unisce gli elementi senza virgole
       }
-    } else if (err != 0) {
+    } 
+    else if (err != 0) {
       bars.push(song[randomB] + "<br>" + song[randomB + 1] + "<br>" + song[randomB + 2] + "<br>" + song[randomB + 3]);
       document.getElementById("bars").innerHTML = bars.join(''); // Unisce gli elementi senza virgole
-    } else {
+    } 
+    else {
       let a = '<a href="https://ko-fi.com/alepiga/">Kanye Guess Ko-fi page</a>';
       let b = '<a href="https://instagram.com/iosonopiga">follow my Instagram</a>';
       bars.push("Game over! You lost all your lives!<br>If you want to support my project you<br>can check out the " + a + "<br>or " + b + " :)");
@@ -244,41 +163,21 @@ function getSong(act){
         }
     }
   }
-
-  else{
-    alert("If this somehow popped up the programmer is stupid");
-  }
 }
 
-function randomImage() {
-  let indice = Math.floor(Math.random() * (il));
-  let urlImmagine = logos[indice];
-  let elementoImmagine = document.getElementById("logo"); 
-  elementoImmagine.src = urlImmagine; 
-}
-
-function check(){
-  let selected = document.getElementById('yelist').querySelector('option[value="' + document.getElementById('kanye-songs').value + '"]').id;
-  document.getElementById('kanye-songs').value = "";
-  if(selected == random){
-      getSong(2);
-    cnt ++;
-  }
-  else {
+function check() {
+  const selected = document.getElementById("yelist").querySelector('option[value="' + document.getElementById("kanye-songs").value + '"]').id;
+  document.getElementById("kanye-songs").value = "";
+  if (selected === random) {
+    getSong(2);
+    cnt++;
+  } else {
     err--;
     poopityScoop();
-    document.getElementById("vite").innerHTML = ("<b>Lives: </b>" + err);
-    if(err == 0){
-      getSong(0);
-      gameOver();
-    }
-    else{
-      getSong(0);
-    }
+    document.getElementById("vite").innerHTML = `<b>Lives: </b>${err}`;
+    err === 0 ? gameOver() : getSong(0);
   }
-  
-  let streak = "<b>Score:</b> " + cnt;
-  document.getElementById("streak").innerHTML = streak;
+  document.getElementById("streak").innerHTML = `<b>Score:</b> ${cnt}`;
   randomSong(mod);
 }
 
@@ -11409,88 +11308,6 @@ let upfromtheashes = [
   "I come to you empty"
 ]
 
-let remotecontrolpt2 = [
-  "Please don't ask again, who's up in the van?",
-  "They my only fans",
-  "I was in my hovercraft, had another laugh",
-  "How you roll with them? When you know I'm him",
-  "Got it on remote control",
-  "Got it on remote control",
-  "Got it on remote control, like a CEO",
-  "I thought you should know",
-  "On my Instagram, it get outta hand",
-  "Why you so mad?",
-  "He got it on remote control, like a CEO",
-  "Feelin' like the man, feelin' like the man",
-  "I was in my hovercraft, floatin' down the path",
-  "God just grabbed my hand, had a bigger plan",
-  "He got this on remote control",
-  "He got it on remote control",
-  "'Trol",
-  "Woah-woah, woah-woah",
-  "I just, oh, I owe you a load",
-  "Aaliyah on the Titanic (oh), I can rock your boat (Spider)",
-  "Hoppin' out the brand new Rolls (skrrt, skrrt)",
-  "Hoppin' out the brand new Rolls (skrrt, skrrt)",
-  "Jesus sent me brand new clothes (skrrt, skrrt)",
-  "Wrist still thirty-two below (yeah)",
-  "I want my mob ties to shine",
-  "I could caress your mind with the right time (time)",
-  "Don't you give your love up, this is the right sign, right sign (yeah, yeah)",
-  "I treat you lovely and righteous and kind",
-  "And we'll be lastin' with another 'til we die (yeah)",
-  "I'd give you kids at the drop of a dime (dime)",
-  "Oh-woah, told the bitch fold my clothes (fold my clothes)",
-  "Take it to the light like a strobe (yeah)",
-  "Taking me to court like O (taking me to court like OJ)",
-  "Paparazzi sleep at my door",
-  "I just thought that you should know (sleep at my door)",
-  "I get frozen like the North Pole, don't you freeze up on a pole",
-  "He got this on remote control like a sink in gold",
-  "He got it, no fight, no more meds, twilight in the game",
-  "He got it on my hover craft, have another laugh",
-  "Pop on a handstand, twilight in demand",
-  "He got it on remote control",
-  "He got it on remote control",
-  "He got it on remote control, like that's to know",
-  "Should know",
-  "You not understand, I am not your mans",
-  "See, I'm super, I got plans, trips across the land",
-  "Diamonds dancin' on my hands, Cudder in demand",
-  "All in pink like Killa' Cam, holy",
-  "Watch 'em go, baby like what she see, hey",
-  "In the evening, it's the time, and it's right, hey",
-  "Takin' it solo, lose the bag, it's disco, hey",
-  "Just a doin' damage plus some damage, you know, it's a thing",
-  "And we ridin', it's a little bit of liquor and we slidin', it's on",
-  "And we 'bout it, say goodbye to the worries, baby, so long",
-  "Feelin' she love my shine, oh",
-  "Color outside the lines, I am so out of control",
-  "And I'm fallin', glowin' in the mold",
-  "And she said she understands the code, see, we play our roles",
-  "This is how it goes, innocent, ooh",
-  "And I'm tryna find you in my dreams, ooh",
-  "See, I'm just a creature in the night, she gives me what I like",
-  "Electric through my bones, feels so right",
-  "Ooh, hahaha, mm, splendid",
-  "Simply delicious, oh, haha",
-  "I am the Glob-glo-gab-galab",
-  "The shwabble-dabble-wabble-gabble flibba blabba blab",
-  "I'm full of shwibbly liber-kind",
-  "I am the yeast of thoughts and minds",
-  "Shwabble dabble glibble glabble schribble shwap glab",
-  "Dibble dabble shribble shrabble glibbi-glap shwap",
-  "Shwabble dabble glibble glabble shwibble shwap-dap",
-  "Dibble dabble shribble shrabble glibbi-shwap glab",
-  "Shwabble dabble glibble glabble schribble shwap glab",
-  "Dibble dabble shribble shrabble glibbi-glap shwap",
-  "Shwabble dabble glibble glabble shwibble shwap-dap",
-  "Dibble dabble shribble shrabble glibbi-shwap glab",
-  "Ooh, hahaha, mmm, splendid",
-  "Simply delicious",
-  "Oh, hahahaha"
-]
-
 let godbreathed = [
   "I know God breathed on this",
   "I know God breathed on this",
@@ -11871,193 +11688,6 @@ let keepmyspiritalive = [
   "Spirit won't die-ie",
   "Oh, my life",
   "Is in His hands, so I don't stress, I pray and strategize"
-]
-
-let jesuslordpt2 = [
-  "Tell me if you know someone that needs (Jesus, Lord)",
-  "Now we've been through a lot of things",
-  "Tell me if you know someone that needs (Jesus, Lord)",
-  "We done seen a lot of things",
-  "Tell me if you know someone that needs (Jesus, Lord)",
-  "Been through a lot of things",
-  "Tell me if you know someone that needs (Jesus, Lord)",
-  "Sittin' by myself, I'm just thinkin'",
-  "About all I've been through, I wish I was dreamin' (Jesus)",
-  "Man, it's hard to be an angel when you surrounded by demons (Lord)",
-  "I watched so many people leave, I see them change by the season, that's mama's seasonin'",
-  "God got you, the devil's watchin', he just peekin' in",
-  "I know I made a promise that I'd never let the reaper in (Jesus)",
-  "But lately, I've been losin' all my deepest friends (Lord)",
-  "And lately, I've been swimmin' on the deepest end",
-  "It's just drugs, it ain't no hugs, it ain't no love there",
-  "You been down so much, you don't even know what's upstairs (Jesus)",
-  "Suicidal thoughts got you wonderin' what's up there (Lord)",
-  "And while they introduce a party, they say it's up there",
-  "Too many pills, so much potions, so much pain, too many emotions",
-  "And everything that you do good, it just go unnoticed (Jesus)",
-  "Did He tell you that you good, and just stay focused? (Lord)",
-  "Mama, you was the life of the party",
-  "I swear you brought life to the party",
-  "When you lost your life, it took the life out the party (Jesus)",
-  "That woman rode with me like a Harley (Lord)",
-  "Visions of my cousin in a cell really scarred me",
-  "Movin' to the hood was like signin' up for the army",
-  "'Cause they been killin' niggas since niggas was watchin' Barney (Jesus)",
-  "You want dreams to come true? But I had nightmares (Lord)",
-  "'Cause if that come to life, then I might not be right here",
-  "Been in the dark so long, don't know the light here",
-  "But I'm just reachin' for the stars like Buzz Lightyear (Jesus)",
-  "And now I'm lightyears ahead of those nightmares (Lord)",
-  "I deaded those night terrors when the night clears",
-  "And if I talk to Christ, can I bring my mother back to life?",
-  "And if I die tonight, will I see her in the afterlife? (Jesus)",
-  "But back to reality, where everything's a tragedy (Lord)",
-  "And you better have a strategy or you could be a statistic",
-  "Little boy dies, he's just one of the mystic",
-  "And mama steady cryin', 'cause she really the victim (Jesus)",
-  "And she's gettin' high and she's gettin' addicted (Lord)",
-  "And her older boy just stuck with the picture, painted vivid",
-  "That's a family portrait, and her daughter just absorbed it",
-  "Sixteen, pregnant, baby daddy say she should abort it (Jesus)",
-  "But we can't afford it, so she decides to move forward (Lord)",
-  "Baby shower time, father didn't show up",
-  "And she just feelin' nauseous like she finna throw up",
-  "The water flows down her legs, yeah, it's finna go up (Jesus)",
-  "A year done went by, her daughter just turned one (Lord)",
-  "And she's still dependent on her mom",
-  "Big brother in the streets, he went and bought him a gun",
-  "He want revenge 'cause the pain, feelin' numb (Jesus)",
-  "And her mom still doin' drugs 'cause that's the only time she feel loved (Lord)",
-  "But is it real love? Do the scars really heal up?",
-  "From all the pain that done built up, but they don't feel us (Jesus)",
-  "A week done flew by, the big bro ridin' then he see the guys (Lord)",
-  "Left his little brother on the side, bleedin' from the side",
-  "He seein' red, it's like he's bleedin' through his eyes",
-  "To see him dead, the only thing that'll help the grievin' up inside (Jesus)",
-  "He even let him get they last meal",
-  "He done with the streets after this, this his last kill (Lord)",
-  "He gotta show him that it's that real",
-  "We ran up on him with the pipe like, \"Niggas, stand still\" (Jesus)",
-  "\"You took my brother life, you made my mother cry\" (Lord)",
-  "\"Tell me one reason I shouldn't send you up to Christ\"",
-  "He said, \"Go 'head, take my life, I've seen everything but Christ\"",
-  "Then big bro just blacked out and all you seein' was the light (Jesus, Lord)",
-  "Tell me if you know someone that needs (Jesus, Lord)",
-  "Uh-huh, in the name of the true and livin' God, the beneficent, the merciful (hallelujah)",
-  "Thank you for bringin' me up the rough side of the mountain like Ertuğrul (Jesus)",
-  "Every knee bowed and every tongue confessed and paid homage (Lord)",
-  "To the monk who visited Rothschilds like Thelonious did Pannonica",
-  "It's Jay Elec-entendre-nica comin' through your monitor",
-  "Back from the great beyond, to the son of man and the son of Donda (Jesus)",
-  "I never rolled the GXSR or the R6 or the Honda (Lord)",
-  "But I flew my Ducati through North America like Wakanda",
-  "Earthquakes will strike this nation for what Bush did to Rwanda (Facts)",
-  "What the Clintons did to Haiti and Downing Street did to Ghana (Jesus)",
-  "In Tenochtitlan they call me Terremoto, El Negro Loco (Lord)",
-  "I shake the tectonic plates of the game if I lay one vocal",
-  "The God is interstellar while you fellas remain local",
-  "My bars is like the pyramid temples of Pacal Votan (Jesus)",
-  "As sure as the DOJ confirmed Ezekiel's Wheel (Lord)",
-  "I could change the world like Yakub with two pieces of steel",
-  "My sword or my microphone, I swore to the Christ's throne",
-  "But when you great, they wanna say you took an L, José Castillo (Jesus)",
-  "I'm in the fight here, fight here, for what seemed like lightyears (Lord)",
-  "My rugged cross and thorny crowns squeeze out Christ tears",
-  "Thirty pieces of silver clout, my Pierre price tier",
-  "It's a war outside, it's a war outside (Jesus)",
-  "It's like the last days of Sodom and Gomorrah outside (Lord)",
-  "Tell me if you know someone that needs (Jesus, Lord)",
-  "Donnie, Ye, what up nigga?",
-  "Get that money and nigga forget 'em",
-  "I ain't need 'em, but my mom's is with 'em (Jesus)",
-  "Thirty-eight, look how the streets did 'em (Lord)",
-  "All these trophies, but where do I sit 'em? (Woo)",
-  "I was born to rock a crown, oe yeah, I knocked it down",
-  "Holy water, nigga, but out here, we turn to brown (Jesus)",
-  "Donnie, if you ain't loyal, you from a different soil (Lord)",
-  "Your flame too low for that water to boil",
-  "If I wasn't rappin', the calls would stop",
-  "You ain't really happy for me, you mad that I popped (Jesus)",
-  "Fuck a car, five houses like, \"Look what I copped\" (Lord)",
-  "Devil like, \"Jesus Christ, he gotta be stopped\"",
-  "I don't say \"What's up?\", You basically blocked",
-  "You see it on my hip, just know that it's cocked (Jesus)",
-  "Always look 'em in the face when I deal with my opp (Lord)",
-  "I'm from the bottom but Lord knows it's better up top, nigga",
-  "Yeah, viral pictures (viral), Bible scriptures (yeah)",
-  "One thing about the devil, he's liable to get you (yeah, Jesus)",
-  "Long as my good days, outweigh my bad days (Lord)",
-  "I don't count the money, I just know how much the bag weighs (I know)",
-  "Broke down soon as I seen 'em bring the coffin in",
-  "Lord knows, I just really wanna see you walk again (Jesus)",
-  "Million dollars cashiers check to the offerin' (Lord)",
-  "They can talk about me all they want, I'ma talk to Him (uh-huh)",
-  "Some niggas get shot in they mouth, never talk again (yeah)",
-  "After that, they go and get veneers or the porcelain (Jesus)",
-  "We all need Him, is you ready to meet Him? (Lord, ready?)",
-  "Doin' dumb shit but keep tryin' for your freedom",
-  "Uh, if you don't die, then you try again (yeah)",
-  "You get your angel wings then you fly again (Jesus, fly)",
-  "Ain't no 'I' in 'team', it's a 'I' in 'win' (Lord, win)",
-  "They got they eye on me, I got my eye on Him ('sup)",
-  "Some fam died, some friends died",
-  "I am feelin' rage on the inside, where is mine? (Jesus)",
-  "Love and hate is a thin line, get two for the ten time (Lord)",
-  "Dyin' on the eleventh, my Nigga",
-  "I'm just down here stuntin' on the seventh, my nigga",
-  "By the way, is a ghetto up in heaven, my nigga? (Jesus)",
-  "If it is, keep the chariot revvin' my nigga, yeah (Lord)",
-  "That's what my momma be sayin'",
-  "And before you go to war, know it's honor in prayin'",
-  "There'll be vomit on the toilet after last night",
-  "These niggas ball and they move (Jesus)",
-  "Yeah, they gotta be playin', not the lottery (Lord)",
-  "I am in the flower, fuck the pottery",
-  "Jargon is angelic, you don't get it then pardon me",
-  "Got coke from Jesus, now I'm talkin' to Jesus (Jesus)",
-  "Real shallow nigga, probably pray for a gray coupe (Lord)",
-  "Maybe the Lykan, or a mansion out in the Seychelles",
-  "Ghost",
-  "Tell me if you know someone that needs (Jesus, Lord)",
-  "Now we doin' a lot of things",
-  "Tell me if you know someone that needs (Jesus, Lord)",
-  "We done seen a lot of things",
-  "Tell me if you know someone that needs (Jesus, Lord)",
-  "Been through a lot of things",
-  "Tell me if you know someone that needs (Jesus, Lord)",
-  "What up, Ye? This is Larry Hoover Jr.",
-  "First and foremost, I wanna thank you for takin' the fight for my father to the Oval Office",
-  "You might not have been the only one that could've did that, but you were the one that did do that",
-  "And with your assistance, we can continue to let the world take part in this fight",
-  "You know to me it kinda feels like",
-  "Me, my mother, my brothers, and my kids",
-  "Have all been incarcerated through this journey and we haven't even been to jail",
-  "We have been looked at, and treated as criminals, for bein' a part of this family",
-  "My father's truth and the reality that he raised me in",
-  "Is that he wanted to make a change in this community (tell me if you know someone that needs)",
-  "'Cause the conditions in this capitalist society is what made him",
-  "And it's what made the children of today",
-  "After twenty-five years of bein' locked down, twenty-three and one",
-  "My father has not called any shots",
-  "From one of the most secure and segregated prisons in the world",
-  "And will not, once released, call any shots for the Gangster Disciples",
-  "If my father's intentions were to lead us to death, destruction",
-  "Into the hell that he has had to live in for the past twenty-six years",
-  "Man, he would be dead to me",
-  "I didn't sign up for that",
-  "I didn't stay on this journey this long for that",
-  "All my life, man, I've been waitin' for my father to come home",
-  "They told me when I graduate eighth grade, he would be home",
-  "Then they told me when I graduate from high school, he would be home",
-  "I went away to Morris Brown, I graduated and he still ain't home",
-  "Now I'm a adult, and my daughter went away to college and graduated",
-  "He still not home",
-  "Now even more than that, my son, he graduated eighth grade and we still waitin'",
-  "Matter of fact, he hasn't hugged, kissed, or touched any of his grandchildren",
-  "And they haven't been able to touch they grandfather",
-  "Even though it is not seen that way for some of us, but for many of us",
-  "Larry Hoover is a beacon of hope for his community, who deserves to breathe free air",
-  "Free my father (Jesus), Mr. Larry Hoover Sr. (Lord)"
 ]
 
 let heavenandhell = [
@@ -12659,297 +12289,6 @@ let jesuslord = [
   "But for many of us, Larry Hoover is a beacon of hope for his community",
   "Who deserves to breathe free air",
   "Free my father (Jesus), Mr. Larry Hoover Sr. (Lord)"
-]
-
-let okokpt2 = [
-  "Ok, now they got me wanna rap again",
-  "Healed the wound, and then you stab me in my back again (uh)",
-  "You the type to play the joke and try to hide your hand (uh)",
-  "Not the type to come around and try to play a friend",
-  "You the type to cut the grass and snake your bestest man",
-  "I'm the type to close the deal and cut my nigga in",
-  "See me in person I look like a ghost (grrrrr)",
-  "See me in person I look like a ghost (baow)",
-  "You wanna come in and play with the G.O.A.T. (baow)",
-  "You wanna come in and play with the G.O.A.T. (dog body)",
-  "All you rap niggas sound like me, can't tell who is who",
-  "You got no real identity, can't tell you from you",
-  "Price went up (yeah), angel investor (yeah)",
-  "Price went up (uh), angel investor",
-  "Ok, ok, I'm not okay (not okay)",
-  "Think you're good, it's not ok (no-de-da-doeh)",
-  "Ok, ok, I'm not okay (I'm not okay)",
-  "Think you're good, get out the way",
-  "A Shenseea (uh)",
-  "Nuh truss any and any man (any man)",
-  "Pree dem and mi play along (play along)",
-  "Watch how dem a sing mi song",
-  "Suddenly, dem tun a fan",
-  "Aim wid precision fi numba one position",
-  "Write di plan, right mi wrong",
-  "And look now, I'm di boss in charge",
-  "Used to talk down pon mi, now mi on top",
-  "Lef mi inna struggle so nuh badda come back",
-  "Tek mi fi granted, tek mi fi soft",
-  "And if yuh play hard",
-  "If yuh let mi down mi nuh have no food fi give u right ya now",
-  "Mi lock mi shop 'cause mi nuh like when you show luv to mi face den chat behind mi back",
-  "Nuh trust people, cyaan trust people",
-  "From dem eat di fruit, mankind tun evil",
-  "Get cut off, you wi get cut off",
-  "Me nuh care how much memories we have in di past",
-  "Yuh bruk up wid yuh ex, still in love, so yuh single",
-  "Mi bruk up wid mi ex, him dead to mi, I'm a widow",
-  "Get cut off, you wi get cut off",
-  "Me nuh care how much memories we have in di past (hmm)",
-  "Bruk up wid yuh ex, still in love, so yuh single",
-  "Mi bruk up with mi ex, him dead to mi, I'm a widow, uh",
-  "It's been plenty times you closed the door on me",
-  "That shit really show me how much you say you a bro to me",
-  "Showed you love and you constantly cold-shouldered me",
-  "But ain't no going back to fixing up, that's the older me, yeah",
-  "I'm done with all the fake shit, I had enough of that, yeah",
-  "I done had too many niggas stab me in the back (yeah, yeah, yeah)",
-  "They say they with you, but they really puttin' on a act",
-  "That's when shit hit the fan and all of sudden, all the facts show",
-  "You gotta chin up and show a nigga tough love",
-  "Let 'em go without you, just to show 'em what it was",
-  "We was so close, you would've thought we was blood",
-  "We got the same pain, we come from the mud",
-  "I swear this shit make me wanna put my all in it, yeah",
-  "You can hear the pain 'cause I put my heart in it, yeah",
-  "Most of these niggas ain't real, they don't wanna see me winning, no",
-  "Most of these niggas ain't real, they don't wanna see me winning, no",
-  "But it's ok, we gon' be ok",
-  "Only show up when we cut the cake (oh yeah)",
-  "Showing love, but we ok (we ok)",
-  "Find God, 'fore it's too late"
-]
-
-let junyapt2 = [
-  "Junya Watanabe on my wri', wri'",
-  "Junya Watanabe on my wri', wri'",
-  "Tell 'em this, did he miss?",
-  "Junya Watanabe on my, mmh",
-  "I can't really see, where did I miss? (Mmh, mmh)",
-  "Ex-strippers (mmh, mmh)",
-  "New killers (mmh, mmh), Chi' niggas tell 'em (mmh, mmh)",
-  "This on Donda (mmh, mmh), on my mama (mmh, mmh)",
-  "Made a promise (mmh)",
-  "Junya Watanabe on my wri'",
-  "Junya Watanabe on my wri'",
-  "Tell 'em this, did he miss?",
-  "Junya Watanabe on my, mmh",
-  "I can't really see, where did I miss? (Mmh)",
-  "Junya Watanabe on my wri' (mmh, mmh)",
-  "Junya Watanabe on my-",
-  "All summer (mmh, mmh), all summer (mmh, mmh)",
-  ".45 gunners (mmh, mmh), in pajamas (mmh, mmh)",
-  "They piranhas (mmh, mmh)",
-  "Buy out the store in hours like we planned it (mmh, mmh, mmh, mmh)",
-  "Junya Watanabe on my wri'",
-  "Junya Watanabe on my wri'",
-  "Tell 'em this, did he miss?",
-  "Junya Watanabe on my, mmh",
-  "I can't really see, where did I miss? (mmh)",
-  "Junya Watanabe on my wri'",
-  "For five summers, hol' up, uh",
-  "For five summers, hol' up",
-  "For five summers, hol' up, uh",
-  "For five summers, hol' up, uh",
-  "We took over, hol' up, uh",
-  "We took over, hol' up",
-  "We took over, hol' up",
-  "We took over, hol' up",
-  "Born in Atlanta (mmh, mmh)",
-  "Not Montana (mmh, mmh)",
-  "'Scuse my manners (mmh, mmh)",
-  "I got standards",
-  "Uh, yeah, 'scuse my manners (mmh, mmh)",
-  "I got standards (mmh, mmh)",
-  "I got status (mmh, mmh)",
-  "You don't want static (mmh, mmh)",
-  "I'm from Atlanta (mmh, mmh)",
-  "Came from the attic (what?) Yeah (mmh, mmh)",
-  "I'm in Mercedes (what?) (Mmh, mmh) uh",
-  "This not practice, uh (mmh, mmh)",
-  "I'm not leaving, hol' up, uh (mmh, mmh)",
-  "Where's my mattress? Hol' up (mmh, mmh)",
-  "In the back of my mansion, mmh (mmh, mmh)",
-  "Hundred K on my mattress, uh (mmh, mmh)",
-  "Yeah, I'm all about fashion, yeah (mmh, mmh)",
-  "And she all about fashion, hol' up (mmh, mmh)",
-  "She rock YEEZY, hol' up (mmh, mmh)",
-  "So we always matchin', hol' up, uh (mmh, mmh)",
-  "Carti and Yeezy, (mmh, mmh) how'd that happen? (Mmh)",
-  "Junya Watanabe, ayy",
-  "Jun Takahashi, ayy (ayy, ayy)",
-  "Undercover, ayy (ayy, ayy)",
-  "Eat up like hibachi, yeah, yeah (ayy, ayy)",
-  "These Bottega, ayy",
-  "Slime green like wasabi, yeah, yeah",
-  "I know the steppers and hitters (ayy)",
-  "They don't do karate, ooh (ayy, ayy)",
-  "I drive the Lamb' or the Chevy",
-  "I keep my bro' in the back of the Kelly, yeah (ayy, ayy)",
-  "I got a house on a hill and it's empty",
-  "I'm with my girl, why you keep tryna tempt me? (Ayy)",
-  "Calling the truck down, the Bentley",
-  "Came with a umbrella like Mr. Bentley (ayy)",
-  "I'm really him evidently",
-  "Putting it on but it's really in me",
-  "I was created in the image of God",
-  "Junya Watanabe on my- (woo, woo, woo)",
-  "Boolies on my couch, stays on my-",
-  "Mike Amiri, did he miss?",
-  "Junya Watanabe on my- (woo, woo, woo, woo)",
-  "On my-",
-  "I'm just tryna find a path, yeah",
-  "Look what God done done for the kid"
-]
-
-let jailpt2 = [
-  "Take what you want",
-  "Take everything",
-  "Take what you want",
-  "Take what you want",
-  "Better that I change my number so you can't explain",
-  "Violence in the night, violence in the night",
-  "Priors, priors, do you have any product?",
-  "Well, that one time, I'll be honest",
-  "I'll be honest, we all liars, let it go",
-  "I'll be honest, we all liars",
-  "I'll be honest, we all liars",
-  "I'm pulled over and I got priors (priors)",
-  "Guess we goin' down, guess who's goin' to jail?",
-  "Guess who's goin' to jail tonight?",
-  "Guess who's goin' to jail tonight?",
-  "Guess who's goin' to jail tonight?",
-  "God gon' post my bail tonight",
-  "Don't you curse at me on text, why you try to hit the flex?",
-  "I hold up, like, \"What?\" I scroll, I scroll up like, \"Next\"",
-  "Guess who's getting X'ed? Like, next",
-  "Guess who's getting X'ed?",
-  "You made a choice, that's your bad, single life ain't so bad",
-  "But we ain't finna go there",
-  "Something's off, I'll tell you why",
-  "Guess who's goin' to jail tonight",
-  "What a grand plan to sell you out",
-  "I could scream and shout, let it out",
-  "I'll be honest, we all liars",
-  "I'll be honest, we all liars",
-  "I'm pulled over and I got priors",
-  "Guess we goin' down, guess who's goin' to jail?",
-  "Guess who's goin' to jail tonight?",
-  "Guess who's goin' to jail tonight?",
-  "Guess who's goin' to jail tonight?",
-  "God gon' post my bail tonight",
-  "Man, tell them haters open up the jail",
-  "(Open up the jail)",
-  "And you can tell my baby mamas, \"Get the bail money\"",
-  "(Bail me)",
-  "I said one thing they ain't like",
-  "Threw me out like they ain't care for me",
-  "Threw me out like I'm garbage, huh?",
-  "And that food that y'all took off my table",
-  "You know that feed my daughters, huh? (Mmm)",
-  "But I ain't really mad 'cause when I look at it",
-  "I'm getting them snakes up out my grass and nigga that's a good habit",
-  "But I'm ready for war, let's get at 'em",
-  "And teaming up ain't gon' help 'em",
-  "'Cause beating the odds too deep, just me and God, shit, nigga, I'm good at it",
-  "Matter of fact, I'm great at it, my cell phone back at it",
-  "I know these people gon' try to tell me how to talk",
-  "Don't know what I seen or what I was taught",
-  "My momma worked two or three jobs",
-  "To take care of three of her kids, my uncles watched",
-  "Yeah, we was raised by the crack addicts",
-  "Mmm, raised by the drug dealers, killers, and the junkies (junkies)",
-  "Mama couldn't save us 'cause she had to get the...",
-  "Mama couldn't save us 'cause she had to get the money",
-  "Feel like your world falling, getting too hard to catch it, ain't it?",
-  "You and your girl arguin', you don't like how she actin' lately",
-  "Giving it everything that you can give and you don't get half the patience",
-  "You was busy hustlin', the things come with your hustle",
-  "They got in her head, corrupted her",
-  "Yeah, that's probably what happened, ain't it?",
-  "Large amount of capital, invested in myself",
-  "Underground, I ain't even have a basement, I read the affidavit",
-  "Let's see what it is with you",
-  "Only thing I did to you",
-  "Was always keep it real and true",
-  "Guilty, guess they 'gon have to take me",
-  "Guess who's goin' to jail tonight?",
-  "Guess who's goin' to jail tonight?",
-  "Guess who's goin' to jail tonight?",
-  "God gon' post my bail tonight"
-]
-
-let keepmyspiritalivept2 = [
-  "Ooh-ooh-ooh",
-  "Keep my spirit alive",
-  "Keep my spirit alive, alive",
-  "More than enough",
-  "You can take it all, but the Lord on my side",
-  "The spirit won't die-ie",
-  "Oh, oh, all my life, yeah",
-  "Is in His hands, so I don't stress, I pray and strategize",
-  "Yo, flushed the work just in time and they raided",
-  "Thank God (thank God)",
-  "Screamin' through the GT roof like, we done made it (skrrt)",
-  "Thank God (thank God)",
-  "Hundred round drum didn't jam when my shooter try spray it",
-  "Thank God (thank God) (brrr)",
-  "Dropped a thousand grams, got two thousand grands when we waited",
-  "Thank God (thank God)",
-  "I was facin' fifteen and I beat it (and I beat it)",
-  "Just spent about twenty up at Neimans (up at Neimans)",
-  "Did two-hundred in a Demon (in a Demon, skrrt)",
-  "I'm the illest nigga, and I mean it (and I mean it)",
-  "My homie droppin' bodies for no reason (boom, boom, boom)",
-  "Now his kids see him on the weekends (argh)",
-  "Got the baking soda for the remix (remix)",
-  "Millionaires on, I can see it",
-  "More than enough",
-  "You can take it all, but the Lord on my side",
-  "The spirit won't die-ie",
-  "Oh, oh, all my life, yeah",
-  "Is in His hands, so I don't stress, I pray and strategize",
-  "Yeah, don't hate me 'cause my heart is full of love",
-  "No weapon formed against me 'cause I'm covered in the blood",
-  "Layin' in the hospital when I got shot, fam",
-  "Mama prayed for me, said she left it in God's hands, yeah",
-  "So I'ma leave it in God's hands",
-  "Everything I'm doin' now is God's plan",
-  "Doctor said I wouldn't walk no more, now I stand",
-  "Then I ran, here I am, Machine",
-  "Keep my spirit alive",
-  "More than enough",
-  "You can take it all, but the Lord on my side",
-  "Well, between a mix of bad schools with the fast-food",
-  "Bad had tools and a bad mood",
-  "If you don't turn to a lil' Gotti they gon' drain all the strength in your lil' body",
-  "They turned me into a lil' Gotti, uh, yeah",
-  "Not Wakanda but Wakanda is kinda like what we 'bout to make",
-  "And who gon' make it? Kan', duh",
-  "Who the squad? Donda",
-  "Who the mom? Donda",
-  "Who can see? Don, duh, get Don C",
-  "Who needs practice? I don't do rehearsals",
-  "And I don't do commercials 'cause they too commercial",
-  "Give it all to God and let Jesus reimburse you",
-  "She said \"You in the studio with who? I'ma hurt you\"",
-  "How I'm forty-two and you got a curfew?",
-  "How nerves dictate how they gon' curve you?",
-  "Quiet all the cordialness",
-  "We walk in God's spiritual ordinance",
-  "We know the blacks, the orphans, refused to be runaways",
-  "Rebel, renegade, must stay paid",
-  "More than enough",
-  "You can take it all, but the Lord on my side",
-  "The spirit won't die-ie",
-  "Oh, oh, all my life, yeah",
-  "Is in His hands, so I don't stress, I pray and strategize"
 ]
 
 /* 

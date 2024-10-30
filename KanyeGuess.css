@@ -8,13 +8,68 @@
   src: url(./Fontfaces/Bold.ttf);
 }
 
-@media only screen and (max-width: 780px) {
+* {
+  box-sizing: border-box;
+}
+
+/* Mobile */ @media only screen and (max-width: 954px) { /* Mobile */
   option{
     font-size: 12pt;
   }
 
-  #hint{
-    display: none;
+  #overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  #aVideo{
+    background-color: #242424;
+  }
+  
+  #howToPlayDiv {
+    font-family: Poppins;
+    width: 80%;
+    max-width: 500px;
+    padding: 20px;
+    background-color: #242424;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 10px;
+    text-align: left;
+    line-height: 1.5;
+  }
+
+  #htpTitle{
+    margin-top: 7.5px;
+    background-color: #242424;
+    text-align: left;
+  }
+
+  #htpParagraph{
+    font-family: Poppins;
+    font-size: 12pt;
+    background-color: #242424;
+    text-align: left;
+  }
+
+  #close-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: Poppins;
   }
   
   #control{
@@ -65,6 +120,7 @@
     font-size: 12pt;
     margin-left: auto;
     margin-right: auto;
+    padding: 10px;
   }
 
   label{
@@ -92,7 +148,7 @@
 
   #logo{
     align-items: center;
-    width: 100%;
+    width: 90%;
   }
 
   #select{
@@ -107,6 +163,7 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+    margin-bottom: 5px;
   }
 
   #bottomL{
@@ -128,25 +185,34 @@
     transform: translateX(-50%);
   }
 
-  #kanye-songs{
-    width: 90%;
-    font-family: Poppins;
-    font-size: 14pt;
+  #kanye-songs {
+    width: 45%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16pt;
+    padding: 8px;
     border-radius: 12.5px;
-    border-color: white;
-    border-width: 2px;
+    border: 2px solid rgb(255, 255, 255);
+    margin-bottom: 10px;
+    background-color: #181818;
+    color: #fff;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  #kanye-songs:focus {
+    border-color: #fff;
+    background-color: #242424; 
   }
 
   #skip{
     font-family: Poppins;
-    font-size: 14pt;
+    font-size: 12pt;
     border-radius: 12.5px;
     border-color: white;
   }
 
   #submit{
     font-family: Poppins;
-    font-size: 14pt;
+    font-size: 12pt;
     border-radius: 12.5px;
     border-color: white;
   }
@@ -172,11 +238,7 @@
   }
 }
 
-@media only screen and (min-width: 781px) {
-  #bars {
-    background-color: blue; /* Cambia lo sfondo su schermi più grandi */
-  }
-
+/* PC */ @media only screen and (min-width: 955px) { /* PC */
   option{
     font-size: 12pt;
   }
@@ -268,7 +330,7 @@
     margin-top: 10px;
     margin-bottom: 0px;
   }
-  
+
   #overlay {
     position: fixed;
     top: 0;
@@ -296,6 +358,7 @@
   }
 
   #htpTitle{
+    margin-top: 7.5px;
     background-color: #242424;
     text-align: left;
   }
@@ -318,6 +381,61 @@
     font-weight: bold;
     font-family: Poppins;
   }
+
+  #videoDiv {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  #htpVideo {
+    font-family: Poppins;
+    width: 80%;
+    max-width: 500px;
+    padding: 20px;
+    background-color: #242424;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 10px;
+    text-align: left;
+    line-height: 1.5;
+  }
+  
+  #aVideo{
+    background-color: #242424;
+  }
+
+  #htpVideoTitle{
+    margin-top: 7.5px;
+    background-color: #242424;
+    text-align: left;
+  }
+  #htpVideoParagraph{
+    font-family: Poppins;
+    font-size: 12pt;
+    background-color: #242424;
+    text-align: left;
+  }
+  
+  #close-video-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: Poppins;
+  }
+
 
   #howtoplay{
     text-align: center;
@@ -356,19 +474,32 @@
     cursor: pointer;
   }
   
-  #bars{
+  #bars {
+    width: 100%;
     background-color: rgb(32, 32, 32);
-    padding: 1%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12pt;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px; /* Aggiunge margini interni uniformi */
   }
   
-  #kanye-songs{
-    width: 55%;
-    font-family: Poppins;
+  #kanye-songs {
+    width: 45%;
+    font-family: 'Poppins', sans-serif;
     font-size: 16pt;
+    padding: 8px;
     border-radius: 12.5px;
-    border-color: white;
-    border-width: 2px;
+    border: 2px solid rgb(255, 255, 255);
     margin-bottom: 10px;
+    background-color: #181818;
+    color: #fff;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  #kanye-songs:focus {
+    border-color: #fff;
+    background-color: #242424; 
   }
   
   #logo{
