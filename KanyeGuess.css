@@ -403,6 +403,10 @@
     line-height: 1.5;
   }
   
+  #aVideo{
+    background-color: #242424;
+  }
+
   #htpVideoTitle{
     margin-top: 7.5px;
     background-color: #242424;
