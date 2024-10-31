@@ -1,8 +1,7 @@
-let random = ""; let bars = []; let song = ""; let cnt = 0; let mod = 0; let skipSong = 10; let err = 5;
+let random = ""; let bars = []; let song = ""; let cnt = 0; let mod = 1; let skipSong = 10; let err = 5;
 let min; let max;
 
-let allsongs = ["Intro","We Don't Care","Graduation Day","All Falls Down","I'll Fly Away","Spaceship","Jesus Walks","Never Let Me Down","Get Em High","Workout Plan","The New Workout Plan","Slow Jamz","Breathe In Breathe Out","School Spirit Skit #1","School Spirit","School Spirit Skit #2","Lil Jimmy Skit","Two Words","Through The Wire","Family Business","Last Call","Wake Up Mr West","Heard 'Em Say","Touch The Sky","Gold Digger","Skit #1","Drive Slow","My Way Home","Crack Music","Roses","Bring Me Down","Addiction","Skit #2","Diamonds from Sierra Leone (Remix)","We Major","Skit #3","Hey Mama","Celebration","Skit #4","Gone","Late","Good Morning","Champion","Stronger","I Wonder","Good Life","Can't Tell Me Nothing","Barry Bonds","Drunk and Hot Girls","Flashing Lights","Everything I Am","The Glory","Homecoming","Big Brother","Good Night","Say You Will","Welcome to Heartbreak","Heartless","Amazing","Love Lockdown","Paranoid","RoboCop","Street Lights","Bad News","See You in My Nightmares","Coldest Winter","Pinocchio Story","Dark Fantasy","Gorgeous","POWER","All of the Lights (Interlude)","All of the Lights","Monster","So Appalled","Devil in a New Dress","Runaway","Hell of a Life","Blame Game","Lost in the World","Who Will Survive in America","No Church in the Wild","Lift Off","Ni**as in Paris","Otis","Gotta Have It","New Day","That's My Bitch","Welcome to the Jungle","Who Gon Stop Me","Murder To Excellence","Made in America","Why I Love You","Illest Motherfucker Alive","H*A*M","Primetime","The Joy","On Sight","Black Skinhead","I Am a God","New Slaves","Hold My Liquor","I'm in It","Blood on the Leaves","Guilt Trip","Send It Up","Bound 2","Ultralight Beam","Father Stretch My Hands, Pt. 1","Pt.2","Famous","Feedback","Low Lights","Highlights","Freestyle 4","I Love Kanye","Waves","FML","Real Friends","Wolves","Frank's Track","Siiiiiiiiilver Surffffeeeeer Intermission","30 Hours","No More Parties in LA","Facts (Charlie Heat Version)","Fade","Saint Pablo","I Thought About Killing You","Yikes","All Mine","Wouldn't Leave","No Mistakes","Ghost Town","Violent Crimes","Feel the Love","Fire","4th Dimension","Freeee (Ghost Town, Pt. 2)","Reborn","Kids See Ghosts","Cudi Montage","Every Hour","Selah","Follow God","Closed on Sunday","On God","Everything We Need","Water","God Is","Hands On","Use This Gospel","Jesus Is Lord","Donda Chant","Hurricane","Moon","Life of the Party","Off The Grid","Jail","Praise God","Come to Life","Believe What I Say","No Child Left Behind","Up from the Ashes","God Breathed","Lord I Need You","24","Junya","Never Abandon Your Family","Donda","Keep My Spirit Alive","Heaven and Hell","Remote Control","Tell The Vision","Jonah","Pure Souls","Ok Ok","New Again","Jesus Lord","STARS","KEYS TO MY LIFE","PAID","TALKING","BACK TO ME","HOODRAT","DO IT","PAPERWORK","BURN","FUK SUMN","VULTURES","CARNIVAL","BEG FORGIVENESS","PROBLEMATIC","KING","SLIDE","TIME MOVING SLOW","FIELD TRIP","FRIED","ISABELLA","PROMOTION","530","DEAD","FOREVER ROLLING","BOMB","RIVER","FOREVER","HUSBAND","LIFESTYLE","SKY CITY","MY SOUL"]
-
+let allsongs = ["Intro", "We Don't Care", "Graduation Day", "All Falls Down", "I'll Fly Away", "Spaceship", "Jesus Walks", "Never Let Me Down", "Get Em High", "Workout Plan", "The New Workout Plan", "Slow Jamz", "Breathe In Breathe Out", "School Spirit Skit #1", "School Spirit", "School Spirit Skit #2", "Lil Jimmy Skit", "Two Words", "Through The Wire", "Family Business", "Last Call", "Wake Up Mr West", "Heard 'Em Say", "Touch The Sky", "Gold Digger", "Skit #1", "Drive Slow", "My Way Home", "Crack Music", "Roses", "Bring Me Down", "Addiction", "Skit #2", "Diamonds from Sierra Leone (Remix)", "We Major", "Skit #3", "Hey Mama", "Celebration", "Skit #4", "Gone", "Late", "Impossible", "Good Morning", "Champion", "Stronger", "I Wonder", "Good Life", "Can't Tell Me Nothing", "Barry Bonds", "Drunk and Hot Girls", "Flashing Lights", "Everything I Am", "The Glory", "Homecoming", "Big Brother", "Good Night", "Say You Will", "Welcome to Heartbreak", "Heartless", "Amazing", "Love Lockdown", "Paranoid", "RoboCop", "Street Lights", "Bad News", "See You in My Nightmares", "Coldest Winter", "Pinocchio Story", "Christmas in Harlem", "Dark Fantasy", "Gorgeous", "POWER", "All of the Lights (Interlude)", "All of the Lights", "Monster", "So Appalled", "Devil in a New Dress", "Runaway", "Hell of a Life", "Blame Game", "Lost in the World", "Who Will Survive in America", "No Church in the Wild", "Lift Off", "Ni**as in Paris", "Otis", "Gotta Have It", "New Day", "That's My Bitch", "Welcome to the Jungle", "Who Gon Stop Me", "Murder To Excellence", "Made in America", "Why I Love You", "Illest Motherfucker Alive", "H*A*M", "Primetime", "The Joy", "Cold", "New God Flow", "Mercy", "On Sight", "Black Skinhead", "I Am a God", "New Slaves", "Hold My Liquor", "I'm in It", "Blood on the Leaves", "Guilt Trip", "Send It Up", "Bound 2", "Ultralight Beam", "Father Stretch My Hands, Pt. 1", "Pt.2", "Famous", "Feedback", "Low Lights", "Highlights", "Freestyle 4", "I Love Kanye", "Waves", "FML", "Real Friends", "Wolves", "Frank's Track", "Siiiiiiiiilver Surffffeeeeer Intermission", "30 Hours", "No More Parties in LA", "Facts (Charlie Heat Version)", "Fade", "Saint Pablo", "I Thought About Killing You", "Yikes", "All Mine", "Wouldn't Leave", "No Mistakes", "Ghost Town", "Violent Crimes", "Feel the Love", "Fire", "4th Dimension", "Freeee (Ghost Town, Pt. 2)", "Reborn", "Kids See Ghosts", "Cudi Montage", "Every Hour", "Selah", "Follow God", "Closed on Sunday", "On God", "Everything We Need", "Water", "God Is", "Hands On", "Use This Gospel", "Jesus Is Lord", "Donda Chant", "Hurricane", "Moon", "Life of the Party", "Off The Grid", "Jail", "Praise God", "Come to Life", "Believe What I Say", "No Child Left Behind", "Up from the Ashes", "God Breathed", "Lord I Need You", "24", "Junya", "Never Abandon Your Family", "Donda", "Keep My Spirit Alive", "Heaven and Hell", "Remote Control", "Tell The Vision", "Jonah", "Pure Souls", "Ok Ok", "New Again", "Jesus Lord", "STARS", "KEYS TO MY LIFE", "PAID", "TALKING", "BACK TO ME", "HOODRAT", "DO IT", "PAPERWORK", "BURN", "FUK SUMN", "VULTURES", "CARNIVAL", "BEG FORGIVENESS", "PROBLEMATIC", "KING", "SLIDE", "TIME MOVING SLOW", "FIELD TRIP", "FRIED", "ISABELLA", "PROMOTION", "530", "DEAD", "FOREVER ROLLING", "BOMB", "RIVER", "FOREVER", "HUSBAND", "LIFESTYLE", "SKY CITY", "MY SOUL"]
 function eseguiInBackground() {
   if (skipSong <= 0) {
     hide("skip");
@@ -17,6 +16,7 @@ let logos = [ "./Logos/CD_Logo.png", "./Logos/LR_Logo.jpg", "./Logos/GR_Logo.png
 // Indice a caso dell'array con i loghi
 let randomIndex = Math.floor(Math.random() * logos.length);
 
+// Funzione che avveiene ogni volta che si clicca l'immagine
 function clickImage() {
   randomIndex = (randomIndex + 1) % logos.length;
   let urlImmagine = logos[randomIndex];
@@ -24,27 +24,24 @@ function clickImage() {
   elementoImmagine.src = urlImmagine; 
 }
 
+// Generata da ChatGPT
 document.addEventListener("DOMContentLoaded", () => {
   let elementoImmagine = document.getElementById("logo");
   if (elementoImmagine) {
     elementoImmagine.src = logos[randomIndex];
-    // Aggiungi evento click all'immagine
     elementoImmagine.addEventListener("click", clickImage);
   }
 });
 
+// Funzione di game over
 function gameOver() {
-  // Nascondi tutti i pulsanti e le sezioni rilevanti
+  alert("Sono qui")
   hide("submit"); hide("submit");
-  if (document.getElementById("skip").style.display !== "none") { hide("skip"); hide("skip"); }
-  hide("reload");
-  hide("kofi");
-
-  // Mostra il pulsante per ricaricare la pagina o riprovare
-  let reloadButton = document.getElementById("reload");
-  if (reloadButton.style.display === "none") {
-    hide("reload");
-  }
+  hide("skip"); hide("skip");
+  document.getElementById("bars").innerHTML = '<h1 style="margin-bottom: 0px;">Game Over!</h1><p>You lost all your lives... Better luck next time!</p>';
+  show("playAgain"); show("playAgain");
+  show("share"); show("share");
+  hide("kanye-songs"); hide("kanye-songs");
 }
 
 // Funzioni DIV HowToPlay
@@ -59,7 +56,12 @@ function closeVideoOverlay() { let videoDiv = document.getElementById("videoDiv"
 function openInstagram(){ window.open("https://instagram.com/iosonopiga", "_blank"); }
 
 // Funzione per nasconde bottoni e sezioni
-function hide(a) { let x = document.getElementById(a); x.style.display = "none"; }
+function hide(a) { let x = document.getElementById(a); x.style.display = "none";}
+
+// Funzione per mostrare bottoni e sezioni
+function show(a) { let x = document.getElementById(a); if(x.style.display === "none"){x.style.display = "flex";}
+}
+
 // Funzioni per far partire tag HTML audio
 function playE(){ document.getElementById("runaway").play(); }
 function poopityScoop(){ document.getElementById("poopityscoop").play(); }
@@ -73,15 +75,12 @@ function reset(){
   document.getElementById("result").innerHTML = "<i>Song results will appear here. Good luck!</i>"
 }
 
-// ! Funzione per generare set di canzoni
-function genSet(){
-  reset();
-  let c = parseInt(document.getElementById("mode").value);
-  let bottomLogo = document.getElementById("bottomLogo");
-  switch(c){ case 1: min = 1; max = 216; bottomLogo.src = "./Kanye/alr.jpg"; break; case 2: min = 1; max = 216; mod = 2; bottomLogo.src = "./Kanye/alr.jpg"; break; case 3: min = 1; max = 216; mod = 1; bottomLogo.src = "./Kanye/alr.jpg"; break; case 4: min = 1; max = 21;  bottomLogo.src = "./Covers/CD.jpg"; break; case 5: min = 22; max = 42; bottomLogo.src = "./Covers/LR.jpg"; break; case 6: min = 43; max = 56; bottomLogo.src = "./Covers/GR.jpg"; break; case 7: min = 57; max = 68; bottomLogo.src = "./Covers/8H.png"; break; case 8: min = 69; max = 81; bottomLogo.src = "./Covers/MF.jpg"; break; case 9: min = 82; max = 97; bottomLogo.src = "./Covers/WT.jpg"; break; case 10: min = 98; max = 107; bottomLogo.src = "./Covers/YZ.png"; break; case 11: min = 108; max = 127; bottomLogo.src = "./Covers/TP.jpg"; break; case 12: min = 128; max = 134; bottomLogo.src = "./Covers/YE.jpg"; break; case 13: min = 135; max = 141; bottomLogo.src = "./Covers/KG.png"; break; case 14: min = 142; max = 152; bottomLogo.src = "./Covers/JK.jpg"; break; case 15: min = 153; max = 180; bottomLogo.src = "./Covers/DO.jpeg"; break; case 16: min = 185; max = 199; bottomLogo.src = "./Covers/V1.png"; break; case 17: min = 200; max = 215; bottomLogo.src = "./Covers/V2.png"; break; }
-  if(c != 2 || c != 3){
-    randomSong(mod);
-  }
+// Funzione per copiare negli appunti il punteggio
+function copyScore() {
+  const message = `I just scored ${cnt} on KanyeGuess! Think you can beat me? Check it out here: https://kanyeguess.com`;
+  navigator.clipboard.writeText(message)
+    .then(() => alert("Score copied to clipboard!"))
+    .catch(err => console.error("Error copying text:", err));
 }
 
 function load(){
@@ -90,79 +89,62 @@ function load(){
     max = 216;
   }
   randomSong(mod); 
-  hide("reload");
-  hide("reload");
-  hide("kofi"); 
-  hide("kofi"); 
+  hide("playAgain");
+  hide("playAgain");
+  hide("share"); 
+  hide("share"); 
 }
 
 function randomBars() {
-  if(err == 0){
+  const displayBars = (content) => {
+    document.getElementById("bars").innerHTML = content;
+  };
+
+  if (err === 0) {
     gameOver();
-    bars.length = 0;
-    bars.push("Game over!<br>You lost all your lives :(")
+    bars = ["Game over!<br>You lost all your lives :("];
+    displayBars(bars.join(''));
+    return;
   }
 
-  else{
-    bars = [];
-    let length = song.length - 1;
-    let randomB = Math.floor(Math.random() * (length - 1 + 1)) + 1;
-  
-    if (randomB + 3 >= song.length - 1) {
-      randomB = randomB - 3;
-      if (err != 0) {
-        bars.push(song[randomB] + "<br>" + song[randomB + 1] + "<br>" + song[randomB + 2] + "<br>" + song[randomB + 3]);
-        document.getElementById("bars").innerHTML = bars.join(''); // Unisce gli elementi senza virgole
-      } 
-      else if (err == 0) {
-        bars.push("Game over! You lost all your lives :(");
-        document.getElementById("bars").innerHTML = bars.join(''); // Unisce gli elementi senza virgole
-      }
-    } 
-    else if (err != 0) {
-      bars.push(song[randomB] + "<br>" + song[randomB + 1] + "<br>" + song[randomB + 2] + "<br>" + song[randomB + 3]);
-      document.getElementById("bars").innerHTML = bars.join(''); // Unisce gli elementi senza virgole
-    } 
-    else {
-      let a = '<a href="https://ko-fi.com/alepiga/">Kanye Guess Ko-fi page</a>';
-      let b = '<a href="https://instagram.com/iosonopiga">follow my Instagram</a>';
-      bars.push("Game over! You lost all your lives!<br>If you want to support my project you<br>can check out the " + a + "<br>or " + b + " :)");
-      document.getElementById("bars").innerHTML = bars.join(''); // Unisce gli elementi senza virgole
-    }
-  }
+  bars = [];
+  const length = song.length - 1;
+  let randomB = Math.floor(Math.random() * length);
+
+  if (randomB + 3 >= length) randomB -= 3;
+
+  bars.push(
+    song[randomB],
+    song[randomB + 1] || '',
+    song[randomB + 2] || '',
+    song[randomB + 3] || ''
+  );
+
+  displayBars(bars.join('<br>'));
 }
 
 function getSong(act){
-  if(err == 0){
+  if (err == 0) {
     gameOver();
-  }
-  if(act == 0 /* Caso scelta sbagliata */){
-    for(let i = 0; i < allsongs.length; i++) {
-        if(i == random) {
-          document.getElementById("result").innerHTML = ("<i>Wrong! The song was " + '"' + allsongs[random - 1] + '".</i>');
-            break;
-        }
-    }
+    return; // Early exit if the game is over
   }
 
-  else if(act == 1 /* Caso skip */){
-    for(let i = 0; i < allsongs.length; i++) {
-        if(i == random) {
-          document.getElementById("result").innerHTML = ("<i>The song you just skipped was " + '"' + allsongs[random - 1] + '".</i>');
-          break;
-        }
-    }
-  }
+  const songTitle = allsongs[random]; // Get the current song title
+  alert("SongTitle #"+ random + ": " + songTitle);
+  let message = "";
 
-  else if(act == 2 /* Caso scelta corretta */){
+  if (act == 0) { // Wrong choice
+    message = `<i>Wrong! The song was "${songTitle}".</i>`;
+  } 
+  else if (act == 1) { // Skipped
+    message = `<i>The song you just skipped was "${songTitle}".</i>`;
+  } 
+  else if (act == 2) { // Correct choice
     playE();
-    for(let i = 0; i < allsongs.length; i++) {
-        if(i == random) {
-          document.getElementById("result").innerHTML = ("<i>Correct! The song was " + '"' + allsongs[random - 1] + '".</i>');
-            break;
-        }
-    }
+    message = `<i>Correct! The song was "${songTitle}".</i>`;
   }
+
+  document.getElementById("result").innerHTML = message;
 }
 
 function check() {
@@ -182,26 +164,33 @@ function check() {
 }
 
 function skip() {
-  if (skipSong <= 0) {
-    hide("skip");
-    hide("skip");
-  } else {
-    skipSong--;
+  if (skipSong > 0) {
+    skipSong--; // Decrementa solo se ci sono skip rimanenti
+    document.getElementById("skipp").innerHTML = "<b>Skips: </b>" + skipSong;
+    getSong(1); // Caso skip per visualizzare la canzone saltata
+    randomSong(mod); // Cambia canzone
+  } 
+  else {
+    hide("skip"); // Nascondi pulsante skip se non ci sono skip rimanenti
   }
-  document.getElementById("skipp").innerHTML = "<b>Skips: </b>" + skipSong;
-  getSong(1);
-  randomSong(mod);
 }
 
-function skipMinus(){
-  if(skipSong > 0){
-    skip();
+// ! Funzione per generare set di canzoni
+function genSet(){
+  reset();
+  let c = parseInt(document.getElementById("mode").value);
+  alert("Mode: " + c);
+  let bottomLogo = document.getElementById("bottomLogo");
+  switch(c){ case 1: min = 1; max = 216; bottomLogo.src = "./Kanye/alr.jpg"; break; case 2: min = 1; max = 216; mod = 2; bottomLogo.src = "./Kanye/alr.jpg"; break; case 3: min = 1; max = 216; mod = 1; bottomLogo.src = "./Kanye/alr.jpg"; break; case 4: min = 1; max = 21;  bottomLogo.src = "./Covers/CD.jpg"; break; case 5: min = 22; max = 42; bottomLogo.src = "./Covers/LR.jpg"; break; case 6: min = 43; max = 56; bottomLogo.src = "./Covers/GR.jpg"; break; case 7: min = 57; max = 68; bottomLogo.src = "./Covers/8H.png"; break; case 8: min = 69; max = 81; bottomLogo.src = "./Covers/MF.jpg"; break; case 9: min = 82; max = 97; bottomLogo.src = "./Covers/WT.jpg"; break; case 10: min = 98; max = 107; bottomLogo.src = "./Covers/YZ.png"; break; case 11: min = 108; max = 127; bottomLogo.src = "./Covers/TP.jpg"; break; case 12: min = 128; max = 134; bottomLogo.src = "./Covers/YE.jpg"; break; case 13: min = 135; max = 141; bottomLogo.src = "./Covers/KG.png"; break; case 14: min = 142; max = 152; bottomLogo.src = "./Covers/JK.jpg"; break; case 15: min = 153; max = 180; bottomLogo.src = "./Covers/DO.jpeg"; break; case 16: min = 185; max = 199; bottomLogo.src = "./Covers/V1.png"; break; case 17: min = 200; max = 215; bottomLogo.src = "./Covers/V2.png"; break; }
+  if(c != 2 || c != 3){
+    randomSong(mod);
   }
 }
 
 function randomSong(mod){
   if(mod == 0){
     random = Math.floor(Math.random() * (max - min + 1)) + min;
+    alert(random);
   }
   if(mod == 1){
     let values = [1, 3, 5, 9, 10, 13, 14, 16, 17, 21, 22, 25, 26, 33, 36, 39, 40, 42, 49, 50, 55, 60, 63, 65, 66, 68, 75, 83, 86, 87, 88, 89, 90, 91, 92, 94, 95, 96, 97, 105, 106, 113, 114, 115, 136, 150, 151, 152, 163, 165, 166, 169, 170, 171, 173, 174, 175, 176, 178, 197, 207, 208, 211, 212, 215];
