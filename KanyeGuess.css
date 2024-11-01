@@ -147,8 +147,20 @@
   }
 
   #logo{
+    width: 70%;
+    transition: transform .2s;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
     align-items: center;
     width: 90%;
+  }
+
+  #logo:hover{
+    cursor: pointer;
+    transform: scale(1.05);
   }
 
   #select{
@@ -251,13 +263,10 @@
   }
   
   h1{
-    font-family: PoppinsBold;
-    font-size: 48pt;
-  }
-  
-  h2{
     font-family: Poppins;
-    font-size: 24pt;
+    margin-top: 16px;
+    font-size: 36pt;
+    background-color: transparent;
   }
   
   label[name="lt"]{
@@ -266,10 +275,19 @@
   
   p{
     font-family: Poppins;
-    font-size: 14pt;
+    font-size: 12pt;
     text-align: center;
+    background-color: transparent;
   }
   
+  a{
+    font-family: Poppins;
+    font-weight: bold;
+    font-size: 12pt;
+    text-align: center;
+    background-color: transparent;
+  }
+
   label{
     font-family: Poppins;
     font-size: 14pt;
@@ -368,6 +386,7 @@
     font-size: 12pt;
     background-color: #242424;
     text-align: left;
+    font-weight: lighter;
   }
 
   #close-btn {
@@ -406,10 +425,7 @@
     border-radius: 10px;
     text-align: left;
     line-height: 1.5;
-  }
-  
-  #aVideo{
-    background-color: #242424;
+    font-weight: lighter;
   }
 
   #htpVideoTitle{
@@ -479,15 +495,15 @@
     background-color: rgb(32, 32, 32);
     font-family: 'Poppins', sans-serif;
     font-size: 12pt;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10px; /* Aggiunge margini interni uniformi */
+    margin-top: 15px;
+    margin-bottom: 17px;
+    padding: 10px;
   }
   
   #kanye-songs {
     width: 45%;
     font-family: 'Poppins', sans-serif;
-    font-size: 16pt;
+    font-size: 14pt;
     padding: 8px;
     border-radius: 12.5px;
     border: 2px solid rgb(255, 255, 255);
@@ -516,10 +532,6 @@
     cursor: pointer;
     transform: scale(1.05);
   }
-  
-  #fix{
-    display: block;
-  }
 
   #submit{
     font-family: Poppins;
@@ -529,18 +541,6 @@
   }
   
   #submit:hover{
-    cursor: pointer;
-  }
-  
-  #reload{
-    text-align: center;
-    font-family: Poppins;
-    font-size: 12pt;
-    border-radius: 12.5px;
-    border-color: white;
-  }
-  
-  #reload:hover{
     cursor: pointer;
   }
   
@@ -555,19 +555,41 @@
     cursor: pointer;
   }
 
-  #select{
-    display: none !important;
+  #gameOver{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  #kofi{
+  #playAgain{
     text-align: center;
     font-family: Poppins;
     font-size: 12pt;
     border-radius: 12.5px;
     border-color: white;
+    display: flex;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    justify-content: center;
+  }
+  
+  #playAgain:hover{
+    cursor: pointer;
   }
 
-  #kofi:hover{
+  #share{
+    display: block;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 12pt;
+    border-radius: 12.5px;
+    border-color: white;
+    display: flex; 
+    margin-bottom: 10px;
+    justify-content: center;
+  }
+
+  #share:hover{
     cursor: pointer;
   }
 
