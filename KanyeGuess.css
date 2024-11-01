@@ -147,8 +147,20 @@
   }
 
   #logo{
+    width: 70%;
+    transition: transform .2s;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
     align-items: center;
     width: 90%;
+  }
+
+  #logo:hover{
+    cursor: pointer;
+    transform: scale(1.05);
   }
 
   #select{
