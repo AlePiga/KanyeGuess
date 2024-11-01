@@ -84,7 +84,6 @@ randomBars();
 function randomBars() {
   if (err === 0) {
     gameOver();
-    document.getElementById("bars").innerHTML = "Game over!<br>You lost all your lives :(";
     return;
   }
   bars = [];
