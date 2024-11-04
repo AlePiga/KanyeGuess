@@ -153,9 +153,9 @@ function getSong(act){
   let message = "";
 
   // Se la canzone
-  if (act == 0) { message = `<i>Wrong! The song was "${songTitle}".</i>`; } 
-  else if (act == 1) { message = `<i>The song you just skipped was "${songTitle}".</i>`; } 
-  else if (act == 2) { playE(); message = `<i>Correct! The song was "${songTitle}".</i>`; cnt++; }
+  if (act == 0) { message = `<i>Wrong! The song was <b>"${songTitle}".</b></i>`; } 
+  else if (act == 1) { message = `<i>The song you just skipped was <b>"${songTitle}".</b></i>`; } 
+  else if (act == 2) { playE(); message = `<i>Correct! The song was <b>"${songTitle}".</b></i>`; cnt++; }
 
   document.getElementById("result").innerHTML = message;
 }
