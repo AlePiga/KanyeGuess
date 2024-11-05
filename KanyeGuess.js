@@ -1,4 +1,4 @@
-let random = 0; let bars = []; let song = ""; let cnt = 0; let mod = 0; let skipSong = 10; let err = 5;
+let random = 0; let bars = []; let song = ""; let cnt = 0; let mod = 0; let skipSong = 10; let err = 5; let checkIG = true;
 let min; let max;
 
 // Array con i titoli dei brani
@@ -159,9 +159,8 @@ function getSong(act){
   }
   document.getElementById("result").innerHTML = message;
   let randomIG = Math.floor(Math.random() * 15) + 1;
-  let checkIG = true;
   if(randomIG == 15){ 
-    if(checkIG) {show("overlayInstagram")}
+    if(checkIG) {show("overlayInstagram"); checkIG = false}
   }
 }
 
