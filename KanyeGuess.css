@@ -1,3 +1,12 @@
+/* 
+  ________                                  .__                 .__                        __          
+ /  _____/  ____   ____   ________________  |  |   _______ __ __|  |   ____   ______ _____/  |_  ______
+/   \  ____/ __ \ /    \_/ __ \_  __ \__  \ |  |   \_  __ \  |  \  | _/ __ \ /  ___// __ \   __\/  ___/
+\    \_\  \  ___/|   |  \  ___/|  | \// __ \|  |__  |  | \/  |  /  |_\  ___/ \___ \\  ___/|  |  \___ \ 
+ \______  /\___  >___|  /\___  >__|  (____  /____/  |__|  |____/|____/\___  >____  >\___  >__| /____  >
+        \/     \/     \/     \/           \/                              \/     \/     \/          \/ 
+*/
+
 @font-face {
   font-family: Poppins;
   src: url(./Fontfaces/Regular.ttf);
@@ -9,99 +18,157 @@
 }
 
 * {
+  font-family: Poppins;
   box-sizing: border-box;
+  text-align: center;
+  background-color: #181818;
+  color: white;
+  align-items: center;
 }
+
+a{
+  text-emphasis: bold;
+}
+
+#logo{
+  width: 70%;
+  transition: transform .2s;
+  align-items: center;
+  width: 90%;
+}
+
+::selection {
+  background-color: #b37a00; 
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background-color: #b37a00;
+  color: #ffffff;
+}
+
+#aCapoGanzo{
+  padding: 0px;
+}
+
+#instagramButton{
+  margin-top: 5px;
+}
+
+#playAgainButton,
+#shareButton{
+  margin-top: 5px;
+}
+
+/* Overlay background */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+/* Overlay content box */
+.overlay-content {
+  font-family: Poppins;
+  width: 70%;
+  max-width: 500px;
+  padding: 20px;
+  background-color: #242424;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 10px;
+  text-align: left;
+  line-height: 1.5;
+}
+/* Overlay title */
+.overlay-title {
+  margin-top: 7.5px;
+  background-color: #242424;
+  text-align: left;
+}
+/* Overlay paragraph */
+.overlay-paragraph {
+  font-family: Poppins;
+  font-size: 12pt;
+  background-color: #242424;
+  text-align: left;
+  font-weight: lighter;
+}
+/* Overlay close button */
+.overlay-close-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  font-family: Poppins;
+}
+
+/* Overlay thicc text */
+.overlayThicc{
+  background-color: transparent;
+}
+
+#gameOverlayContent{
+  max-width: 307.5px;
+}
+
+img{
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#instagramButton{
+  background: linear-gradient(45deg, #C13584, #E1306C, #F77737, #FCAF45);
+  color: white; /* Colore del testo */
+  border: none; /* Rimuovi il bordo */
+  cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+  transition: background 0.3s ease; /* Transizione per il colore di sfondo */
+}
+
+#instagramButton:hover {
+  background: linear-gradient(45deg, #FCAF45, #F77737, #E1306C, #C13584); /* Gradiente invertito al passaggio del mouse */
+}
+
+/* 
+   _____        ___.   .__.__          
+  /     \   ____\_ |__ |__|  |   ____  
+ /  \ /  \ /  _ \| __ \|  |  | _/ __ \ 
+/    Y    (  <_> ) \_\ \  |  |_\  ___/ 
+\____|__  /\____/|___  /__|____/\___  >
+        \/           \/             \/ 
+
+*/
 
 /* Mobile */ @media only screen and (max-width: 954px) { /* Mobile */
   option{
     font-size: 12pt;
-  }
-
-  #overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  #aVideo{
-    background-color: #242424;
-  }
-  
-  #howToPlayDiv {
-    font-family: Poppins;
-    width: 80%;
-    max-width: 500px;
-    padding: 20px;
-    background-color: #242424;
-    color: #ffffff;
-    font-weight: bold;
-    border-radius: 10px;
-    text-align: left;
-    line-height: 1.5;
-  }
-
-  #htpTitle{
-    margin-top: 7.5px;
-    background-color: #242424;
-    text-align: left;
-  }
-
-  #htpParagraph{
-    font-family: Poppins;
-    font-size: 12pt;
-    background-color: #242424;
-    text-align: left;
-  }
-
-  #close-btn {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #333;
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
-    font-family: Poppins;
   }
   
   #control{
     margin-bottom: 20px;
   }
 
-  body {
-    overflow: hidden;
-  }
-
-  #kofi:hover{
+  #kofi:hover,
+  #reload:hover,
+  #skip:hover,
+  #submit:hover,
+  #mode:hover,
+  #kanye-songs:hover
+  {
     cursor: pointer;
-  }
-
-  #reload:hover{
-    cursor: pointer;
-  }
-
-  #skip:hover{
-    cursor: pointer;
-  }
-
-  #submit:hover{
-    cursor: pointer;
-  }
-
-  #mode:hover{
-    cursor: pointer;
-  }
-
-  #kanye-songs:hover{
-    cursor: text;
   }
   
   #mode{
@@ -127,13 +194,6 @@
     font-family: Poppins;
   }
 
-  *{
-    text-align: center;
-    background-color: #181818;
-    color: white;
-    align-items: center;
-  }
-
   #kanye-songs{
     margin-bottom: 10px;
   }
@@ -142,20 +202,10 @@
     width: 100%;
   }
 
-  label[name="lt"]{
+  #streak,
+  #vite,
+  #skipp{
     font-size: 12pt;
-  }
-
-  #logo{
-    width: 70%;
-    transition: transform .2s;
-    -webkit-user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    align-items: center;
-    width: 90%;
   }
 
   #logo:hover{
@@ -170,24 +220,11 @@
   #bottomLogo{
     height: 100px;
     border-radius: 12.5px;
-    -webkit-user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
     margin-bottom: 5px;
   }
 
   #bottomL{
     display: none;
-  }
-
-  #bottomR{
-    font-family: Poppins;
-  }
-
-  #mode{
-    font-family: Poppins;
   }
 
   #bottom{
@@ -215,34 +252,8 @@
     background-color: #242424; 
   }
 
-  #skip{
-    font-family: Poppins;
-    font-size: 12pt;
-    border-radius: 12.5px;
-    border-color: white;
-  }
-
+  #skip,
   #submit{
-    font-family: Poppins;
-    font-size: 12pt;
-    border-radius: 12.5px;
-    border-color: white;
-  }
-
-  #result{
-    font-family: Poppins;
-  }
-
-  #reload{
-    text-align: center;
-    font-family: Poppins;
-    font-size: 12pt;
-    border-radius: 12.5px;
-    border-color: white;
-  }
-
-  #kofi{
-    text-align: center;
     font-family: Poppins;
     font-size: 12pt;
     border-radius: 12.5px;
@@ -250,39 +261,28 @@
   }
 }
 
+/* 
+___________________  
+\______   \_   ___ \ 
+ |     ___/    \  \/ 
+ |    |   \     \____
+ |____|    \______  /
+                  \/ 
+*/
+
 /* PC */ @media only screen and (min-width: 955px) { /* PC */
   option{
     font-size: 12pt;
   }
-
-  *{
-    text-align: center;
-    background-color: #181818;
-    color: white;
-    align-items: center;
-  }
   
-  h1{
-    font-family: Poppins;
-    margin-top: 16px;
-    font-size: 36pt;
-    background-color: transparent;
-  }
-  
-  label[name="lt"]{
-    font-size: 100%;
+  #streak,
+  #vite,
+  #skipp{
+    font-size: 12pt;
   }
   
   p{
     font-family: Poppins;
-    font-size: 12pt;
-    text-align: center;
-    background-color: transparent;
-  }
-  
-  a{
-    font-family: Poppins;
-    font-weight: bold;
     font-size: 12pt;
     text-align: center;
     background-color: transparent;
@@ -293,15 +293,7 @@
     font-size: 14pt;
     text-align: center;
   }
-  
-  a{
-    text-emphasis: bold;
-  }
-  
-  #welcome{
-    font-size: 12pt;
-  }
-  
+
   #bottomL{
     display: grid;
     text-align: left;
@@ -323,11 +315,6 @@
     height: 100px;
     border-radius: 12.5px;
     margin-bottom: 10px;
-    -webkit-user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
   }
 
   #mode{
@@ -339,119 +326,11 @@
     border-width: 2px;
   }
   
-  #mode:hover{
-    cursor: pointer;
-  }
-  
   #insp{
     text-align: left;
     margin-top: 10px;
     margin-bottom: 0px;
   }
-
-  #overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-
-  #howToPlayDiv {
-    font-family: Poppins;
-    width: 80%;
-    max-width: 500px;
-    padding: 20px;
-    background-color: #242424;
-    color: #ffffff;
-    font-weight: bold;
-    border-radius: 10px;
-    text-align: left;
-    line-height: 1.5;
-  }
-
-  #htpTitle{
-    margin-top: 7.5px;
-    background-color: #242424;
-    text-align: left;
-  }
-
-  #htpParagraph{
-    font-family: Poppins;
-    font-size: 12pt;
-    background-color: #242424;
-    text-align: left;
-    font-weight: lighter;
-  }
-
-  #close-btn {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #333;
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
-    font-family: Poppins;
-  }
-
-  #videoDiv {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-
-  #htpVideo {
-    font-family: Poppins;
-    width: 80%;
-    max-width: 500px;
-    padding: 20px;
-    background-color: #242424;
-    color: #ffffff;
-    font-weight: bold;
-    border-radius: 10px;
-    text-align: left;
-    line-height: 1.5;
-    font-weight: lighter;
-  }
-
-  #htpVideoTitle{
-    margin-top: 7.5px;
-    background-color: #242424;
-    text-align: left;
-  }
-  #htpVideoParagraph{
-    font-family: Poppins;
-    font-size: 12pt;
-    background-color: #242424;
-    text-align: left;
-  }
-  
-  #close-video-btn {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #333;
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
-    font-family: Poppins;
-  }
-
 
   #howtoplay{
     text-align: center;
@@ -467,7 +346,13 @@
     background-size: cover;
   }
   
-  #howtoplay:hover{
+  #howtoplay:hover,
+  #video:hover,
+  #mode:hover,
+  #skip:hover
+  #submit:hover,
+  #share:hover
+  {
     cursor: pointer;
   }
 
@@ -484,10 +369,6 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-  }
-  
-  #video:hover{
-    cursor: pointer;
   }
   
   #bars {
@@ -510,71 +391,31 @@
     margin-bottom: 10px;
     background-color: #181818;
     color: #fff;
-    transition: border-color 0.3s ease, background-color 0.3s ease;
+    transition: border-color 0.7s ease, background-color 0.7s ease;
   }
   
   #kanye-songs:focus {
     border-color: #fff;
     background-color: #242424; 
   }
-  
-  #logo{
-    width: 70%;
-    transition: transform .2s;
-    -webkit-user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-  }
-  
+
   #logo:hover{
     cursor: pointer;
     transform: scale(1.05);
   }
 
+  #skip,
   #submit{
     font-family: Poppins;
     font-size: 12pt;
     border-radius: 12.5px;
     border-color: white;
   }
-  
-  #submit:hover{
-    cursor: pointer;
-  }
-  
-  #skip{
-    font-family: Poppins;
-    font-size: 12pt;
-    border-radius: 12.5px;
-    border-color: white;
-  }
-  
-  #skip:hover{
-    cursor: pointer;
-  }
 
   #gameOver{
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  #playAgain{
-    text-align: center;
-    font-family: Poppins;
-    font-size: 12pt;
-    border-radius: 12.5px;
-    border-color: white;
-    display: flex;
-    margin-right: 5px;
-    margin-bottom: 10px;
-    justify-content: center;
-  }
-  
-  #playAgain:hover{
-    cursor: pointer;
   }
 
   #share{
@@ -589,11 +430,8 @@
     justify-content: center;
   }
 
-  #share:hover{
-    cursor: pointer;
-  }
-
   #kanye-songs:hover{
     cursor: text;
   }
+
 }

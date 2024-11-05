@@ -10,16 +10,13 @@ let allVars = [intro, wedontcare, graduationday, allfallsdown, illflyaway, space
 // Array con loghi
 let logos = [ "./Logos/CD_Logo.png", "./Logos/LR_Logo.jpg", "./Logos/GR_Logo.png", "./Logos/8H_Logo.png", "./Logos/MF_Logo.png", "./Logos/YZ_Logo.png", "./Logos/TP_Logo.png", "./Logos/YE_Logo.png", "./Logos/KG_Logo.png", "./Logos/JK_Logo.png", "./Logos/DO_Logo.png", "./Logos/V1_Logo.png", "./Logos/V2_Logo.png"];
 
-// Indice a caso dell'array con i loghi
-let randomIndex = Math.floor(Math.random() * logos.length);
-
 // Funzione avviata all'apertura della pagina
 function load(){
   checkDEV();
   if(document.getElementById("mode").value = 1){ min = 1; max = 208; }
   randomSong(mod); 
-  hide("playAgain"); hide("playAgain");
-  hide("share");  hide("share"); 
+  hide("playAgain");
+  hide("share");
 }
 
 // Funzione che modifica titolo e favicon del sito se l'url non è https://kanyeguess.com/
@@ -99,12 +96,9 @@ function randomBars() {
 
 // Funzione di game over
 function gameOver() {
-  hide("submit"); hide("submit");
-  hide("skip"); hide("skip");
-  document.getElementById("bars").innerHTML = '<h1 style="margin-bottom: 0px;">Game Over!</h1><p>You lost all your lives... Better luck next time!</p>';
-  show("playAgain"); show("playAgain");
-  show("share"); show("share");
-  hide("kanye-songs"); hide("kanye-songs");
+  show("gameOverlay");
+  document.getElementById("finalScore").innerHTML = '<b class="overlayThicc" style="background-color: #242424;">' + cnt + '</b>';
+  document.getElementById("finalSkips").innerHTML = '<b class="overlayThicc" style="background-color: #242424;">' + (10 - skipSong) + '</b>';
 }
 
 // Funzione richiamata quando si clicca su "Skip"
@@ -152,19 +146,23 @@ function getSong(act){
   let songTitle = allSongs[random]; 
   let message = "";
 
-  // Se la canzone
-if (act == 0) { 
-    message = `<i style="color: #ff7070;">Wrong! The song was <b style="color: #ff7070;">"${songTitle}".</b></i>`;
-} 
-else if (act == 1) { 
-    message = `<i>The song you just skipped was <b>"${songTitle}".</b></i>`; 
-} 
-else if (act == 2) { 
-    playE(); 
-    message = `<i style="color: #70ff77;">Correct! The song was <b style="color: #70ff77;">"${songTitle}".</b></i>`; 
-    cnt++; 
-}
+  if (act == 0) { 
+      message = `<i style="color: #ff7070;">Wrong! The song was <b style="color: #ff7070;">"${songTitle}".</b></i>`;
+  } 
+  else if (act == 1) { 
+      message = `<i>The song you just skipped was <b>"${songTitle}".</b></i>`; 
+  } 
+  else if (act == 2) { 
+      playE(); 
+      message = `<i style="color: #70ff77;">Correct! The song was <b style="color: #70ff77;">"${songTitle}".</b></i>`; 
+      cnt++; 
+  }
   document.getElementById("result").innerHTML = message;
+  let randomIG = Math.floor(Math.random() * 15) + 1;
+  let checkIG = true;
+  if(randomIG == 15){ 
+    if(checkIG) {show("overlayInstagram")}
+  }
 }
 
 // Funzione per resettare la partita
@@ -188,28 +186,35 @@ function copyScore() {
 function playE(){ document.getElementById("runaway").play(); }
 function poopityScoop(){ document.getElementById("poopityscoop").play(); }
 
-// Quando il DOM è caricato completamente, viene impostata un'immagine dall'array logos
-document.addEventListener("DOMContentLoaded", () => {
-  if (document.getElementById("logo")) {
-    document.getElementById("logo").src = logos[randomIndex];
-    document.getElementById("logo").addEventListener("click", clickImage);
-  }
-});
+// Esegui il codice solo dopo che il DOM è completamente caricato
+document.addEventListener("DOMContentLoaded", function() {
+  // Imposta un indice casuale iniziale per partire da un logo casuale
+  let currentIndex = Math.floor(Math.random() * logos.length);
 
-// Il logo cambia ogni volta che ci si clicca sopra
-function clickImage() {
-  randomIndex = (randomIndex + 1) % logos.length;
-  document.getElementById("logo").src = logos[randomIndex]; 
-}
+  // Imposta l'immagine iniziale
+  document.getElementById("logo").src = logos[currentIndex];
+
+  // Funzione che cambia il logo al clic
+  function clickImage() {
+    // Incrementa l'indice e torna a zero se supera la lunghezza dell'array
+    currentIndex = (currentIndex + 1) % logos.length;
+    document.getElementById("logo").src = logos[currentIndex];
+  }
+
+  // Aggiungi l'event listener per il clic sull'immagine
+  document.getElementById("logo").addEventListener("click", clickImage);
+});
 
 // Funzione per nasconde bottoni e sezioni
 function hide(a) {
   let x = document.getElementById(a);
+  x.style.display = "none";
   x.style.display = "none";
 }
 
 // Funzione per mostrare bottoni e sezioni
 function show(a) { 
   let x = document.getElementById(a);
+  if(x.style.display === "none"){x.style.display = "flex";}
   if(x.style.display === "none"){x.style.display = "flex";}
 }

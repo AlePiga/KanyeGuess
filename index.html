@@ -25,13 +25,13 @@
     <!-- All'apertura del sito è chiamata la funzione load -->
     <body onload="load()">
         <!-- Paragrafo contenente il punteggio, le vite e gli skip -->
-        <p id="top"><label name="lt" id="streak"><b>Score: </b>0</label> <label name="lt" id="vite"><b>Lives: </b>5</label> <label name="lt" id="skipp"><b>Skips: </b>10</label></p>
+        <p id="top"><label id="streak"><b>Score: </b>0</label> <label id="vite"><b>Lives: </b>5</label> <label id="skipp"><b>Skips: </b>10</label></p>
         
         <!-- Logo del sito -->
         <img id="logo" onclick="clickImage()" alt="Kanye Guess Logo" src="">
 
         <!-- Paragrafo contenente i testi generati -->
-        <p id="bars"><img id="hint" src="./Hints/UN.png"></p>
+        <p id="bars"><img id="hint"></p>
 
         <!-- Pulsanti per rigiocare o essere reindirizzati a Instagram -->
         <div id="gameOver">
@@ -265,28 +265,60 @@
         </div>
         
         <!-- Overlay regolamento -->
-        <div id="overlay">
-            <div id="howToPlayDiv">
-                <h2 id="htpTitle">👋 Welcome to KanyeGuess!</h2>
-                <p id="htpParagraph">
+        <div class="overlay" id="overlayRegolamento">
+            <div class="overlay-content">
+                <h2 class="overlay-title">👋 Welcome to KanyeGuess!</h2>
+                <p class="overlay-paragraph">
                     How does this game work? Start by reading the lyrics on screen and guessing the song title by typing it in the text box, then hit “Submit” or press Enter.<br><br>
                     If you're stumped, you can skip to the next song by pressing the “Skip” button or entering a dash (-). Remember, you have only 10 skips and 5 lives.<br><br>
                     Every incorrect answer costs a life, and if you lose all your lives, well, it’s game over!<br><br>
                     Enjoy KanyeGuess and have fun testing your Yeezy knowledge! ✌️
                 </p>
-                <button id="close-btn" onclick='hide("overlay")'>Start playing</button>
+                <button class="overlay-close-btn" onclick='hide("overlayRegolamento")'>Start playing</button>
             </div>
         </div>
-
+        
         <!-- Overlay annuncio modalità video -->
-        <div id="videoDiv" style="display: none;">
-            <div id="htpVideo">
-                <h2 id="htpVideoTitle">🎬 Coming soon: video mode!</h2>
-                <p id="htpVideoParagraph">
+        <div class="overlay" style="display: none;">
+            <div class="overlay-content">
+                <h2 class="overlay-title">🎬 Coming soon: video mode!</h2>
+                <p class="overlay-paragraph">
                     Soon, you’ll be able to guess Kanye West songs based on music video clips!<br><br>
                     <a href="https://kanyeguess.onrender.com/" target="_blank">Check out our development version!</a>
                 </p>
-                <button id="close-video-btn" onclick='hide("videoDiv")'>Close</button>
+                <button class="overlay-close-btn" onclick='hide("overlay")'>Close</button>
+            </div>
+        </div>
+
+        <!-- Overlay game over -->
+        <div class="overlay" id="gameOverlay" style="display: none;">
+            <div class="overlay-content" id="gameOverlayContent">
+                <h2 class="overlay-title">❌ Game over!</h2>
+                <p class="overlay-paragraph">
+                    Looks like you lost all your lives...<br>
+                    Bertter luck next time! 😉<br><br>
+                    <b class="overlayThicc">
+                        Your score: <b id="finalScore">0</b>
+                        <br>
+                        Skips used: <b id="finalSkips">0</b>
+                        <br>
+                    </b>
+                </p>
+                <button class="overlay-close-btn" id="playAgainButton" onclick='reset(); hide("gameOverlay")'>Play again</button>
+                <button class="overlay-close-btn" id="shareButton" onclick="copyScore()">Share your score</button>
+                <button id="instagramButton" class="overlay-close-btn" onclick="window.open('https://instagram.com/kanyeguess_game', '_blank');">Follow Kanye Guess on Instagram</button>
+            </div>
+        </div>
+
+        <!-- Overlay Instagram -->
+        <div class="overlay" id="overlayInstagram" style="display: none;">
+            <div class="overlay-content">
+                <h2 class="overlay-title">📸 Follow Kanye Guess on Instagram!</h2>
+                <p class="overlay-paragraph">
+                    By following our page, you'll not only support a 16-year-old developer but also become part of an amazing Kanye fan community!<br><br>Don’t miss out on exclusive content and fresh updates. Give it a shot, trust me!
+                </p>
+                <button id="instagramButton" class="overlay-close-btn" onclick="window.open('https://instagram.com/kanyeguess_game', '_blank');">Follow Kanye Guess on Instagram</button>
+                <button class="overlay-close-btn" onclick='hide("overlayInstagram")'>Close</button>
             </div>
         </div>
 
