@@ -107,7 +107,7 @@
             <option id="56" value="Say You Will">No features</option>
             <option id="57" value="Welcome to Heartbreak">feat. Kid Cudi</option>
             <option id="58" value="Heartless">No features</option>
-            <option id="59" value="Amazing">No features</option>
+            <option id="59" value="Amazing">feat. Jeezy</option>
             <option id="60" value="Love Lockdown">No features</option>
             <option id="61" value="Paranoid">feat. Mr Hudson</option>
             <option id="62" value="RoboCop">No features</option>
@@ -263,6 +263,7 @@
         <div id="control">
             <input type="button" id="skip" value="Skip" onclick="skip()">
             <input type="button" id="submit" value="Submit" onclick="check()">
+            <input type="button" id="hint" value="Hint" onclick="hint()">
         </div>
         
         <!-- Overlay regolamento -->
@@ -280,14 +281,14 @@
         </div>
         
         <!-- Overlay annuncio modalità video -->
-        <div class="overlay" style="display: none;">
+        <div class="overlay" id="videoDiv" style="display: none;">
             <div class="overlay-content">
                 <h2 class="overlay-title">🎬 Coming soon: video mode!</h2>
                 <p class="overlay-paragraph">
                     Soon, you’ll be able to guess Kanye West songs based on music video clips!<br><br>
                     <a href="https://kanyeguess.onrender.com/" target="_blank">Check out our development version!</a>
                 </p>
-                <button class="overlay-close-btn" onclick='hide("overlay")'>Close</button>
+                <button class="overlay-close-btn" onclick='hide("videoDiv")'>Close</button>
             </div>
         </div>
 
@@ -307,7 +308,7 @@
                 </p>
                 <button class="overlay-close-btn" id="playAgainButton" onclick='reset(); hide("gameOverlay")'>Play again</button>
                 <button class="overlay-close-btn" id="shareButton" onclick="copyScore()">Share your score</button>
-                <button id="instagramButton" class="overlay-close-btn" onclick="window.open('https://instagram.com/kanyeguess_game', '_blank');">Follow Kanye Guess on Instagram</button>
+                <button id="instagramButton" class="overlay-close-btn" onclick="window.open('https://instagram.com/kanye_guess', '_blank');">Follow Kanye Guess on Instagram</button>
             </div>
         </div>
 
@@ -318,8 +319,8 @@
                 <p class="overlay-paragraph">
                     By following our page, you'll not only support a 16-year-old developer but also become part of an amazing Kanye fan community!<br><br>Don’t miss out on exclusive content and fresh updates. Give it a shot, trust me!
                 </p>
-                <button id="instagramButton" class="overlay-close-btn" onclick="window.open('https://instagram.com/kanyeguess_game', '_blank');">Follow Kanye Guess</button>
-                <button class="overlay-close-btn" onclick='hide("overlayInstagram")'>Close</button>
+                <button id="instagramButton" class="overlay-close-btn" onclick="window.open('https://instagram.com/kanye_guess', '_blank');">Follow Kanye Guess</button>
+                <button class="overlay-close-btn" onclick='hide("overlayHints")'>Close</button>
             </div>
         </div>
 
@@ -327,11 +328,10 @@
         <div class="overlay" id="overlayHints" style="display: none;">
             <div class="overlay-content">
                 <h2 class="overlay-title">💡 Hint</h2>
-                <p class="overlay-paragraph">
+                <p class="overlay-paragraph" id="overlayParagraph">
                     Indizio
                 </p>
-                <button id="instagramButton" class="overlay-close-btn" onclick="window.open('https://instagram.com/kanyeguess_game', '_blank');">Follow Kanye Guess</button>
-                <button class="overlay-close-btn" onclick='hide("overlayInstagram")'>Close</button>
+                <button class="overlay-close-btn" onclick='hide("overlayHints")'>OK</button>
             </div>
         </div>
 
@@ -350,9 +350,8 @@
             </div>
 
             <div id="bottomL">
-                <input type="button" id="video" title="Video guess mode" onclick='show("videoDiv")'>
-                <input type="button" id="howtoplay" title="How to play" onclick='show("overlay")'>
-                <p id="insp">Inspired by <a href="https://www.yeezle.xyz" target="_blank">Yeezle</a> and <a href="https://.lyricle.app/" target="_blank">Lyricle</a><br>Made with ❤️ in <a href="https://youtu.be/iH8OJqKj64w?si=s0ZTb2G1fg2UjkuO" target="_blank">Vicenza, Italy</a></p>
+                <input type="button" id="instagramLow" onclick="window.open('https://instagram.com/kanye_guess', '_blank');">
+                <p id="insp">Inspired by <a href="https://www.yeezle.xyz" target="_blank">Yeezle</a> and <a href="https://lyricle.app/" target="_blank">Lyricle</a></a></p>
             </div>
         </div>
     </body>

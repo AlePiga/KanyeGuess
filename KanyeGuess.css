@@ -27,7 +27,8 @@
 }
 
 a{
-  text-emphasis: bold;
+  font-weight: bold !important;
+  background-color: transparent !important;
 }
 
 #logo{
@@ -45,10 +46,6 @@ a{
 ::-moz-selection {
   background-color: #b37a00;
   color: #ffffff;
-}
-
-#aCapoGanzo{
-  padding: 0px;
 }
 
 #instagramButton{
@@ -253,7 +250,8 @@ img{
   }
 
   #skip,
-  #submit{
+  #submit,
+  #hint{
     font-family: Poppins;
     font-size: 12pt;
     border-radius: 12.5px;
@@ -332,43 +330,27 @@ ___________________
     margin-bottom: 0px;
   }
 
-  #howtoplay{
+  #instagramLow{
     text-align: center;
     font-family: Poppins;
     font-size: 24pt;
-    height: 48pt;
-    width: 48pt;
-    border-radius: 12.5px;
-    border-color: white;
-    background-image: url("./Covers/UN.png"); 
+    height: 24pt;
+    width: 24pt;
+    border-radius: 5px;
+    border: none;
+    background-image: url("./Covers/Instagram.jpg"); 
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
   }
   
-  #howtoplay:hover,
-  #video:hover,
+  #instagramLow:hover,
   #mode:hover,
   #skip:hover
   #submit:hover,
   #share:hover
   {
     cursor: pointer;
-  }
-
-  #video{
-    text-align: center;
-    font-family: Poppins;
-    font-size: 24pt;
-    height: 48pt;
-    width: 48pt;
-    border-radius: 12.5px;
-    border-color: white;
-    margin-bottom: 10px;
-    background-image: url("./Covers/VD.png"); 
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
   }
   
   #bars {
@@ -405,7 +387,8 @@ ___________________
   }
 
   #skip,
-  #submit{
+  #submit,
+  #hint{
     font-family: Poppins;
     font-size: 12pt;
     border-radius: 12.5px;
