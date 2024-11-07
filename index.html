@@ -19,7 +19,7 @@
     <script src="./KanyeGuess.js" charset="UTF-8"></script> 
 
     <!-- Link favicon -->
-    <link rel="icon" href="./Favicon.png"> 
+    <link rel="icon" href="./Assets/Favicon.png"> 
 </head>
 
 <html>
@@ -107,7 +107,7 @@
             <option id="56" value="Say You Will">No features</option>
             <option id="57" value="Welcome to Heartbreak">feat. Kid Cudi</option>
             <option id="58" value="Heartless">No features</option>
-            <option id="59" value="Amazing">No features</option>
+            <option id="59" value="Amazing">feat. Jeezy</option>
             <option id="60" value="Love Lockdown">No features</option>
             <option id="61" value="Paranoid">feat. Mr Hudson</option>
             <option id="62" value="RoboCop">No features</option>
@@ -259,9 +259,10 @@
             <option id="208" value="MY SOUL">feat. Ty Dolla $ign, Big TC</option>
         </datalist>
         
-        <!-- DIV con i pulsanti "Skip" e "Submit"-->
+        <!-- DIV con i pulsanti "Skip", "Hint" e "Submit"-->
         <div id="control">
             <input type="button" id="skip" value="Skip" onclick="skip()">
+            <input type="button" id="hint" value="Hint" onclick="hint()" style="display: none">
             <input type="button" id="submit" value="Submit" onclick="check()">
         </div>
         
@@ -279,15 +280,39 @@
             </div>
         </div>
         
-        <!-- Overlay annuncio modalità video -->
-        <div class="overlay" style="display: none;">
+        <!-- Overlay impostazioni -->
+        <div class="overlay" id="settingsOverlay" style="display: none;">
             <div class="overlay-content">
-                <h2 class="overlay-title">🎬 Coming soon: video mode!</h2>
-                <p class="overlay-paragraph">
-                    Soon, you’ll be able to guess Kanye West songs based on music video clips!<br><br>
-                    <a href="https://kanyeguess.onrender.com/" target="_blank">Check out our development version!</a>
+                <h2 class="overlay-title"  >⚙️ Settings</h2>
+                <p class="overlay-paragraph" id="settingsParagraph">
+                <!-- Select per scegliere la modalità -->
+                <p class="overlay-paragraph">Play with a specific set of songs<br>(changing this will reset your game): </p>
+                <select id="mode" onchange="genSet()"><option value="1">All songs</option><option value="2">Popular songs</option><option value="3">Obscure songs</option><option value="4">The College Dropout</   option><option value="5">Late Registration</option><option value="6">Graduation</option><option    value="7">808s and Heartbreak</option><option value="8">My Beautiful Dark Twisted Fantasy</option><option  value="9">Watch The Throne (Deluxe)</option><option value="10">Yeezus</option><option value="11">The Life    Of Pablo</option><option value="12">ye</option><option value="13">KIDS SEE GHOSTS</option><option  value="14">JESUS IS KING</option><option value="15">Donda (Deluxe)</option><option value="16">VULTURES 1</   option><option value="17">VULTURES 2</option></select>
+                <div id="sonicCD">
+                    <div><input type="text" onchange="sonic()" id="fm" class="sonicTextBox"><label class="sonicLabel">FM</label></div>
+                    <div><input type="text" onchange="sonic()" id="pcm" class="sonicTextBox"><label class="sonicLabel">PCM</label></div>
+                    <div><input type="text" onchange="sonic()" id="da" class="sonicTextBox"><label class="sonicLabel">DA</label></div>
+                </div>
+                <br>
+                <div id="switchDiv">
+                    <div>
+                        <label class="switch">
+                            <input type="checkbox" id="audioToggle">
+                            <span class="slider round"></span>
+                        </label>
+                        <label id="clara">Disable audio</label>
+                    </div>
+                    <div>
+                        <label class="switch">
+                            <input type="checkbox" id="hintsToggle">
+                            <span class="slider round"></span>
+                        </label>
+                        <label id="clara">Enable hints (beta)</label>
+                    </div>
+                </div>
+                <br><a href="https://kanyeguess.onrender.com/" target="_blank">🔗 Open the development version</a>
                 </p>
-                <button class="overlay-close-btn" onclick='hide("overlay")'>Close</button>
+                <button class="overlay-close-btn" onclick='hide("settingsOverlay")'>Close</button>
             </div>
         </div>
 
@@ -323,25 +348,27 @@
             </div>
         </div>
 
+        <!-- Overlay indizi -->
+        <div class="overlay" id="overlayHints" style="display: none;">
+            <div class="overlay-content">
+                <h2 class="overlay-title">💡 Hint</h2>
+                <p class="overlay-paragraph" id="overlayParagraph">
+                    Indizio
+                </p>
+                <button class="overlay-close-btn" onclick='hide("overlayHints")'>OK</button>
+            </div>
+        </div>
+
         <!-- Paragrafo sotto "skip" e "submit" -->
         <p id="result"><i>Song results will appear here. Good luck!</i></p>
 
-        <!-- Mostra la canzone corretta -->
-        <div id="bottom">
-
-            <div id="bottomR">
-                <!-- Immagine in basso a destra -->
-                <img id="bottomLogo" src="./Kanye/alr.jpg">
-
-                <!-- Select per scegliere la modalità -->
-                <select id="mode" onchange="genSet()"><option value="1">All songs</option><option value="2">Popular songs</option><option value="3">Obscure songs</option><option value="4">The College Dropout</   option><option value="5">Late Registration</option><option value="6">Graduation</option><option    value="7">808s and Heartbreak</option><option value="8">My Beautiful Dark Twisted Fantasy</option><option  value="9">Watch The Throne (Deluxe)</option><option value="10">Yeezus</option><option value="11">The Life    Of Pablo</option><option value="12">ye</option><option value="13">KIDS SEE GHOSTS</option><option  value="14">JESUS IS KING</option><option value="15">Donda (Deluxe)</option><option value="16">VULTURES 1</   option><option value="17">VULTURES 2</option></select>
+        <!-- DIV in basso a sinistra -->
+        <div id="bottomL">
+            <div id="miniPulsanti">
+                <input type="button" id="instagramLow" onclick="window.open('https://instagram.com/kanye_guess', '_blank');">
+                <input type="button" id="settings" onclick='show("settingsOverlay")'>
             </div>
-
-            <div id="bottomL">
-                <input type="button" id="video" title="Video guess mode" onclick='show("videoDiv")'>
-                <input type="button" id="howtoplay" title="How to play" onclick='show("overlay")'>
-                <p id="insp">Inspired by <a href="https://www.yeezle.xyz" target="_blank">Yeezle</a> and <a href="https://.lyricle.app/" target="_blank">Lyricle</a><br>Made with ❤️ in <a href="https://youtu.be/iH8OJqKj64w?si=s0ZTb2G1fg2UjkuO" target="_blank">Vicenza, Italy</a></p>
-            </div>
+            <p id="insp">Inspired by <a href="https://www.yeezle.xyz" target="_blank">Yeezle</a> and <a href="https://lyricle.app/" target="_blank">Lyricle</a></a></p>
         </div>
     </body>
     <script>
@@ -357,6 +384,24 @@
             if (event.key === "-") {  
                 event.preventDefault(); 
                 skip();
+            }
+        });
+
+        const audioToggle = document.getElementById('audioToggle');
+        audioToggle.addEventListener('change', function() {
+            document.querySelectorAll('audio').forEach(audio => {
+                audio.muted = audioToggle.checked;
+            });
+        });
+
+        const hintsToggle = document.getElementById('hintsToggle');
+        hintsToggle.addEventListener('change', function() {
+            if(document.getElementById("hint").style.display == "none"){
+                show("hint");
+            }
+            else{
+                document.getElementById("hint").style.display = "none";
+                document.getElementById("hint").style.display = "none";
             }
         });
     </script>

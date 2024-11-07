@@ -10,6 +10,372 @@ let allVars = [intro, wedontcare, graduationday, allfallsdown, illflyaway, space
 // Array con loghi
 let logos = [ "./Logos/CD_Logo.png", "./Logos/LR_Logo.jpg", "./Logos/GR_Logo.png", "./Logos/8H_Logo.png", "./Logos/MF_Logo.png", "./Logos/YZ_Logo.png", "./Logos/TP_Logo.png", "./Logos/YE_Logo.png", "./Logos/KG_Logo.png", "./Logos/JK_Logo.png", "./Logos/DO_Logo.png", "./Logos/V1_Logo.png", "./Logos/V2_Logo.png"];
 
+let hints = [
+  /* Intro */ 'It\'s a skit from "The College Dropout"',
+  /* We Don't Care */ 'Drug dealing',
+  /* Graduation Day */ 'It\'s a skit from "The College Dropout"',
+  /* All Falls Down */ 'It\'s one of Kanye\'s most popular songs, it has around 700k streams on Spotify',
+  /* I'll Fly Away */ 'It\'s a skit from "The College Dropout"',
+  /* Spaceship */ '\"Elon, where my rocketship?\"',
+  /* Jesus Walks */ 'Since Kanye made this song, he\'s never going to hell...',
+  /* Never Let Me Down */ 'It features Jay-Z',
+  /* Get Em High */ 'The title of this song is referring to hands...',
+  /* Workout plan */ 'It\'s a skit from "The College Dropout"',
+  /* The New Workout Plan */ 'This song plays when you play a specific VHS tape...',
+  /* Slow Jamz */ 'This song has one of the craziest flows on a 2000s hip-hop song, but it was not performed by Kanye...',
+  /* Breathe In Breathe Out */ 'If you do a particular relaxiation practice, you might find the name of this song...',
+  /* School Spirit Skit #1 */ 'It\'s a skit from "The College Dropout"',
+  /* School Spirit */ 'α, ω, κ, σ, Δ, δ, Σ, ρ, ζ...',
+  /* School Spirit Skit #2 */ 'It\'s a skit from "The College Dropout"',
+  /* Lil Jimmy Skit */ 'It\'s a skit from "The College Dropout"',
+  /* Two Words */ 'It features Mos Def',
+  /* Through The Wire */ 'It samples an 80s song by Chaka Khan',
+  /* Family Business */ 'Don\'t tell Kanye\'s girl he used to pee in the bed...',
+  /* Last Call */ 'One of the longest Kanye songs',
+  /* Wake Up Mr West! */ 'It\'s a skit from "Late Registration"',
+  /* Heard 'Em Say */ 'It matches perfectly with the ending of another song...',
+  /* Touch The Sky */ 'It features Lupe Fiasco',
+  /* Gold Digger */ 'This song is so famous that even your mom probably heard it without realizing it was made by Kanye',
+  /* Skit #1 */ 'It\'s a skit from "Late Registration"',
+  /* Drive Slow */ 'You need to pump your brakes and reflect for a while, homie...',
+  /* My Way Home */ 'It features Common',
+  /* Crack Music */ 'It features The Game. Also, if you\'re reading this, you lost the game.',
+  /* Roses */ 'You probably have this song in your sad music playlist',
+  /* Bring Me Down */ 'It features Brandy',
+  /* Addiction */ 'It\'s considered a deep cut by many fans and it\'s from "Late Registration"',
+  /* Skit #2 */ 'It\'s a skit from "Late Registration"',
+  /* Diamonds From Sierra Leone (Remix) */ 'Think about any jewelry store. What do they sell there?',
+  /* We Major */ 'I added hints and I ain\'t know what to write...',
+  /* Skit #3 */ 'It\'s a skit from "Late Registration"',
+  /* Hey Mama */ 'One of the most heartful Kanye songs...',
+  /* Celebration */ 'Grab a drink, grab a glass...',
+  /* Skit #4 */ 'It\'s a skit from "Late Registration but it\'s kinda sus..."',
+  /* Gone */ 'It features Consequence',
+  /* Late */ 'This song has a weird ass laugh in it...',
+  /* Good Morning */ 'It samples a 70s song by Elton John',
+  /* Champion */ 'It samples a 70s song by Steely Dan',
+  /* Stronger */ 'It samples a 2000s song by Daft Punk',
+  /* I Wonder */ 'This song was really popular on TikTok back in 2023',
+  /* Good Life */ 'It samples "PYT" by Micheal Jackson',
+  /* Can't Tell Me Nothing */ 'Ye performed this song at a Travis Scott concert in Rome back in 2023',
+  /* Barry Bonds */ 'This song is named after a baseball player',
+  /* Drunk and Hot Girls */ 'Many people consider this the worst Kanye song',
+  /* Flashing Lights */ 'Many people know this song thanks to a perfume commercial',
+  /* Everything I Am */ 'This song was used on a meme that went popular a few years ago. It features a kid with a backpack walking on a sidewalk.',
+  /* The Glory */ 'It samples a 60s song by Laura Nyro',
+  /* Homecoming */ 'This song features a member of Coldplay',
+  /* Big Brother */ 'This song is dedicated to Jay-Z',
+  /* Good Night */ 'It features Mos Def',
+  /* Say You Will */ 'An athmospheric track from "808s and Heartbreak"',
+  /* Welcome to Heartbreak */ 'It features Kid Cudi',
+  /* Heartless */ 'It\'s one of the most streamed Kanye songs of all time',
+  /* Amazing */ 'It features Jeezy',
+  /* Love Lockdown */ 'It was first realeased a single and it was even promoted by Apple in an iPod commercial',
+  /* Paranoid */ 'It\'s Piga\'s favorite track on "808s and Heartbreak"',
+  /* RoboCop */ 'It\'s centered around... robots...',
+  /* Street Lights */ 'Piga\'s dad shazammed this song back in 2017, I think he liked it',
+  /* Bad News */ 'It\'s a song about inevitable downfall, with heavy Auto-Tune.',
+  /* See You In My Nightmares */ 'It features Lil Wayne',
+  /* Coldest Winter */ 'Piga used to listen to this when he felt nostalgia of his ex-girlfriend',
+  /* Pinocchio Story */ 'It\'s probably the most personal Kanye song. It was recorded from a concert in Singapore.',
+  /* Dark Fantasy */ 'It\'s one of the most iconic intros of all time. The very first part is performed by Nicki Minaj',
+  /* Gorgeous */ 'It featues Kid Cudi',
+  /* POWER */ 'It contains a subtle reference to Kanye\'s past suicidal thoughts.',
+  /* All of the Lights (Interlude) */ 'This song actually has no lyrics at all. You might get it if you think about it for a while.',
+  /* All of the Lights */ 'Olive delights',
+  /* Monster */ 'It features Jay-Z',
+  /* So Appalled */ 'It features Jay-Z',
+  /* Devil in a New Dress */ 'It features Rick Ross',
+  /* Runaway */ 'Piga\'s dad discovered this song while he was with him at the Vultures listening party in Bologna and he absolutely fell in love with it',
+  /* Hell of a Life */ 'You probably shouldn\'t play this song out loud next to your mom',
+  /* Blame Game */ 'It features John Legend',
+  /* Lost in the World */ 'It features Bon Iver',
+  /* Who Will Survive in America */ 'It matches perfectly with the ending of another song...',
+  /* No Church in the Wild */ 'Piga\'s ex-girlfriend has a bar from this song as her WhatsApp bio',
+  /* Lift Off */ 'It features Beyoncé. Thanks, Beyoncé',
+  /* Ni**as in Paris */ 'This song is about a particular group of individuals in a city located in France known worldwide for its culture and monuments.',
+  /* Otis */ 'The artist sampled in this song is literally the name of the song itself...',
+  /* Gotta Have It */ 'This song features a sample from a classic hit by The Jackson 5.',
+  /* New Day */ 'This song features Jay-Z and Kanye reflecting on their past mistakes',
+  /* That's My Bitch */ 'This song features Jay-Z and Kanye reflecting on their, well... ideal woman...',
+  /* Welcome to the Jungle */ 'This song is about surviving in a tough world',
+  /* Who Gon Stop Me */ 'This song is the feeling of being unstoppable',
+  /* Murder to Excellence */ 'This song is about violence in the black community',
+  /* Made in America */ 'It features Frank Ocean',
+  /* Why I Love You */ 'It features Mr Hudson',
+  /* Illest Motherfucker Alive */ 'In this song, Kanye and Jay-Z claim the #1 spot in the rap game',
+  /* H*A*M */ 'The title of this song is an acronym',
+  /* Primetime */ 'This song reflects on fame and all the pressures that come with it',
+  /* The Joy */ 'It features Curtis Mayfield',
+  /* On Sight */ 'This song features a heavenly part right in the middle of it',
+  /* Black Skinhead */ 'A song on "UTOPIA" by Travis Scott uses drums similar to those used in this song',
+  /* I Am A God */ 'This song features a vocal sample from a Jamaican artist',
+  /* New Slaves */ 'It samples a 60s track by Hungarian band Omega',
+  /* Hold My Liquor */ 'This song features an amazing electric guitar solo',
+  /* I'm in It */ 'You probably shouldn\'t play this song out loud next to your mom',
+  /* Blood on the Leaves */ 'It samples a 60s song by Nina Simone',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+  'No hint was made for this song, yet. Sorry!',
+]
+
+function hint(){
+  show("overlayHints");
+  document.getElementById("overlayParagraph").innerHTML = hints[random];
+}
+
 // Funzione avviata all'apertura della pagina
 function load(){
   checkDEV();
@@ -25,7 +391,7 @@ function checkDEV(){
     document.title = "[DEV] Kanye Guess"
     let faviconLink = document.querySelector("link[rel='icon']") || document.createElement('link');
     faviconLink.rel = 'icon';
-    faviconLink.href = "./FaviconDEV.png";
+    faviconLink.href = "./Assets/FaviconDEV.png";
   }
 }
 
@@ -35,23 +401,23 @@ function genSet(){
   let mode = parseInt(document.getElementById("mode").value);
   let bottomLogo = document.getElementById("bottomLogo");
   switch(mode){
-    case 1: min = 1; max = 208; mod = 0; bottomLogo.src = "./Kanye/alr.jpg"; break;
-    case 2: min = 1; max = 208; mod = 2; bottomLogo.src = "./Kanye/alr.jpg"; break;
-    case 3: min = 1; max = 208; mod = 3; bottomLogo.src = "./Kanye/alr.jpg"; break;
-    case 4: min = 1; max = 21;  bottomLogo.src = "./Covers/CD.jpg"; break;
-    case 5: min = 22; max = 42; bottomLogo.src = "./Covers/LR.jpg"; break;
-    case 6: min = 43; max = 56; bottomLogo.src = "./Covers/GR.jpg"; break;
-    case 7: min = 57; max = 68; bottomLogo.src = "./Covers/8H.png"; break;
-    case 8: min = 69; max = 81; bottomLogo.src = "./Covers/MF.jpg"; break;
-    case 9: min = 82; max = 97; bottomLogo.src = "./Covers/WT.jpg"; break;
-    case 10: min = 98; max = 107; bottomLogo.src = "./Covers/YZ.png"; break;
-    case 11: min = 108; max = 127; bottomLogo.src = "./Covers/TP.jpg"; break;
-    case 12: min = 128; max = 134; bottomLogo.src = "./Covers/YE.jpg"; break;
-    case 13: min = 135; max = 141; bottomLogo.src = "./Covers/KG.png"; break;
-    case 14: min = 142; max = 152; bottomLogo.src = "./Covers/JK.jpg"; break;
-    case 15: min = 153; max = 180; bottomLogo.src = "./Covers/DO.jpeg"; break;
-    case 16: min = 185; max = 192; bottomLogo.src = "./Covers/V1.png"; break;
-    case 17: min = 193; max = 208; bottomLogo.src = "./Covers/V2.png"; break;
+    case 1: min = 1; max = 208; mod = 0; break;
+    case 2: min = 1; max = 208; mod = 2; break;
+    case 3: min = 1; max = 208; mod = 3; break;
+    case 4: min = 1; max = 21; break;
+    case 5: min = 22; max = 42; break;
+    case 6: min = 43; max = 56; break;
+    case 7: min = 57; max = 68; break;
+    case 8: min = 69; max = 81; break;
+    case 9: min = 82; max = 97; break;
+    case 10: min = 98; max = 107; break;
+    case 11: min = 108; max = 127; break;
+    case 12: min = 128; max = 134; break;
+    case 13: min = 135; max = 141; break;
+    case 14: min = 142; max = 152; break;
+    case 15: min = 153; max = 180; break;
+    case 16: min = 185; max = 192; break;
+    case 17: min = 193; max = 208; break;
   }
   randomSong(mod);
 }
@@ -204,6 +570,19 @@ document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("logo").addEventListener("click", clickImage);
 });
 
+// Funzione segreta, easter egg a Sonic CD
+function sonic() {
+  let fm = document.getElementById("fm").value;
+  let pcm = document.getElementById("pcm").value;
+  let da = document.getElementById("da").value;
+  if(fm == 46 && pcm == 12 && da == 25){
+    window.location.href = "./Assets/sonic.html";
+  }
+  else{
+    document.backgroundColor = "#181818";
+  }
+}
+
 // Funzione per nasconde bottoni e sezioni
 function hide(a) {
   let x = document.getElementById(a);
@@ -214,6 +593,13 @@ function hide(a) {
 // Funzione per mostrare bottoni e sezioni
 function show(a) { 
   let x = document.getElementById(a);
-  if(x.style.display === "none"){x.style.display = "flex";}
-  if(x.style.display === "none"){x.style.display = "flex";}
+  if(a == "hint"){
+    x.style.display = "inline";
+    x.style.display = "inline";
+  }
+  else{
+    x.style.display = "flex";
+    x.style.display = "flex";
+  }
+  
 }
