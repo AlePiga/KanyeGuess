@@ -261,9 +261,9 @@ input:checked + .slider:before {
 #instagramLow{
   text-align: center;
   font-family: Poppins;
-  font-size: 24pt;
-  height: 24pt;
-  width: 24pt;
+  font-size: 32px;
+  height: 32px;
+  width: 32px;
   border-radius: 5px;
   border: none;
   background-image: url("./Assets/Instagram.jpg"); 
@@ -275,9 +275,9 @@ input:checked + .slider:before {
 #settings{
   text-align: center;
   font-family: Poppins;
-  font-size: 24pt;
-  height: 24pt;
-  width: 24pt;
+  font-size: 32px;
+  height: 32px;
+  width: 32px;
   border-radius: 5px;
   border: none;
   background-image: url("./Assets/Settings.png"); 
