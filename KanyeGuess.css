@@ -139,6 +139,136 @@ img{
   background: linear-gradient(45deg, #FCAF45, #F77737, #E1306C, #C13584); /* Gradiente invertito al passaggio del mouse */
 }
 
+#settings{
+  text-align: center;
+  font-family: Poppins;
+  font-size: 24pt;
+  height: 48pt;
+  width: 48pt;
+  border-radius: 12.5px;
+  border-color: white;
+  background-image: url("./Settings.png"); 
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#settings:hover{
+  cursor: pointer;
+}
+
+#mode{
+  width: 325px;
+  font-family: Poppins;
+  font-size: 12pt;
+  border-radius: 12.5px;
+  border-color: white;
+  border-width: 2px;
+  margin-bottom: 10px;
+  /* background-color: #242424; */
+}
+
+#settingsParagraph{
+  display: block !important;
+  text-align: left;
+}
+
+#sonicCD div {
+  display: flex;
+  align-items: center; /* Allinea input e label nella stessa riga */
+  justify-content: flex-start; /* Allinea contenuto a sinistra */
+  width: 100%;
+  background-color: #242424;
+}
+
+.sonicLabel{
+  background-color: #242424;
+}
+
+.sonicTextBox{
+  margin-right: 10px;
+}
+
+.sonicTextBox{
+  width: 30px;
+  border: 1px;
+}
+
+#switchDiv div {
+  display: flex;
+  align-items: center; /* Allinea input e label nella stessa riga */
+  justify-content: flex-start; /* Allinea contenuto a sinistra */
+  width: 100%;
+  background-color: #242424;
+}
+
+.switch {
+  background-color: #242424 ;
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+#clara{
+  background-color: transparent;
+  font-weight: normal !important;
+}
 /* 
    _____        ___.   .__.__          
   /     \   ____\_ |__ |__|  |   ____  
@@ -175,6 +305,7 @@ img{
     border-radius: 12.5px;
     border-color: white;
     border-width: 2px;
+    margin-bottom: 10px;
   }
 
   #bars {

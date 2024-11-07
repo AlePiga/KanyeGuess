@@ -51,17 +51,17 @@ let hints = [
   /* Skit #4 */ 'It\'s a skit from "Late Registration but it\'s kinda sus..."',
   /* Gone */ 'It features Consequence',
   /* Late */ 'This song has a weird ass laugh in it...',
-  /* Good Morning */ 'This song samples a 70s song by Elton John',
-  /* Champion */ 'This song samples a 70s song by Steely Dan',
-  /* Stronger */ 'This song samples a 2000s song by Daft Punk',
+  /* Good Morning */ 'It samples a 70s song by Elton John',
+  /* Champion */ 'It samples a 70s song by Steely Dan',
+  /* Stronger */ 'It samples a 2000s song by Daft Punk',
   /* I Wonder */ 'This song was really popular on TikTok back in 2023',
-  /* Good Life */ 'This song samples "PYT" by Micheal Jackson',
+  /* Good Life */ 'It samples "PYT" by Micheal Jackson',
   /* Can't Tell Me Nothing */ 'Ye performed this song at a Travis Scott concert in Rome back in 2023',
   /* Barry Bonds */ 'This song is named after a baseball player',
   /* Drunk and Hot Girls */ 'Many people consider this the worst Kanye song',
   /* Flashing Lights */ 'Many people know this song thanks to a perfume commercial',
   /* Everything I Am */ 'This song was used on a meme that went popular a few years ago. It features a kid with a backpack walking on a sidewalk.',
-  /* The Glory */ 'This song samples a 60s song by Laura Nyro',
+  /* The Glory */ 'It samples a 60s song by Laura Nyro',
   /* Homecoming */ 'This song features a member of Coldplay',
   /* Big Brother */ 'This song is dedicated to Jay-Z',
   /* Good Night */ 'It features Mos Def',
@@ -108,10 +108,10 @@ let hints = [
   /* On Sight */ 'This song features a heavenly part right in the middle of it',
   /* Black Skinhead */ 'A song on "UTOPIA" by Travis Scott uses drums similar to those used in this song',
   /* I Am A God */ 'This song features a vocal sample from a Jamaican artist',
-  /* New Slaves */ 'This song samples a 60s track by Hungarian band Omega',
+  /* New Slaves */ 'It samples a 60s track by Hungarian band Omega',
   /* Hold My Liquor */ 'This song features an amazing electric guitar solo',
   /* I'm in It */ 'You probably shouldn\'t play this song out loud next to your mom',
-  /* Blood on the Leaves */ 'This song samples a 60s song by Nina Simone',
+  /* Blood on the Leaves */ 'It samples a 60s song by Nina Simone',
 ]
 
 function hint(){
@@ -312,6 +312,19 @@ document.addEventListener("DOMContentLoaded", function() {
   // Aggiungi l'event listener per il clic sull'immagine
   document.getElementById("logo").addEventListener("click", clickImage);
 });
+
+// Funzione segreta, easter egg a Sonic CD
+function sonic() {
+  let fm = document.getElementById("fm").value;
+  let pcm = document.getElementById("pcm").value;
+  let da = document.getElementById("da").value;
+  if(fm == 46 && pcm == 12 && da == 25){
+    window.location.href = "sonic.html";
+  }
+  else{
+    document.backgroundColor = "#181818";
+  }
+}
 
 // Funzione per nasconde bottoni e sezioni
 function hide(a) {
