@@ -376,8 +376,23 @@ function hint(){
   document.getElementById("overlayParagraph").innerHTML = hints[random];
 }
 
+function checkBirthday() {
+    const today = new Date();
+    const birthDate = new Date(2007, 11, 11);
+    const thisYearBirthday = new Date(today.getFullYear(), 11, 11);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    if (today < thisYearBirthday) {
+        age--;
+    }
+
+    if (today.getDate() === 11 && today.getMonth() === 11) {
+        alert(`🎂 It's Piga's birthday! He turns ${age} today. Go send him a happy birthday message on his Instagram DMs: @iosonopiga.`);
+    }
+}
+
 // Funzione avviata all'apertura della pagina
 function load(){
+  checkBirthday();
   checkDEV();
   if(document.getElementById("mode").value = 1){ min = 1; max = 208; }
   randomSong(mod); 
