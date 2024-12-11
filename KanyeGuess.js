@@ -392,6 +392,7 @@ function checkBirthday() {
 
 // Funzione avviata all'apertura della pagina
 function load(){
+  alert("");
   checkBirthday();
   checkDEV();
   if(document.getElementById("mode").value = 1){ min = 1; max = 208; }
