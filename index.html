@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KanyeGuess</title>
+</head>
+<style>
+    @font-face {
+        font-family: SanFrancisco;
+        src: url(./SanFrancisco.ttf);
+    }
+
+    *{
+        font-family: SanFrancisco;
+    }
+
+    p{
+        font-size: 12pt;
+    }
+    #all{
+        padding: 15px;
+    }
+    #datetime{
+        font-size: 12pt;
+        margin-bottom: 20px;
+    }
+    #yzy{
+        width: 300px;
+        -webkit-user-drag: none;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+    #datetime{
+        font-size: 12pt;
+    }
+</style>
+<body>
+    <div id="all">
+        <div class="datetime" id="datetime"></div>
+        <h1> It'll be a long time before you ever see KanyeGuess again! </h1>
+        <img id="yzy" src="./NoToNaziAmerica.png">
+        
+        <p>
+            To everyone who has played and enjoyed KanyeGuess,<br><br>
+            This project started as a way to celebrate Kanye West’s music—his creativity, his influence, and the impact his songs have had on so many of us.<br>
+            I spent the past year building this site out of admiration for his work, believing that his music could exist separately from his controversies.<br>
+            But some lines just shouldn’t be crossed.<br><br>
+        
+            Over the past few days, Ye has gone beyond being provocative—he has fully embraced racism, antisemitism, and overall hatred.<br>
+            If you’ve seen his <a href="./YeRant.pdf">february 7th X/Twitter rant</a>, you know exactly what I mean.<br><br>
+            
+            What once felt like artistic rebellion has turned into something much darker.<br>
+            When someone openly praises Hitler and calls themselves a Nazi, this isn’t just “controversy” or “free speech” anymore. It’s something far more serious.<br><br>
+        
+            Because of this, I can no longer, in good conscience, keep running a website dedicated to Kanye West.<br>
+            No amount of musical talent can outweigh the damage he is doing.<br><br>
+        
+            I know many of you who love Ye’s music might be disappointed.<br>
+            I get it. I’ve spent years admiring his work, defending his vision, and hoping he would find his way back.<br>
+            But at some point, you have to face the truth.<br><br>
+        
+            Thank you to everyone who played, enjoyed, and supported this project. It truly means a lot.<br>
+            If Kanye ever takes real responsibility for his words and actions, I’ll be the first to hope for his redemption. Until then… well, you read the title.
+        </p>              
+        <p><b>
+            — <a style="color: black; text-decoration: none;" href="https://instagram.com/iosonopiga">AlePiga, solo developer of KanyeGuess</a>
+        </b></p>
+</body>
+</html>
+<script>
+
+    function updateDateTime() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = now.getDate(); // Non utilizzare padStart qui
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        const milliseconds = String(Math.floor(now.getMilliseconds() / 10)).padStart(2, '0'); // Dividi per 10 per ottenere solo 2 cifre
+
+        const formattedDateTime = `${day} ${month} ${year} ${hours}:${minutes}:${seconds}:${milliseconds}`;
+        document.getElementById('datetime').textContent = formattedDateTime;
+    }
+
+    setInterval(updateDateTime, 1);
+    updateDateTime();
+</script>
