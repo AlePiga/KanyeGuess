@@ -1,4 +1,4 @@
-# Kanye Guess by AlePiga
+# KanyeGuess by AlePiga
 <img src="https://files.catbox.moe/7aaxft.jpeg" alt="KanyeGuess">
 Welcome to KanyeGuess! In this simple HTML game, you're given four bars from a random Ye song and you need to guess which one is it.
 You'll be prompted with songs from all the Ye albums, including:
