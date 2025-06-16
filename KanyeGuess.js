@@ -69,7 +69,7 @@ let hints = [
   /* Say You Will */ 'An athmospheric track from "808s and Heartbreak"',
   /* Welcome to Heartbreak */ 'It features Kid Cudi',
   /* Heartless */ 'It\'s one of the most streamed Kanye songs of all time',
-  /* Amazing */ 'It features Jeezy',
+  /* Amazing */ 'It features Young Jeezy',
   /* Love Lockdown */ 'It was first realeased as a single and it was even promoted by Apple in an iPod commercial',
   /* Paranoid */ 'It\'s Piga\'s favorite track on "808s and Heartbreak"',
   /* RoboCop */ 'It\'s centered around... robots...',
