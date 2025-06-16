@@ -70,7 +70,7 @@ let hints = [
   /* Welcome to Heartbreak */ 'It features Kid Cudi',
   /* Heartless */ 'It\'s one of the most streamed Kanye songs of all time',
   /* Amazing */ 'It features Jeezy',
-  /* Love Lockdown */ 'It was first realeased a single and it was even promoted by Apple in an iPod commercial',
+  /* Love Lockdown */ 'It was first realeased as a single and it was even promoted by Apple in an iPod commercial',
   /* Paranoid */ 'It\'s Piga\'s favorite track on "808s and Heartbreak"',
   /* RoboCop */ 'It\'s centered around... robots...',
   /* Street Lights */ 'Piga\'s dad shazammed this song back in 2017, I think he liked it',
