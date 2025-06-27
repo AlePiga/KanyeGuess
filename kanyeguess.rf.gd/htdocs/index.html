@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KANYE GUESS Old Domain</title>
+</head>
+<style>
+    @font-face {
+        font-family: SanFrancisco;
+        src: url(https://files.catbox.moe/cbxm27.ttf);
+    }
+
+    *{
+        font-family: SanFrancisco;
+        user-select: none;
+    }
+    p{
+        font-size: 12pt;
+    }
+    #all{
+        padding: 15px;
+    }
+    #datetime{
+        font-size: 12pt;
+        margin-bottom: 20px;
+    }
+    #yzy{
+        width: 150px;
+        -webkit-user-drag: none;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+    #datetime{
+        font-size: 12pt;
+    }
+</style>
+<body>
+    <div id="all">
+        <div class="datetime" id="datetime"></div>
+        <img id="yzy" src="./Favicon.png">
+        <h1>
+            You're visiting KanyeGuess's old domain.
+        </h1>
+        <p onclick="load()">
+            On October 10th, 2024, KanyeGuess switched its host to Cloudflare and started using a .com web domain.<br>
+            This change was primarily made because InfinityFree, the previous host, was very slow in displaying new content to visitors.<br><br>
+            <b><a href="https://kanyeguess.com">Click here</a></b> to be redirected to the new site.
+        </p>
+    </div>
+</body>
+</html>
+<script>
+    function updateDateTime() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = now.getDate(); // Non utilizzare padStart qui
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        const milliseconds = String(Math.floor(now.getMilliseconds() / 10)).padStart(2, '0'); // Dividi per 10 per ottenere solo 2 cifre
+
+        const formattedDateTime = `${day} ${month} ${year} ${hours}:${minutes}:${seconds}:${milliseconds}`;
+        document.getElementById('datetime').textContent = formattedDateTime;
+    }
+
+    setInterval(updateDateTime, 1);
+    updateDateTime();
+</script>
